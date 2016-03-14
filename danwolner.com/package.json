@@ -1,0 +1,13 @@
+{
+  "name": "danwolner.com",
+  "version": "0.0.1",
+  "description": "just me",
+  "author": "Dan Wolner",
+  "main": "main.js",
+  "scripts": {
+	"start": "node main.js"
+  },
+  "dependencies": {
+  }
+}
+

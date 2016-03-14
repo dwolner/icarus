@@ -1,0 +1,7 @@
+{{#foreach posts}}
+  	{{#has tag="release"}}
+      	<h1 class="ui header">Latest Release</h1>
+	    <a href="{{url}}"><img alt="Cyber Eye Front" class="ui centered medium image" src="{{image}}" ></a>
+	    <h4 class="ui header"><a href="{{url}}">{{{title}}}</a></h4>
+  	{{/has}}
+{{/foreach}}

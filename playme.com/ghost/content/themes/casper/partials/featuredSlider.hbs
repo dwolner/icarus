@@ -1,0 +1,9 @@
+<div class="slickSlider">
+{{#foreach posts}}
+  	{{#has tag="featured" limit="3"}}
+		<a href="{{url}}">
+			<img class="featuredImage" src="{{image}}" />
+		</a>
+  	{{/has}}
+{{/foreach}}
+</div>
