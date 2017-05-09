@@ -1,0 +1,74 @@
+<style>
+    
+</style>
+
+<div class="ui huge relaxed divided list">
+{{#list}}
+    <div class="item" decorator='sortable'>
+        <div class="right floated content">
+            <i class="large{{checked ? ' green checkmark' : ' minus'}} icon" on-tap="checkItem"></i>
+        </div>
+        <div class="content" on-tap="expand">
+            <div class="header">{{title}}</div>
+        </div>
+        {{#if expanded}}
+        <div class="content" intro-outro="slide" on-tap="expand">
+            <div class="description">{{desc}}</div>
+        </div>
+        {{/if}}
+    </div>
+{{/list}}
+    <div class="item">
+        <div class="right floated content">
+            <i class="large plus icon" on-tap="addItem"></i>
+        </div>
+        <div class="content" on-tap="addItem">
+            <div class="header">Add item</div>
+        </div>
+        {{#if addingItem}}
+        <div class="ui hidden divider"></div>
+        <div class="content" intro-outro="slide">
+            <div class="ui form">
+                <input value="{{newItemTitle}}" placeholder="title" />
+                <textarea value="{{newItemDesc}}" placeholder="desc" ></textarea>
+                <div class="ui fluid green button" on-tap="addItemToList"><i class="add icon"></i>Add</div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<script>
+    component.exports = {
+        oninit: function() {
+            var self = this;
+            
+            this.on({
+                'expand': function(e) {
+                    console.log(e)
+                    self.toggle(e.keypath + '.expanded')
+                },
+                'addItem': function(e) {
+                    console.log(e)
+                    self.toggle('addingItem')
+                },
+                'checkItem': function(e) {
+                    console.log(e)
+                    self.toggle(e.keypath + '.checked')
+                },
+                'addItemToList': function(e) {
+                    console.log(e)
+                    self.push('list', {
+                        'title': self.get('newItemTitle'),
+                        'desc': self.get('newItemDesc'),
+                    })
+                    self.toggle('addingItem')
+                    self.set({
+                        'newItemDesc': '',
+                        'newItemTitle': ''
+                    })
+                }
+            })
+        }
+    }
+</script>

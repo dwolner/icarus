@@ -1,0 +1,203 @@
+<style>
+
+</style>
+
+<div class="ui container" intro="fade">
+    <div class="ui row" style="text-align: right;">
+        <i class="remove icon" style="font-size: 2rem;" on-tap="cancelNewEvent"></i>
+    </div>
+    <form class="ui form">
+        <h4 class="ui dividing header">event info</h4>
+        <div class="three fields">
+            <div class="field">
+                <label>Show/Event Title</label>
+                <!-- <input type="text" name="shipping[first-name]" value="{{title}}" placeholder="..."> -->
+                <div id="showSelection" class="ui fluid search selection dropdown">
+                    <input type="hidden" name="country">
+                    <i class="dropdown icon"></i>
+                    <div class="default text" style="color: black;">{{title}}</div>
+                    <div class="menu">
+                    {{#each showList}}
+                        <div class="item">{{.}}</div>
+                    {{/each}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="field">
+                <label>Theater</label>
+                <!-- <input type="text" name="shipping[last-name]" value="{{theater}}" placeholder="..."> -->
+                <div id="theaterSelection" class="ui fluid search selection dropdown">
+                    <input type="hidden" name="country">
+                    <i class="dropdown icon"></i>
+                    <div class="default text" style="color: black;">{{theater}}</div>
+                    <div class="menu">
+                    {{#each theaterList}}
+                        <div class="item">{{theater}}</div>
+                    {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Role</label>
+                <input type="text" name="shipping[last-name]" value="{{role}}" placeholder="...">
+            </div>
+        </div>
+        <div class="two fields">
+            <dateTimePicker when="{{when}}" time="{{time}}" />
+            <div class="field">
+                <label>Where</label>
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="shipping[address]" value="{{streetAddress}}" placeholder="Street Address">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="shipping[address-2]" value="{{aptSuite}}" placeholder="Apt #">
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <input type="text" name="shipping[address]" value="{{city}}" placeholder="City">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="shipping[address-2]" value="{{state}}" placeholder="State">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="shipping[address-2]" value="{{zip}}" placeholder="Zip">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 class="ui dividing header">audition details</h4>
+        <div class="two fields">
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Call</label>
+                        <input type="text" name="shipping[first-name]" value="{{callType}}" placeholder="...">
+                    </div>
+                    <div class="field">
+                        <label>Equity</label>
+                        <input type="text" name="shipping[last-name]" value="{{equityType}}" placeholder="...">
+                    </div>
+                </div>
+                <datePickerRange />
+            </div>
+            <div class="field">
+                <label>Prep Notes</label>
+                <textarea value="{{prepNotes}}" placeholder="" ></textarea>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui fluid submit button" on-tap="saveEvent">
+            Save
+        </div>
+        {{#if updateExistingEvent}}
+        <div class="ui hidden divider"></div>
+        <div class="ui fluid red button" on-tap="deleteEvent">
+            Delete
+        </div>
+        {{/if}}
+    </form>
+</div>
+
+<script>
+component.exports = {
+    data: function() {
+        return {
+            title: '',
+            role: '',
+            theater: '',
+            streetAddress: '',
+            url: '',
+            aptSuite: '',
+            city: '',
+            state: '',
+            zip: '',
+            callType: '',
+            equityType: '',
+            prepNotes: '',
+            when: '',
+            time: '',
+            contractFrom: '',
+            contractTo: ''
+        }
+    },
+    onteardown: function() {
+       
+    },
+    oninit: function() {
+        var self = this;
+
+        this.on({
+            'deleteEvent': function(e) {
+                self.root.set('scene', 'timeline')
+            },
+            '*.dateChosen': function(e) {
+                k(e)
+                self.set('when', e)
+            },
+            '*.timeChosen': function(e) {
+                k(e)
+                self.set('time', e)
+            },
+            '*.fromDateChosen': function(e) {
+                k(e)
+                self.set('contractFrom', e)
+            },
+            '*.toDateChosen': function(e) {
+                k(e)
+                self.set('contractTo', e)
+            }
+        })
+
+        this.observe('theater', function(n) {
+            if (n) k('theater: ', n)
+        })
+
+        if (this.get('when')) {
+            k('existing when: ', this.get('when'))
+            this.root.findComponent('dateTimePicker').set('date', moment(this.get('when')).format('MMMM Do YYYY'))
+        }
+        if (this.get('time')) {
+            k('existing time: ', this.get('time'))
+            this.root.findComponent('dateTimePicker').set('time', this.get('time'))
+        }
+    },
+    oncomplete: function() {
+        var self = this
+        $('#showSelection').dropdown({
+            allowAdditions: true,
+            onChange: function(value, text, $selectedItem) {
+                self.set('title', text)
+            }
+        })
+        $('#theaterSelection').dropdown({
+            allowAdditions: true,
+            onChange: function(value, text, $selectedItem) {
+                self.set('theater', text)
+                self.autoCompleteWhere()
+            }
+        })
+    },
+    autoCompleteWhere: function() {
+        var self = this
+
+        var pickedTheater = self.get('theater')
+        var matchingData
+        theaterData.forEach(function(theater) {
+            if (theater.theater === pickedTheater) {
+                matchingData = theater
+            }
+        })
+        self.set({
+            'streetAddress': matchingData.streetAddress,
+            'city': matchingData.city,
+            'state': matchingData.state,
+            'zip': matchingData.zip,
+            'url': matchingData.webAddress,
+        })
+    }
+}
+
+</script>

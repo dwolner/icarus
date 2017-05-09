@@ -1,0 +1,49 @@
+<div class="field">
+    <label>{{dateLabel}}</label>
+    <div class="two fields">
+        <div class="field">
+            <input value="{{date}}" id="singleDatePicker" type="text" placeholder="Date">
+        </div>
+        <div class="field">
+            <input value="{{time}}" id="" type="time" placeholder="time">
+        </div>
+    </div>
+</div>
+
+<script>
+    component.exports = {
+        
+        data: function() {
+            return {
+                date: '',
+                time: '',
+                dateLabel: 'When'
+            }
+        },
+        
+        oninit: function() {
+
+        },
+        
+        onrender: function() {
+            var self = this
+        
+            var singleDatePicker = new Pikaday({
+                field: document.getElementById('singleDatePicker'),
+                format: 'MMMM Do YYYY',
+                onSelect: function(e) {
+                    k(this.getMoment().format('MMMM Do YYYY'))
+                    self.fire('dateChosen', this.getMoment().format('X'))
+                }
+            })
+
+            this.observe('when', function(n) {
+                self.set('date', moment(n).format('MMMM Do YYYY'))
+            })
+
+            this.observe('time', function(n) {
+                self.fire('timeChosen', n)
+            })
+        }
+    }
+</script>

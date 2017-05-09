@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Meanwhile</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/meanwhile_icon.png" />
+    <link rel="stylesheet" href="lib/semantic.css" type="text/css" />
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/semantic.min.js"></script>
+    <script type="text/javascript" src="lib/velocity.js/velocity.min.js"></script>
+    <script type="text/javascript" src="lib/velocity.js/velocity.ui.min.js"></script>
+    <script type="text/javascript" src="lib/ractive.min.js"></script>
+    <script type="text/javascript" src="lib/ractive-events-tap.js"></script>
+    <script type="text/javascript" src="lib/ractive-events-keys.min.js"></script>
+    <script type="text/javascript" src="lib/ractive-transitions-fade.js"></script>
+    <script type="text/javascript" src="lib/ractive-transitions-slide.min.js"></script>
+    <script type="text/javascript" src="lib/ractive-transitions-velocity.js"></script>
+    
+    <style>
+        body {
+            background: #000;
+        }
+
+        h1, h2, h3, h4, p, .item, .button, a {
+            font-family: 'Nunito', sans-serif !important;
+        }
+
+        img {
+            display: block;
+            width: 100%; 
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .icon {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        #pageOutput {
+            padding-bottom: 2rem;
+        }
+
+        .innerHeader {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 1rem;
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .logoContainer {
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            text-align: center;
+        }
+
+        .centerHeaderHold {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            background: rgba(0, 0, 0, .5);
+            -webkit-transition: background .5s, opacity .5s;
+            transition: background .5s, opacity .5s;
+        }
+
+        .centerHeader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .centerHeaderHold:hover {
+            opacity: 1;
+        }
+
+    </style> 
+        
+</head>
+
+<body>
+    <div id="pageOutput"></div>
+
+    <script id="pageTemplate" type="text/ractive">
+        {{> scene}}
+
+        {{#partial landing}}
+            <div class="logoContainer" outro="slide" on-tap="goHome">
+                <img src="/img/MEANWHILE-GLITCH-slower_edit.gif" style="max-width: 400px; margin: -1rem auto;" />
+                <div class="ui row" style="margin-top: -1rem;">
+                    <a class="ui inverted header" style="cursor: pointer; letter-spacing: .8rem; font-size: .9rem; font-weight: 100; color: #D6D6D6;">ENTER</a>
+                </div>
+            </div>
+        {{/partial}}
+
+        {{#partial nav}}
+        <div class="ui row">
+            <img src="/img/MEANWHILE-GLITCH-slower_once.gif" style="max-width: 250px; padding: 1rem; margin: -4rem auto -7rem;" />
+            <div class="ui inverted secondary three item menu" style="padding: 1rem 0; max-width: 30rem; margin: 0 auto;">
+                <!-- {{#each menuItems}}
+                <div class="{{active}} item" on-tap="menuTap">{{title}}</div>
+                {{/each}} -->
+            </div>
+            <!-- <div class="ui divider"></div> -->
+        </div>
+        {{/partial}}
+
+        {{#partial horizontalNav}}
+        <div class="ui row">
+            <div class="ui grid">
+                <div class="ui four wide column">
+                    <img class="ui left floated image" src="/img/MEANWHILE GLITCH.gif" style="max-width: 500px; padding: 2rem; margin: -5rem auto -7rem;" />
+                </div>
+                    
+                <div class="ui twelve wide column">
+                    <div class="ui right floated inverted secondary three item menu" style="padding: 1rem 0; max-width: 30rem; margin: 0 auto;">
+                        {{#each menuItems}}
+                        <div class="{{active}} item" style="cursor: pointer;" on-tap="menuTap">{{title}}</div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+
+        {{#partial main}}
+            <div class="ui row" style="padding: 1rem;">
+                <div id="main" class="ui center aligned container" intro="slide">
+                    {{> nav}}
+
+                    {{> innerScene}}
+
+                    {{> footer}}
+                </div>
+            </div>
+        {{/partial}}
+
+        {{#partial imageGrid}}
+            <div class="ui three column doubling grid">
+                <div class="ui stretched row">
+                {{#each workItems:i}}
+                    <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                        <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                            <img class="ui image" src="/img/{{imageFilename}}" />
+                            <div class="centerHeaderHold">
+                                <div class="centerHeader">
+                                    <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+        {{/partial}}
+
+        {{#partial videoPlay}}
+            <div class="ui row" style="position: relative; opacity: 0; 
+            /*border: 1px solid rgba(255, 255, 255, 0.15);
+            */border-radius: .5rem;
+            padding: 1rem;" intro="velocity:'transition.expandIn'">
+            {{#with singleInfo}}
+                <!-- <i class="large close icon" style="color: #fff; cursor: pointer; position: absolute; top: 1rem; right: 1rem;" on-tap="goHome"></i> -->
+                <h4 class="ui inverted header" style="color: #fff; cursor: pointer; position: absolute; top: 1rem; right: 1rem;" on-tap="goHome">
+                    X
+                </h4>
+                <h4 class="ui inverted header" style="letter-spacing: 1rem; margin: 0;">
+                    {{title}}
+                </h4>
+                <iframe src="{{embedURL}}" width="100%" height="{{windowWidth < 768 ? '320' : '600'}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <!-- <p style="color: #fff;">{{description}}</p> -->
+            {{/with}}
+            </div>
+        {{/partial}}
+
+        {{#partial caseStudy}}
+            <div class="ui row" intro="velocity:'transition.shrinkIn'" outro="velocity:'transition.expandOut'">
+                <div class="ui row" style="text-align: right; padding: 1rem;">
+                    <i class="large close icon" style="color: #fff; cursor: pointer;" on-tap="goHome"></i>
+                </div>
+                {{#with singleInfo}}
+                <div class="image crop" style="position: relative;">
+                    <img class="ui image" src="/img/{{imageFilename}}" />
+                    <!-- <div class="innerHeader">
+                        <h2 class="ui inverted header">{{title}}</h2>
+                    </div> -->
+                </div>
+                <h1 class="ui inverted horizontal divider header">{{title}}</h1>
+                <p style="color: #fff;">{{description}}</p>
+                {{/with}}
+            </div>
+        {{/partial}}
+
+        {{#partial about}}
+            <div class="ui row" intro="velocity:'transition.shrinkIn'">
+                <h1 class="ui inverted header">ABOUT</h1>
+            </div>
+        {{/partial}}
+
+        {{#partial contact}}
+            <div class="ui row" intro="velocity:'transition.shrinkIn'">
+                <h1 class="ui inverted header">CONTACT</h1>
+                <form class="ui form">
+                    <div class="ui field">
+                        <textarea value="{{comment}}"></textarea>
+                    </div>
+                    <div class="ui fluid inverted basic button">SEND</div>
+                </form>
+            </div>
+        {{/partial}}
+
+        {{#partial footer}}
+            <div class="ui row" intro="fade" style="padding: 1rem 0; text-align: : center;">
+                <div class="ui inverted divider"></div>
+                <!-- <p style="color: #fff;"><i class="large white copyright icon"></i> 2017 Meanwhile LA</p> -->
+                <a href="mailto:info@meanwhilela.com" >
+                    <img src="/img/MW Mail Icon.png" style="width: 2rem;" />
+                </a>
+                <!-- <a href="https://www.instagram.com/meanwhilelax/?hl=en" target="_blank"><i class="large inverted black instagram icon"></i></a> -->
+            </div>
+        {{/partial}}
+
+    </script>
+
+</body>
+
+<script type="text/javascript" src="app.js"></script>
+
+</html>

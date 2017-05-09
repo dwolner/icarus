@@ -1,0 +1,59 @@
+<style>
+
+</style>
+
+<div class="ui container" intro="fade">
+    <div class="ui two column stackable grid">
+        <div class="ui column">
+            <div class="ui fluid card">
+                <div class="ui content">
+                    <h2 class="ui center aligned icon header" intro="fade">
+                        <i class="circular huge user icon"></i> Profile
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="ui column">
+            <form class="ui form">
+              <h4 class="ui dividing header">The Deets</h4>
+              <div class="field">
+                <label>Name</label>
+                <div class="two fields">
+                  <div class="field">
+                    <input type="text" name="shipping[first-name]" placeholder="First Name">
+                  </div>
+                  <div class="field">
+                    <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label>Billing Address</label>
+                <div class="fields">
+                  <div class="twelve wide field">
+                    <input type="text" name="shipping[address]" placeholder="Street Address">
+                  </div>
+                  <div class="four wide field">
+                    <input type="text" name="shipping[address-2]" placeholder="Apt #">
+                  </div>
+                </div>
+              </div>
+              <div class="ui button" tabindex="0">Submit Order</div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+component.exports = {
+    data: function() {
+        return {
+        }
+    },
+    oninit: function() {
+        var self = this;
+        
+    }
+}
+
+</script>

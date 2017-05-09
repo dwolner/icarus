@@ -1,0 +1,50 @@
+<div class="field">
+    <label>{{label}}</label>
+    <div class="two fields">
+        <div class="field">
+            <input value="{{from}}" id="from" type="text" placeholder="Start date">
+        </div>
+        <div class="field">
+            <input value="{{to}}" id="to" type="text" placeholder="End date">
+        </div>
+    </div>
+</div>
+
+<script>
+    component.exports = {
+        
+        data: function() {
+            return {
+                from: '',
+                to: '',
+                label: 'Contract Dates'
+            }
+        },
+        
+        oninit: function() {
+            
+        },
+        
+        onrender: function() {
+            var self = this
+            
+            var fromDateChooser = new Pikaday({
+                field: document.getElementById('from'),
+                format: 'MMMM Do YYYY',
+                onSelect: function(e) {
+                    k(this.getMoment().format('MMMM Do YYYY'))
+                    self.fire('fromDateChosen', this.getMoment().format('x'))
+                }
+            })
+        
+            var toDateChooser = new Pikaday({
+                field: document.getElementById('to'),
+                format: 'MMMM Do YYYY',
+                onSelect: function(e) {
+                    k(this.getMoment().format('MMMM Do YYYY'))
+                    self.fire('toDateChosen', this.getMoment().format('x'))
+                }
+            })
+        }
+    }
+</script>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>danwolner.com</title>
+
+    <link rel="icon" type="image/png" href="lib/img/platform-purple-favicon.png" />
+    <link rel="stylesheet" href="lib/semantic.css" type="text/css" />
+    <link rel="stylesheet" href="lib/pikaday/pikaday.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/semantic.min.js"></script>
+    <script type="text/javascript" src='lib/ractive.js'></script>
+    <script type="text/javascript" src='lib/ractive-load.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-tap.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-keys.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-fade.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-slide.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-scale.js'></script>
+    <script type="text/javascript" src='lib/jquery.velocity.js'></script>
+    <script type="text/javascript" src='lib/velocity.ui.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-velocity.js'></script>
+    <script type="text/javascript" src="lib/faker.min.js"></script>
+    <script type="text/javascript" src="lib/fuse.min.js"></script>
+    <script type="text/javascript" src='lib/superagent.min.js'></script>
+    <script type="text/javascript" src='lib/numeral.min.js'></script>
+    <script type="text/javascript" src='lib/moment.min.js'></script>
+    <script type="text/javascript" src='lib/pikaday/pikaday.js'></script>
+    <script type="text/javascript" src='lib/particles.min.js'></script>
+    
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+        
+        * {
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+
+        body, h1, h2, h3, h4 {
+            font-family: 'Questrial', sans-serif !important;
+            /*font-family: 'Quicksand', sans-serif;*/
+        }
+
+        body {
+            height: 100%!important;
+            /*background: url('media/img/IMG_4518.jpg');*/
+            background-color: #FF915A;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+        }
+
+        .scene {
+            margin-top: 4rem;
+            overflow: hidden;
+        }
+
+        #topNav, #footer, #design .ui.segment {
+            /*background: rgba(255, 255, 255, .75) !important;*/
+        }
+
+        #backgroundVid { 
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+            transition: 1s opacity;
+            /*background: url('media/img/IMG_4518.jpg');*/
+            /*opacity: .8;*/
+        }
+
+        #Home, #Design {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            min-height: 500px;
+        }
+
+        #Design {
+            padding: 2rem;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        window.k = function () {
+            if (console) {
+                //comment out to stop k logging
+                console.log.apply(console, arguments);
+            }
+        }
+        var r;
+        var m;
+    </script>
+        
+</head>
+
+<body>
+    <div id="pageOutput"></div>
+    <div id="particles-js" style="height: 100vh;"></div>
+
+    <script id="pageTemplate" type="text/ractive">
+        <!-- <video id="backgroundVid" src="media/vid/Dolphins!.mp4" muted autoplay="autoplay" loop="loop"></video> -->
+        <div id="topNav" class="ui fixed menu">
+            <div class="item">
+                <img class="ui tiny image" src="media/img/daniel_wolner_logo.png" />
+            </div>
+            <div class="item">
+                <h2 class="ui header">{{scene}}</h2>
+            </div>
+        </div>
+        {{> getComponent(scene)}}
+        <div id="footer" class="ui menu">
+            <a class="ui right floated item">
+                <i class="large mail icon"></i>
+            </a>
+            <a class="ui right floated item" style="margin-left: 0 !important;">
+                <i class="large facebook icon"></i>
+            </a>
+            <a class="ui right floated item" style="margin-left: 0 !important;">
+                <i class="large twitter icon"></i>
+            </a>
+            <a class="ui right floated item" style='margin-left: 0 !important;'>
+                <i class="large youtube icon"></i>
+            </a>
+        </div>
+
+        {{#partial Home}}
+        <div id="Home" intro="fade">
+            <div class="ui card" style="width: 22rem; position: absolute; left: 2rem;">
+                <div class="ui image">
+                    <img class="ui image" src="media/img/dan_hallway_alt.jpg">
+                </div>
+                <div class="ui content">
+                    <div class="ui header">Hi, I'm Dan Wolner!</div>
+                    <div class="meta">
+                        <a>Designer/Developer</a>
+                    </div>
+                    <div class="description">
+                        I solve creative problems.
+                    </div>
+                    <div class="description">
+                        Challenging problems. Huge problems, small problems, Design problems, branding problems, editing problems, copy problems, graphics problems, social media problems, math problems, first-world problems and dance move problems.
+                    </div>
+                    <div class="description">
+                        Any problem, really; the more challenging the better.
+                        Because I love solutions.
+                    </div>
+                </div>
+                <div class="extra content">
+                  <span class="center aligned">
+                    Check out the things I love and do
+                     <i class="chevron right icon"></i>
+                  </span>
+                </div>
+            </div>
+            <div style="width: 100%; overflow-x: scroll; margin-left: 25rem;">
+                <div class="ui link cards" style="width: 2000px; text-align: center">
+                    <div class="card" on-tap="set('scene', 'Development')">
+                        <div class="image">
+                            <img src="media/img/development.jpg">
+                        </div>
+                        <div class="content">
+                            <div class="icon header"><i class="code icon"></i> Development</div>
+                            <div class="description">
+                                Apps, websites, servers. All powered by JS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" on-tap="set('scene', 'Design')">
+                        <div class="image">
+                            <video src="media/vid/eqalcubescatter.mp4" muted loop="loop" autoplay="autoplay" style=" width: 100%;"></video>
+                        </div>
+                        <div class="content">
+                            <div class="icon header"><i class="grid layout icon"></i> Design</div>
+                            <div class="description">
+                                Video, motion and graphic design. A pinch of magic.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" on-tap="set('scene', 'Photo')">
+                        <div class="image">
+                            <img src="media/img/danwolner.com-1829.jpg">
+                        </div>
+                        <div class="content">
+                            <div class="icon header"><i class="photo icon"></i> Photo</div>
+                            <div class="description">
+                                Locations, models, nature. Beauty is everywhere.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" on-tap="set('scene', 'Photo')">
+                        <div class="image">
+                            <img src="media/img/danwolner.com-1829.jpg">
+                        </div>
+                        <div class="content">
+                            <div class="icon header"><i class="edit icon"></i> Blog</div>
+                            <div class="description">
+                                Sometimes I write things that may be interesting.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+
+        {{#partial Development}}
+        <div id="Design" intro="fade">
+            <div class="ui segment">
+                <i class="large remove icon" style="float: right;" on-tap="set('scene', 'Home')"></i>
+                <div class="ui two column grid">
+                    <div class="ui column">
+                        <iframe width="100%" height="372" src="https://www.youtube.com/embed/YaPRjzgmfLo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="ui column">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+
+        {{#partial Design}}
+        <div id="Design" intro="fade">
+            <div class="ui segment">
+                <i class="large remove icon" style="float: right;" on-tap="set('scene', 'Home')"></i>
+                <div class="ui two column grid">
+                    <div class="ui column">
+                        <iframe width="100%" height="372" src="https://www.youtube.com/embed/YaPRjzgmfLo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="ui column">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+
+        {{#partial Photo}}
+        <div id="Design" intro="fade">
+            <div class="ui segment">
+                <i class="large remove icon" style="float: right;" on-tap="set('scene', 'Home')"></i>
+                <div class="ui two column grid">
+                    <div class="ui column">
+                        <iframe width="100%" height="372" src="https://www.youtube.com/embed/YaPRjzgmfLo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="ui column">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+    </script>
+
+    <script type="text/javascript">
+        m = {}
+        m.el = '#pageOutput';
+        m.template = '#pageTemplate';
+        m.partials = {
+            loader: '<div class="ui large loader active"></div>',
+            smallLoader: '<div class="ui mini inverted loader active"></div>'
+        }
+        m.data = {}
+        m.data.getComponent = function(scene) {
+            // console.log("scene: " + scene);
+            if (!scene) {
+                console.log('no scene, just show loader')
+                return 'loader';
+            }
+            if (!!this.partials[scene]) return scene;
+            this.partials[scene] = '<' + scene + '/>';
+            return scene;
+        }
+            
+        m.oninit = function() {
+            var self = this;
+
+            this.set('scene', 'Home')
+        }
+        m.oncomplete = function() {
+            // var banner = document.getElementById('backgroundVid')
+            // banner.onended = function() {
+            //     this.load();
+            //     this.play();
+            // }
+        }
+        k('huh?')
+        // Ractive.load().then(function() { 
+            k('init ractive')
+            r = new Ractive(m) 
+        // })
+
+        particlesJS.load('particles-js', 'lib/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
+    </script>
+
+</body>
+
+</html>

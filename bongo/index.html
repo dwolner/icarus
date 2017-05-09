@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-startup-image" href="media/audish_horiz.png">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Bongo</title>
+
+    <link rel="icon" type="image/png" href="lib/img/platform-purple-favicon.png" />
+    <link rel="stylesheet" href="lib/semantic.css" type="text/css" />
+    <link rel="stylesheet" href="lib/pikaday/pikaday.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/semantic.min.js"></script>
+    <script type="text/javascript" src='lib/ractive.js'></script>
+    <script type="text/javascript" src='lib/ractive-load.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-tap.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-keys.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-fade.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-slide.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-scale.js'></script>
+    <script type="text/javascript" src='lib/ractive-decorators-sortable.js'></script>
+    <script type="text/javascript" src='lib/jquery.velocity.js'></script>
+    <script type="text/javascript" src='lib/velocity.ui.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-velocity.js'></script>
+    <script type="text/javascript" src="lib/faker.min.js"></script>
+    <script type="text/javascript" src="lib/fuse.min.js"></script>
+    <script type="text/javascript" src='lib/superagent.min.js'></script>
+    <script type="text/javascript" src='lib/numeral.min.js'></script>
+    <script type="text/javascript" src='lib/moment.min.js'></script>
+    <script type="text/javascript" src='lib/pikaday/pikaday.js'></script>
+
+    <link rel='ractive' href='components/sortList.html'>
+
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+        
+        * {
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+
+        body, h1, h2, h3, h4 {
+            font-family: 'Questrial', sans-serif;
+            /*font-family: 'Quicksand', sans-serif;*/
+        }
+    </style>
+    
+    <script type="text/javascript">
+        window.k = function () {
+            if (console) {
+                //comment out to stop k logging
+                console.log.apply(console, arguments);
+            }
+        }
+        var r;
+        var m;
+    </script>
+        
+</head>
+
+<body>
+    <div id="pageOutput"></div>
+
+    <script id="pageTemplate" type="text/ractive">
+        <div class="ui page container">
+            <h1 class="ui center aligned icon header">
+                <i class="adjust icon"></i>
+                Bongo
+            </h1>
+            <h2 class="ui icon button" on-tap="newBongo">
+                Add New
+                <i class="add icon"></i>
+            </h2>
+
+            {{> bongosByType}}
+            <div class="ui segment">
+            {{> sortList}}
+            </div>
+
+        </div>
+
+        <div id="newBongoDetail" class="ui small modal"> {{> bongoDetail}} </div>
+
+        {{#partial sortList}}
+            <div class="ui huge relaxed divided list">
+            {{#list}}
+                <div class="item" decorator='sortable'>
+                    <div class="right floated content">
+                        <i class="large{{checked ? ' green checkmark' : ' minus'}} icon" on-tap="checkItemOnList"></i>
+                    </div>
+                    <div class="content" on-tap="expand">
+                        <div class="header">{{title}}</div>
+                    </div>
+                    {{#if expanded}}
+                    <div class="content" intro-outro="slide" on-tap="expand">
+                        <div class="description">{{desc}}</div>
+                    </div>
+                    {{/if}}
+                </div>
+            {{/list}}
+                <div class="item">
+                    <div class="right floated content">
+                        <i class="large plus icon" on-tap="openAddItemToList"></i>
+                    </div>
+                    <div class="content" on-tap="openAddItemToList">
+                        <div class="header">Add item</div>
+                    </div>
+                    {{#if addingItem}}
+                    <div class="ui hidden divider"></div>
+                    <div class="content" intro-outro="slide">
+                        <div class="ui form">
+                            <input value="{{newItemTitle}}" placeholder="title" />
+                            <textarea value="{{newItemDesc}}" placeholder="desc" ></textarea>
+                            <div class="ui fluid green button" on-tap="addItemToList"><i class="add icon"></i>Add</div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        {{/partial}}
+
+        {{#partial projectCard}}
+            <div class="ui card">
+                
+            </div>
+        {{/partial}}
+
+        {{#partial userCard}}
+            <div class="ui card">
+                        
+            </div>
+        {{/partial}}
+
+        {{#partial bongosByType}}
+            {{#each bongos}}
+                {{#if type === 'project'}}
+                <div class="ui cards">
+                    
+                </div>
+                {{/if}}
+                {{#if type === 'user'}}
+                <div class="ui cards">
+                    <div class="ui card">
+                        
+                    </div>
+                </div>
+                {{/if}}
+                {{#if type === 'team'}}
+                <div class="ui cards">
+                    <div class="ui card">
+                        
+                    </div>
+                </div>
+                {{/if}}
+                {{#if type === 'task'}}
+                <div class="ui cards">
+                    <div class="ui card">
+                        
+                    </div>
+                </div>
+                {{/if}}
+                {{#if type === 'list'}}
+                <div class="ui cards">
+                    <div class="ui card">
+                        
+                    </div>
+                </div>
+                {{/if}}
+            {{/each}}
+        {{/partial}}
+
+        {{#partial bongoDetail}}
+            <div class="header">New Bongo: {{title}}</div>
+            <div class="content">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Type</label>
+                        <div id="bongoTypes" class="ui fluid search selection dropdown">
+                            <input type="hidden" name="country">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">{{newBongoType}}</div>
+                            <div class="menu">
+                            {{#each bongoTypes}}
+                                <div class="item">{{.}}</div>
+                            {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Title</label>
+                        <input type="text" name="first-name" value="{{newBongoTitle}}" placeholder="title">
+                    </div>
+                    <div class="field">
+                        <div class="ui fluid button" on-tap="newBongo()"><i class="plus icon"></i> Create</div>
+                    </div>
+                </div>
+            </div>
+        {{/partial}}
+    </script>
+
+    <script type="text/javascript" src="bongo.js"></script>
+
+</body>
+
+</html>

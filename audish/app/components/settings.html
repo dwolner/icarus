@@ -1,0 +1,32 @@
+<style>
+
+</style>
+
+<div class="ui container" intro="fade">
+    <h2 class="ui center aligned icon header"><i class="settings icon"></i>Settings</h2>
+    <div class="ui fluid button" on-tap="logout()">
+        Logout
+    </div>
+</div>
+
+<script>
+component.exports = {
+    data: function() {
+        return {
+        }
+    },
+    onteardown: function() {
+       
+    },
+    oninit: function() {
+        var self = this;
+        
+    },
+    logout: function() {
+
+        localStorage.clear()
+        this.root.set('scene', 'login')
+    }
+}
+
+</script>

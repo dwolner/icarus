@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Summerphases</title>
+
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico" />
+    <link rel="stylesheet" href="lib/semantic.css" type="text/css" />
+    <link rel="stylesheet" href="lib/pikaday/pikaday.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/semantic.min.js"></script>
+    <script type="text/javascript" src='lib/ractive.js'></script>
+    <script type="text/javascript" src='lib/ractive-load.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-tap.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-keys.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-fade.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-slide.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-scale.js'></script>
+    <script type="text/javascript" src='lib/jquery.velocity.js'></script>
+    <script type="text/javascript" src='lib/superagent.min.js'></script>
+    
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+
+        @font-face {
+            font-family: 'BebasBold';
+            src: url('./lib/bebas-neue/BebasNeue Bold.otf');
+        }
+
+        @font-face {
+            font-family: 'Moons';
+            src: url('./lib/moon_phases.ttf');
+        }
+        
+        * {
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+
+        body, h1, h2, h3, h4 {
+            /*font-family: 'Questrial', sans-serif;*/
+            font-family: 'BebasBold', sans-serif !important;
+        }
+
+        body {
+            /*background: url('media/the-summer-phases-2016.final.jpg') #000;
+            background-size: 100%;
+            background-position: 50% 0;
+            background-repeat: no-repeat;*/
+            background: #000;
+        }
+
+        #backgroundImg { 
+            position: absolute;
+            top: 0;
+            left: 50%;
+            max-width: 850px;
+            width: 100%;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%);
+        }
+
+        .moon {
+            font-family: 'Moons', sans-serif !important;
+        }
+
+        #beFirst {
+            margin-top: 40%;
+            /*background-color: rgba(27, 28, 29, 0.9);*/
+            padding: 1rem 4rem;
+        }
+
+        #beFirst h1 {
+            font-size: 5rem;
+        }
+
+        @media (max-width: 992px) {
+            #beFirst h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 400px) {
+            #beFirst h1 {
+                font-size: 1rem;
+            }
+        }
+
+
+    </style>
+    
+    <script type="text/javascript">
+        window.k = function () {
+            if (console) {
+                //comment out to stop k logging
+                console.log.apply(console, arguments);
+            }
+        }
+        var r;
+        var m;
+    </script>
+        
+</head>
+
+<body>
+    
+    <div id="pageOutput"></div>
+
+    <script id="pageTemplate" type="text/ractive">
+        <img id="backgroundImg" src="media/the-summer-phases-2017.square.jpg" />
+        <div class="ui container" style="text-align: center; max-width: 780px !important; margin: 0 auto;">
+            <div style="width: 100%;  margin: 0 auto;">
+                <img src="media/the-summer-phases-2017.logo.png" style="width: 100%;" />
+            </div>
+            <div class="ui hidden divider" style="height: 3rem;"></div>
+            <div class="ui hidden divider"></div>
+            <!-- <div style="width: 100%;  margin: 0 auto;">
+                <img src="media/the-summer-phases-artists.png" style="width: 100%;" />
+            </div> -->
+            <div class="ui page container" style="text-align: center;">
+                <!-- <table class="ui basic celled inverted table" style="">
+                    <tbody>
+                    {{#each tourDates}}
+                        <tr style="border-bottom: 1px solid white">
+                            <td>
+                                <h1 class="ui center aligned inverted header moon">{{moonPhase}}</h1>
+                            </td>
+                            <td>
+                                <h1 class="ui center aligned inverted header">{{date}}</h1>
+                            </td>
+                            <td>
+                                <h1 class="ui center aligned inverted orange header">{{where}}</h1>
+                            </td>
+                            <td>
+                                <h1 class="ui center aligned inverted header">{{city}}</h1>
+                            </td>
+                            <td class="center aligned">
+                                <div class="ui centered orange {{!link ? 'disabled' : ''}} button" on-tap="toLink">{{!link ? 'COMING SOON' : 'BUY TICKETS'}}</div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table> -->
+                <h1 class="ui inverted dividing header">Be the first to know about dates and tickets:</h1>
+                <div class="ui content" style="max-width: 500px; margin: 0 auto;">
+                    <div class="ui large fluid action input">
+                        <input id="emailInput" type="email" placeholder="Email">
+                        <div class="ui button" onclick="grabEmail()">SEND</div>
+                    </div>
+                </div>
+                <h2 id="thankYou" class="ui centered inverted header" style="display: none;">Thank You! You’ve signed up for our newsletter. We’ll keep you updated on the Summer Phases.</h2>
+                <h2 id="signedUp" class="ui centered inverted header" style="display: none;">Looks like you've already signed up. Thank you! We'll keep you posted.</h2>
+                <div class="ui divider"></div>
+            </div>
+        </div>
+        <div class="ui hidden divider"></div>
+    </script>
+
+    <script type="text/javascript">
+        
+        m = {
+            tourDates: [{
+                date: '5/27/2016',   
+                where: 'Press Room',
+                city: 'Phoenix',
+                moonPhase: 'A',
+                link: "http://relentlessbeats.com/events/work-it-tour-ft-jack-beats-the-pressroom-052716/"
+            }, {
+                date: '6/11/2016',   
+                where: 'Love + Propaganda',
+                city: 'san francisco',
+                moonPhase: 'D',
+                link: "http://loveandpropaganda.electrostub.com/event.cfm?cart&id=166324"
+            }, {
+                date: '7/1/2016',   
+                where: 'union',
+                city: 'los angeles',
+                moonPhase: 'G',
+                link: 'https://www.ticketfly.com/purchase/event/1176055'
+            }, {
+                date: '7/16/2016',   
+                where: 'The River Gambler',
+                city: 'toronto',
+                moonPhase: 'J',
+                link: "http://tktwb.tw/1To0vws"
+            }, {
+                date: '7/29/2016',   
+                where: 'q nightclub',
+                city: 'seattle',
+                moonPhase: 'L',
+                link: 'http://qnightclub.electrostub.com/event.cfm?cart&id=166080'
+            }, {
+                date: '8/5/2016',   
+                where: 'output',
+                city: 'brooklyn',
+                moonPhase: 'P',
+                link: 'https://www.ticketfly.com/purchase/event/1178059?utm_medium=bks'
+            }, {
+                date: '8/6/2016',   
+                where: 'Music Box',
+                city: 'san diego',
+                moonPhase: 'S',
+                link: 'https://www.ticketfly.com/purchase/event/1180793?utm_medium=bks'
+            }, {
+                date: '8/27/2016',   
+                where: 'Ironwood music hall',
+                city: 'austin',
+                moonPhase: 'V',
+                link: "http://www.realmusiceventstx.com/event/1179217"
+            }]
+        }
+
+        r = new Ractive({
+            el: '#pageOutput',
+            template: '#pageTemplate',
+            data: function() {
+                return m
+            },
+            oninit: function() {
+                this.on('toLink', function(e) {
+                    window.open(e.context.link, '_blank')
+                })
+            }
+        })
+
+        var currentEmailList = {}
+        allEmails(function(emails) {
+            emails = JSON.parse(emails)
+            // console.log(emails)
+            emails.forEach(function(email) {
+                currentEmailList[email.email] = true
+            })
+        })
+
+        function grabEmail() {
+            $('#signedUp').hide()
+            $('#thankYou').hide()
+            var email = $('#emailInput').val()
+
+            // console.log(email)
+
+            if (currentEmailList[email]) {
+                //email exists already
+                $('#signedUp').show()
+                return false;
+            }
+
+            var route = 'http://summerphases.com/api/saveEmail/' + email
+
+            superagent
+               .get(route)
+               .set('Accept', 'application/json')
+               .end(function(err, res){
+                    // alert(res)
+                    if (err) {
+                        k("API ERR: ", err)
+                    }
+                    
+                    var text = res.text
+                    // k('RES FROM POST - ' + routeLabel + ':', text)
+                    // if (cb) cb(text);
+                    console.log('reply email: ', text)
+                    if (text) {
+                        $('#emailInput').val('')
+                        $('#thankYou').show()
+                    }
+               })
+        }
+
+        function allEmails(cb) {
+
+            var route = 'http://summerphases.com/api/emails/'
+
+            superagent
+               .get(route)
+               .set('Accept', 'application/json')
+               .end(function(err, res){
+                    // alert(res)
+                    if (err) {
+                        k("API ERR: ", err)
+                    }
+                    
+                    var text = res.text
+                    // k('RES FROM POST - ' + routeLabel + ':', text)
+                    // if (cb) cb(text);
+                    // console.log('all emails', text)
+                    if (text) {
+                        cb(text)
+                    }
+               })
+        }
+    </script>
+</body>
+
+</html>

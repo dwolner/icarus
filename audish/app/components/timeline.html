@@ -1,0 +1,111 @@
+<style>
+    #eventContainer {
+        max-height: 500px;
+        width: 100%;
+        overflow-y: scroll;
+        padding-bottom: 1rem;
+        margin: 0 !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    #timeLine {
+        position: absolute;
+        top: 7rem;
+        width: 100%;
+        border-width: 8px;
+        margin: 0;
+    }
+    #cardLabelTitle {
+        position: absolute;
+        top: 50%;
+        transform: rotateZ(-90deg) translateY(-3.4rem);
+        width: 10rem;
+    }
+    #cardLabel {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        z-index: 99;
+        width: 3rem;
+        box-shadow: 0px 1px 3px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5;
+    }
+    #noEvents {
+        position: absolute;
+        top: 50%;
+        left: 5rem;
+        transform: translateY(-50%);
+    }
+    .contentCard {
+        width: 100; 
+        background: rgba(255, 255, 255, .75); 
+        padding: 1rem; 
+        max-height: 27rem; 
+        overflow: hidden; 
+        box-shadow: none;
+    }
+</style>
+
+<div id="timeLine" class="ui divider" intro="fade" ></div>
+<div id="cardLabel" class="ui button" intro="velocity:'transition.slideUpIn'" style="opacity: 0;" on-tap="newEvent">
+    <h4 id="cardLabelTitle" class="ui header">
+        <i class="add icon"></i>New Event
+    </h4>
+</div>
+<div id="eventContainer" class="ui container">
+    {{#if events}}
+    <div id="eventScroll" class="ui row" style="width: {{rowWidth() || 0}}px; margin-left: 3rem;">
+        <div class="ui cards">
+            {{#each events:i}}
+                {{> dateHeader}}
+            {{/each}}
+        </div>
+        <div class="ui cards" style="margin: 1rem 0;">
+            {{#each events:i}}
+                <div class="ui card" style="background: url('{{img}}'); background-size: cover; margin: 0 auto;" intro="velocity:'transition.slideUpIn', { delay: {{ (@index + 1) * 100 }} }">
+                    <div class="ui card contentCard">
+                        {{> event}}
+                    </div>
+                    <div class="ui bottom right attached label" style="border-radius: 0.28571429rem 0em 0.28571429rem 0em !important;" on-tap="editEvent">
+                        <i class="large edit icon" style="margin: 0;"></i>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    {{elseif appState.grabbingEvents}}
+        {{> loader}}
+    {{else}}
+    <div id="noEvents">
+        <h2 class="ui header">
+            <i class="left arrow icon"></i> tap the tab to create an event
+        </h2>
+    </div>
+    {{/if}}
+</div>
+
+<script>
+component.exports = {
+    data: function() {
+        return {
+            // noEvents: function() {
+            //     var events = this.get('events');
+            //     var x = Object.keys(events).length ? false : true
+            //     k(x)
+            //     return x;
+            // }
+        }
+    },
+    onteardown: function() {
+       
+    },
+    oninit: function() {
+        var self = this;
+
+        this.root.grabEvents()
+        
+    }
+}
+
+</script>

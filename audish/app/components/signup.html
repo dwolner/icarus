@@ -1,0 +1,88 @@
+<style>
+    
+</style>
+
+<div class="ui container">
+    <img class="ui centered medium image" src="media/audish_horiz.png" />
+    <h1 class="ui center aligned header">
+        Sign Up
+    </h1>
+
+    <div class="ui form">
+        <div class="required field email {{emailWarn ? 'error' : ''}}">
+            <div class="ui left icon input">
+                <input type="text" placeholder="full name" value="{{fullName}}">
+                <i class="user icon"></i>
+            </div>
+        </div>
+        <div class="required field email {{emailWarn ? 'error' : ''}}">
+            <div class="ui left icon input">
+                <input type="text" placeholder="email" value="{{userEmail}}">
+                <i class="mail icon"></i>
+            </div>
+        </div>
+        <div class="required field password {{passwordWarn ? 'error' : ''}}">
+            <div class="ui left icon input">
+                <input type="password" placeholder="password" value="{{userPass}}">
+                <i class="lock icon"></i>
+            </div>
+        </div>
+        <div class="required field password {{passwordWarn ? 'error' : ''}}">
+            <div class="ui left icon input">
+                <input type="password" placeholder="password validate" on-enter="signup" value="{{userPassValid}}">
+                <i class="lock icon"></i>
+            </div>
+        </div>
+        <div class="ui fluid button" on-tap="signup">sign up</div>
+    </div>
+    <h4 class="ui header">Or <a on-tap="goToSignIn">Sign In</a> </h4>
+</div>
+
+
+<script>
+component.exports = {
+    data: function() {
+        return {}
+    },
+    onteardown: function() {
+       
+    },
+    oninit: function() {
+        var self = this;
+        
+        this.on('goToSignIn', function(e) {
+            self.root.set('scene', 'login')
+        })
+
+        this.on('signup', function(e) {
+            console.log(e)
+
+            if (!e.context.fullName || !e.context.userEmail || !e.context.userPass || (e.context.userPass !== e.context.userPassValid)) return false;
+
+            var req = {
+                fullname: e.context.fullName,
+                email: e.context.userEmail,
+                password: e.context.userPass
+            }
+
+            // self.root.api.post('newUser', req, function(res) {
+            //     if (!res.error) {
+            //         self.root.set({
+            //             'loginToken': res.user._id,
+            //             'scene': 'timeline'
+            //         })
+            //     }
+            // })
+
+            firebase.auth().createUserWithEmailAndPassword(e.context.userEmail, e.context.userPass).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // ...
+              console.log(errorCode, errorMessage)
+            });
+        })
+    }
+}
+
+</script>

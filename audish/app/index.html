@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-startup-image" href="media/audish_horiz.png">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Audish</title>
+
+    <link rel="icon" type="image/png" href="lib/img/platform-purple-favicon.png" />
+    <link rel="stylesheet" href="lib/semantic.css" type="text/css" />
+    <link rel="stylesheet" href="lib/pikaday/pikaday.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/semantic.min.js"></script>
+    <script type="text/javascript" src='lib/ractive.js'></script>
+    <script type="text/javascript" src='lib/ractive-load.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-tap.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-keys.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-fade.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-slide.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-scale.js'></script>
+    <script type="text/javascript" src='lib/jquery.velocity.js'></script>
+    <script type="text/javascript" src='lib/velocity.ui.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-velocity.js'></script>
+    <script type="text/javascript" src="lib/faker.min.js"></script>
+    <script type="text/javascript" src="lib/fuse.min.js"></script>
+    <script type="text/javascript" src='lib/superagent.min.js'></script>
+    <script type="text/javascript" src='lib/numeral.min.js'></script>
+    <script type="text/javascript" src='lib/moment.min.js'></script>
+    <script type="text/javascript" src='lib/pikaday/pikaday.js'></script>
+    <script type="text/javascript" src='dist/bundle.js'></script>
+    <script type="text/javascript" src='MTI_shows.js'></script>
+    <script type="text/javascript" src='TRW_shows.js'></script>
+    <script type="text/javascript" src='theaterData.js'></script>
+    
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+        
+        * {
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+
+        body, h1, h2, h3, h4 {
+            font-family: 'Questrial', sans-serif;
+            /*font-family: 'Quicksand', sans-serif;*/
+        }
+
+        .scene {
+            padding-top: 4rem;
+            height: 100vh;
+        }
+
+        #topNav {
+            position: fixed; 
+            top: 0;
+            width: 100%; 
+            padding: .5rem; 
+            padding-bottom: 0;
+            z-index: 100;
+        }
+
+        .ui.cards > .ui.card {
+            opacity: 0;
+        }
+
+        .tick {
+            width: 10px;
+            height: 10px;
+            background: #efefef;
+            transform: rotateZ(90deg) translateY(-140px);
+        }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBqv97xCR_-owRdVwM3fbkkBiSkVn76_9k",
+        authDomain: "project-6262249534930247314.firebaseapp.com",
+        databaseURL: "https://project-6262249534930247314.firebaseio.com",
+        storageBucket: "",
+      }
+      firebase.initializeApp(config);
+    </script>
+        
+</head>
+
+<body>
+    <div id="pageOutput"></div>
+
+    <script id="pageTemplate" type="text/ractive">
+    {{#if scene !== 'login' && scene !== 'signup'}}
+        <nav />
+    {{/if}}
+        <div class="scene" style="{{scene === 'timeline' ? 'overflow: hidden;' : ''}}">
+        {{> getComponent(scene)}}
+        </div>
+
+        {{#partial event}}
+            <h4 class="center aligned header" style="margin: 0;">{{calendar(when)}}</h4>
+            <h2 class="center aligned header" style="margin: 0;">
+                {{title}}
+            </h2>
+            <div class="center aligned meta">
+                {{theater}}
+            </div>
+            <div class="content" style="overflow: scroll;">
+                <div class="ui vertical fluid scrolling secondary menu">
+                    <div class="item">
+                        Role: {{role}}
+                    </div>
+                    <div class="item">
+                        Where: {{where}}
+                    </div>
+                    <div class="item">
+                        Url: <a href="{{url}}" >{{url}}</a>
+                    </div>
+                    <div class="item">
+                        Call: {{call}}
+                    </div>
+                    <div class="item">
+                        Equity: {{equity}}
+                    </div>
+                    <div class="item">
+                        Contract: {{contract}}
+                    </div>
+                    <div class="item">
+                        Notes: {{prepNotes}}
+                    </div>
+                </div>
+            </div>
+        {{/partial}}
+
+        {{#partial dateHeader}}
+            <div class="ui card" style="border: none; box-shadow: none; background: none; margin: .5rem auto; min-height: 3rem;" intro="velocity:'transition.slideUpIn', { delay: {{ (@index + 1) * 100 }} }">
+                <h3 class="center aligned header" style="margin: 0;">
+                    {{momentMonth(when)}} {{momentDay(when)}}
+                </h3>
+                <div class="center aligned header" style="margin: 0;">
+                    {{momentYear(when)}}
+                </div>
+                <div class="tick"></div>
+            </div>
+        {{/partial}}
+        
+        {{#partial stats}}
+            <h2 class="ui center aligned icon header" intro="fade">
+                <i class="line chart icon"></i> stats
+            </h2>
+        {{/partial}}
+        
+        
+        {{#partial tracker}}
+            <h2 class="ui center aligned icon header" intro="fade">
+                <i class="compass icon"></i> tracker
+            </h2>
+        {{/partial}}
+    </script>
+
+    <script type="text/javascript" src="app.js"></script>
+
+</body>
+
+</html>

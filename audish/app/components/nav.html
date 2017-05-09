@@ -1,0 +1,33 @@
+<style>
+    
+</style>
+
+<div class="ui segment" id="topNav">
+    <div class="ui secondary pointing {{menuItem.length + 2}} item menu">
+        <a class="item" style="padding: .5rem;">
+            <img class="ui tiny image" src="media/audish_horiz.png" />
+        </a>
+        {{#each menuItem}}
+        <a class="{{active ? 'active': ''}} item" on-tap="menuTap">
+            <i class="{{icon}} icon"></i> {{isPhone ? '' : text}}
+        </a>
+        {{/each}}
+    </div>
+</div>
+
+<script>
+component.exports = {
+    data: function() {
+        return {
+        }
+    },
+    onteardown: function() {
+       
+    },
+    oninit: function() {
+        var self = this;
+        
+    }
+}
+
+</script>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Summerphases</title>
+
+    <link rel="icon" type="image/png" href="lib/img/platform-purple-favicon.png" />
+    <link rel="stylesheet" href="lib/semantic.css" type="text/css" />
+    <link rel="stylesheet" href="lib/pikaday/pikaday.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/semantic.min.js"></script>
+    <script type="text/javascript" src='lib/ractive.js'></script>
+    <script type="text/javascript" src='lib/ractive-load.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-tap.js'></script>
+    <script type="text/javascript" src='lib/ractive-events-keys.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-fade.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-slide.min.js'></script>
+    <script type="text/javascript" src='lib/ractive-transitions-scale.js'></script>
+    <script type="text/javascript" src='lib/jquery.velocity.js'></script>
+    <script type="text/javascript" src='lib/superagent.min.js'></script>
+    
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+        
+        * {
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+
+        body, h1, h2, h3, h4 {
+            font-family: 'Questrial', sans-serif;
+            /*font-family: 'Quicksand', sans-serif;*/
+        }
+
+        body {
+            background: url('media/the-summer-phases-2016.v3.blur.jpg') #000;
+            background-size: 100%;
+            background-position: 50% 0;
+            background-repeat: no-repeat;
+        }
+
+        #beFirst {
+            margin-top: 40%;
+            /*background-color: rgba(27, 28, 29, 0.9);*/
+            padding: 1rem 4rem;
+        }
+
+        #beFirst h1 {
+            font-size: 3rem;
+        }
+
+        @media (max-width: 992px) {
+            #beFirst h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 400px) {
+            #beFirst h1 {
+                font-size: 1rem;
+            }
+        }
+
+
+    </style>
+    
+    <script type="text/javascript">
+        window.k = function () {
+            if (console) {
+                //comment out to stop k logging
+                console.log.apply(console, arguments);
+            }
+        }
+        var r;
+        var m;
+    </script>
+        
+</head>
+
+<body>
+    <div id="ui container">
+        <div class="ui grid">
+            <div id="beFirst" class="ui " style="width: 100%;">
+                <h1 class="ui inverted centered header" style="text-shadow: 0px 0px 50px #000;">BE THE FIRST TO KNOW:</h1>
+                <div class="ui content" style="max-width: 500px; margin: 0 auto;">
+                    <div class="ui large fluid action input">
+                        <input id="emailInput" type="email" placeholder="Email">
+                        <div class="ui button" onclick="grabEmail()">SEND</div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <h2 id="thankYou" class="ui centered inverted header" style="display: none;">Thank You! You’ve signed up for our newsletter. We’ll keep you updated on the Summer Phases.</h2>
+                    <h2 id="signedUp" class="ui centered inverted header" style="display: none;">Looks like you've already signed up. Thank you! We'll keep you posted.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="pageTemplate" type="text/javascript">
+
+        var currentEmailList = {}
+        allEmails(function(emails) {
+            emails = JSON.parse(emails)
+            // console.log(emails)
+            emails.forEach(function(email) {
+                currentEmailList[email.email] = true
+            })
+        })
+
+        function grabEmail() {
+            $('#signedUp').hide()
+            $('#thankYou').hide()
+            var email = $('#emailInput').val()
+
+            // console.log(email)
+
+            if (currentEmailList[email]) {
+                //email exists already
+                $('#signedUp').show()
+                return false;
+            }
+
+            var route = 'http://summerphases.com/api/saveEmail/' + email
+
+            superagent
+               .get(route)
+               .set('Accept', 'application/json')
+               .end(function(err, res){
+                    // alert(res)
+                    if (err) {
+                        k("API ERR: ", err)
+                    }
+                    
+                    var text = res.text
+                    // k('RES FROM POST - ' + routeLabel + ':', text)
+                    // if (cb) cb(text);
+                    console.log('reply email: ', text)
+                    if (text) {
+                        $('#emailInput').val('')
+                        $('#thankYou').show()
+                    }
+               })
+        }
+
+        function allEmails(cb) {
+
+            var route = 'http://summerphases.com/api/emails/'
+
+            superagent
+               .get(route)
+               .set('Accept', 'application/json')
+               .end(function(err, res){
+                    // alert(res)
+                    if (err) {
+                        k("API ERR: ", err)
+                    }
+                    
+                    var text = res.text
+                    // k('RES FROM POST - ' + routeLabel + ':', text)
+                    // if (cb) cb(text);
+                    // console.log('all emails', text)
+                    if (text) {
+                        cb(text)
+                    }
+               })
+        }
+    </script>
+
+</body>
+
+</html>
