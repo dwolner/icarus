@@ -21,7 +21,7 @@
     <script type="text/javascript" src="lib/ractive-transitions-fade.js"></script>
     <script type="text/javascript" src="lib/ractive-transitions-slide.min.js"></script>
     <script type="text/javascript" src="lib/ractive-transitions-velocity.js"></script>
-    
+
     <style>
         body {
             background: #000;
@@ -33,7 +33,7 @@
 
         img {
             display: block;
-            width: 100%; 
+            width: 100%;
             margin: 0 auto;
             box-sizing: border-box;
         }
@@ -87,8 +87,8 @@
             opacity: 1;
         }
 
-    </style> 
-        
+    </style>
+
 </head>
 
 <body>
@@ -124,7 +124,7 @@
                 <div class="ui four wide column">
                     <img class="ui left floated image" src="/img/MEANWHILE GLITCH.gif" style="max-width: 500px; padding: 2rem; margin: -5rem auto -7rem;" />
                 </div>
-                    
+
                 <div class="ui twelve wide column">
                     <div class="ui right floated inverted secondary three item menu" style="padding: 1rem 0; max-width: 30rem; margin: 0 auto;">
                         {{#each menuItems}}
@@ -149,9 +149,77 @@
         {{/partial}}
 
         {{#partial imageGrid}}
-            <div class="ui three column doubling grid">
+            {{#if featuredItem}}
+            <div class="ui one column grid">
+                {{#with featuredItem}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
+
+            {{#if featuredItem00}}
+            <div class="ui one column grid">
+                {{#with featuredItem00}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
+
+            {{#if featuredItem0}}
+            <div class="ui one column grid">
+                {{#with featuredItem0}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
+
+            {{#if featuredItem1}}
+            <div class="ui one column grid">
+                {{#with featuredItem1}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
+
+            <div class="ui two column grid">
                 <div class="ui stretched row">
-                {{#each workItems:i}}
+                {{#each workItems1:i}}
                     <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
                         <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
                             <img class="ui image" src="/img/{{imageFilename}}" />
@@ -165,10 +233,95 @@
                 {{/each}}
                 </div>
             </div>
+
+            {{#if featuredItem2}}
+            <div class="ui one column grid">
+                {{#with featuredItem2}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
+
+            <div class="ui two column grid">
+                <div class="ui stretched row">
+                {{#each workItems2:i}}
+                    <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                        <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                            <img class="ui image" src="/img/{{imageFilename}}" />
+                            <div class="centerHeaderHold">
+                                <div class="centerHeader">
+                                    <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+
+            {{#if featuredItem3}}
+            <div class="ui one column grid">
+                {{#with featuredItem3}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
+
+            <div class="ui two column grid">
+                <div class="ui stretched row">
+                {{#each workItems3:i}}
+                    <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                        <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                            <img class="ui image" src="/img/{{imageFilename}}" />
+                            <div class="centerHeaderHold">
+                                <div class="centerHeader">
+                                    <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+
+            {{#if featuredItem4}}
+            <div class="ui one column grid">
+                {{#with featuredItem4}}
+                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                        <img class="ui image" src="/img/{{imageFilename}}" />
+                        <div class="centerHeaderHold">
+                            <div class="centerHeader">
+                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            {{/if}}
         {{/partial}}
 
         {{#partial videoPlay}}
-            <div class="ui row" style="position: relative; opacity: 0; 
+            <div class="ui row" style="position: relative; opacity: 0;
             /*border: 1px solid rgba(255, 255, 255, 0.15);
             */border-radius: .5rem;
             padding: 1rem;" intro="velocity:'transition.expandIn'">
@@ -226,10 +379,14 @@
             <div class="ui row" intro="fade" style="padding: 1rem 0; text-align: : center;">
                 <div class="ui inverted divider"></div>
                 <!-- <p style="color: #fff;"><i class="large white copyright icon"></i> 2017 Meanwhile LA</p> -->
-                <a href="mailto:info@meanwhilela.com" >
-                    <img src="/img/MW Mail Icon.png" style="width: 2rem;" />
-                </a>
-                <!-- <a href="https://www.instagram.com/meanwhilelax/?hl=en" target="_blank"><i class="large inverted black instagram icon"></i></a> -->
+                <div class="sixteen wide column">
+                    <a href="mailto:info@meanwhilela.com" >
+                        <i class="large inverted black envelope icon" style="font-size: 2rem; margin: 0 1rem; margin-top: -2px;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/meanwhilelax/?hl=en" target="_blank">
+                        <i class="large inverted black instagram icon" style="font-size: 2rem; margin: 0 1rem;"></i>
+                    </a>
+                </div>
             </div>
         {{/partial}}
 

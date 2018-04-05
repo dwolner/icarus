@@ -128,37 +128,39 @@
             </div>
             <div class="ui page container" style="text-align: center;">
                 <img class="ui fluid image" src="media/the-summer-phases-artists.png" style="margin-bottom: 2rem;" />
-                <div class="ui two column stackable grid">
+                <!-- <div class="ui two column stackable grid">
                     <div class="ui column" style="padding: 0 !important;">
                         <img class="ui fluid image" src="media/the-summer-phases-dates1.png" />
                     </div>
                     <div class="ui column" style="padding: 0 !important;">
                         <img class="ui fluid image" src="media/the-summer-phases-dates2.png" />
                     </div>
-                </div>
-                <!-- <table class="ui basic celled inverted table" style="">
+                </div> -->
+                <table class="ui basic celled inverted table" style="">
                     <tbody>
                     {{#each tourDates}}
+                        {{#if !DONOTANNOUCE}}
                         <tr style="border-bottom: 1px solid white">
                             <td>
                                 <h1 class="ui center aligned inverted header moon">{{moonPhase}}</h1>
                             </td>
                             <td>
-                                <h1 class="ui center aligned inverted header">{{date}}</h1>
+                                <h1 class="ui center aligned inverted header">{{DATE}}</h1>
                             </td>
                             <td>
-                                <h1 class="ui center aligned inverted orange header">{{where}}</h1>
+                                <h1 class="ui center aligned inverted violet header">{{VENUE}}</h1>
                             </td>
                             <td>
-                                <h1 class="ui center aligned inverted header">{{city}}</h1>
+                                <h1 class="ui center aligned inverted header">{{MARKET}}</h1>
                             </td>
                             <td class="center aligned">
-                                <div class="ui centered orange {{!link ? 'disabled' : ''}} button" on-tap="toLink">{{!link ? 'COMING SOON' : 'BUY TICKETS'}}</div>
+                                <div class="ui centered violet {{!LINK ? 'disabled' : ''}} button" on-tap="toLink">{{!LINK ? 'COMING SOON' : 'BUY TICKETS'}}</div>
                             </td>
                         </tr>
+                        {{/if}}
                     {{/each}}
                     </tbody>
-                </table> -->
+                </table>
                 <div class="ui divider"></div>
                 <h1 class="ui inverted header">Be the first to know about dates and tickets:</h1>
                 <div class="ui content" style="max-width: 500px; margin: 0 auto;">
@@ -176,57 +178,146 @@
     </script>
 
     <script type="text/javascript">
-        
         m = {
-            tourDates: [{
-                date: '5/27/2016',   
-                where: 'Press Room',
-                city: 'Phoenix',
-                moonPhase: 'A',
-                link: "http://relentlessbeats.com/events/work-it-tour-ft-jack-beats-the-pressroom-052716/"
-            }, {
-                date: '6/11/2016',   
-                where: 'Love + Propaganda',
-                city: 'san francisco',
-                moonPhase: 'D',
-                link: "http://loveandpropaganda.electrostub.com/event.cfm?cart&id=166324"
-            }, {
-                date: '7/1/2016',   
-                where: 'union',
-                city: 'los angeles',
-                moonPhase: 'G',
-                link: 'https://www.ticketfly.com/purchase/event/1176055'
-            }, {
-                date: '7/16/2016',   
-                where: 'The River Gambler',
-                city: 'toronto',
-                moonPhase: 'J',
-                link: "http://tktwb.tw/1To0vws"
-            }, {
-                date: '7/29/2016',   
-                where: 'q nightclub',
-                city: 'seattle',
-                moonPhase: 'L',
-                link: 'http://qnightclub.electrostub.com/event.cfm?cart&id=166080'
-            }, {
-                date: '8/5/2016',   
-                where: 'output',
-                city: 'brooklyn',
-                moonPhase: 'P',
-                link: 'https://www.ticketfly.com/purchase/event/1178059?utm_medium=bks'
-            }, {
-                date: '8/6/2016',   
-                where: 'Music Box',
-                city: 'san diego',
-                moonPhase: 'S',
-                link: 'https://www.ticketfly.com/purchase/event/1180793?utm_medium=bks'
-            }, {
-                date: '8/27/2016',   
-                where: 'Ironwood music hall',
-                city: 'austin',
-                moonPhase: 'V',
-                link: "http://www.realmusiceventstx.com/event/1179217"
-            }]
+          tourDates: [
+            {
+              "MARKET": "SEATTLE",
+              "VENUE": "Q NIGHTCLUB",
+              "DATE": "Friday, June 30",
+              "LINE-UP": "AC Slater\nShift k3y\nSinden\nPetey",
+              "LINK": "http://qnightclub.electrostub.com/event.cfm?cart&id=182627",
+              "moonPhase": "A"
+            },
+            {
+              "MARKET": "PORTLAND",
+              "VENUE": "45 East",
+              "DATE": "Saturday, July 1",
+              "LINE-UP": "AC Slater\nShift k3y\nSinden\nPetey Clicks",
+              "LINK": "https://www.ticketfly.com/purchase/event/1489556",
+              "moonPhase": "B"
+            },
+            {
+              "MARKET": "CALGARY",
+              "VENUE": "BESPOKE",
+              "DATE": "Thursday, July 13",
+              "LINE-UP": "AC Slater \nWax Motif\nLO'99\nPetey Clicks",
+              "LINK": "bit.ly/2qoCy4a",
+              "moonPhase": "C"
+            },
+            {
+              "MARKET": "AUSTIN",
+              "VENUE": "KINGDOM",
+              "DATE": "Friday, July 14",
+              "LINE-UP": "AC Slater\nWax Motif \nLO'99\nPetey Clicks",
+              "LINK": "https://nightbassatx.eventbrite.com",
+              "moonPhase": "D"
+            },
+            {
+              "MARKET": "DALLAS",
+              "VENUE": "THE NINES",
+              "DATE": "Saturday, July 15",
+              "LINE-UP": "AC Slater\nSage Armstrong\nLO'99\nPetey Clicks",
+              "LINK": "http://nightbass.nightout.com",
+              "moonPhase": "E"
+            },
+            {
+              "MARKET": "BROOKLYN",
+              "VENUE": "OUTPUT",
+              "DATE": "Friday, July 21",
+              "LINE-UP": "AC Slater \nRedlight\nSage Armstrong",
+              "LINK": "https://www.ticketfly.com/purchase/event/1489766?utm_medium=bks",
+              "moonPhase": "F"
+            },
+            {
+              "MARKET": "SANTA CLARA",
+              "VENUE": "SANTA CLARA CONVENTION CENTER",
+              "DATE": "Saturday, July 22",
+              "LINE-UP": "AC Slater\nRedlight\nHotel Garuda\nChristian Martin\nKill Frenzy\nWorthy",
+              "LINK": "http://www.ticketfly.com/event/1482109-vital-x-white-rabbit-group-santa-clara/",
+              "moonPhase": "G"
+            },
+            {
+              "MARKET": "LAS VEGAS",
+              "VENUE": "Hard Rock Live",
+              "DATE": "Friday, August 4",
+              "LINE-UP": "AC Slater \nChris Lorenzo\nWax Motif\nSinden \nPhlegmatic Dogs",
+              "LINK": "https://www.eventbrite.com/e/night-bass-summer-phases-2017-tickets-34647612943?aff=nightbass",
+              "moonPhase": "H"
+            },
+            {
+              "MARKET": "CHICAGO",
+              "VENUE": "The MID",
+              "DATE": "Friday, August 11",
+              "LINE-UP": "AC Slater\nVolac",
+              "LINK": "http://www.ticketfly.com/event/1521069-body-language-ac-slater-chicago/",
+              "moonPhase": "I"
+            },
+            {
+              "MARKET": "TORONTO",
+              "VENUE": "Boat Party",
+              "DATE": "Saturday, August 12",
+              "LINE-UP": "AC Slater \nTBD",
+              "LINK": "http://www.ticketweb.ca/t3/sale/SaleEventDetail?eventId=7491845&pl=embrace&dispatch=loadSelectionData&refid=fbevent",
+              "moonPhase": "J"
+            },
+            {
+              "MARKET": "EDMONTON",
+              "VENUE": "CHVRCH OF JOHN",
+              "DATE": "Friday, Aug 18",
+              "LINE-UP": "AC Slater \nSinden",
+              "LINK": "bit.ly/2pTeB13",
+              "moonPhase": "K"
+            },
+            {
+              "MARKET": "VANCOUVER",
+              "VENUE": "MIA",
+              "DATE": "Saturday, Aug 19",
+              "LINE-UP": "AC Slater \nSinden",
+              "LINK": "http://areyoumia.electrostub.com/event.cfm?cart&id=183583",
+              "moonPhase": "L"
+            },
+            {
+              "MARKET": "WASHINGTON DC",
+              "VENUE": "AI",
+              "DATE": "Friday, August 25",
+              "LINE-UP": "AC Slater\nJack Beats\nSage Armstrong",
+              "LINK": "https://www.ticketfly.com/purchase/event/1491379",
+              "moonPhase": "M"
+            },
+            {
+              "MARKET": "DETROIT",
+              "VENUE": "MAGIC STICK",
+              "DATE": "Saturday, August 26",
+              "LINE-UP": "AC Slater \nJack Beats",
+              "LINK": "http://www.ticketweb.com/t3/sale/SaleEventDetail?eventId=7568005&pl=magicstick&dispatch=loadSelectionData",
+              "moonPhase": "N"
+            },
+            {
+              "MARKET": "ALBUQUERQUE",
+              "VENUE": "EL REY THEATER",
+              "DATE": "Friday, September 1",
+              "LINE-UP": "AC Slater \nJack Beats\nWax Motif\nPhlegmatic Dogs",
+              "LINK": "https://nightbass.eventbrite.com/",
+              "moonPhase": "O"
+            },
+            {
+              "MARKET": "PHOENIX",
+              "VENUE": "MONARCH",
+              "DATE": "Saturday, September 2",
+              "LINE-UP": "AC Slater \nJack Beats-\nPhleg Dogs\nPetey",
+              "LINK": "https://www.ticketfly.com/purchase/event/1489787",
+              "moonPhase": "P"
+            },
+            {
+              "MARKET": "SAN DIEGO",
+              "VENUE": "SPIN",
+              "DATE": "Sunday, September 3",
+              "LINE-UP": "AC Slater \nJack Beats\nTBD\nHotfire\nPhlegmatic Dogs",
+              "LINK": "",
+              "moonPhase": "Q",
+              "DONOTANNOUCE": true
+            }
+          ]
         }
 
         r = new Ractive({
@@ -237,7 +328,7 @@
             },
             oninit: function() {
                 this.on('toLink', function(e) {
-                    window.open(e.context.link, '_blank')
+                    window.open(e.context.LINK, '_blank')
                 })
             }
         })
