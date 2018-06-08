@@ -148,183 +148,96 @@
             </div>
         {{/partial}}
 
+        {{#partial videoBlock}}
+        <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
+            <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
+                <img class="ui image" src="/img/{{imageFilename}}" />
+                <div class="centerHeaderHold">
+                    <div class="centerHeader">
+                        <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+
         {{#partial imageGrid}}
-            {{#if featuredItem}}
-            <div class="ui one column grid">
-                {{#with featuredItem}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
+            
+            {{#with featuredItem1}}
+                <div class="ui one column grid">
+                {{> videoBlock}}
                 </div>
-                {{/with}}
-            </div>
-            {{/if}}
-
-            {{#if featuredItem00}}
-            <div class="ui one column grid">
-                {{#with featuredItem00}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{/with}}
-            </div>
-            {{/if}}
-
-            {{#if featuredItem0}}
-            <div class="ui one column grid">
-                {{#with featuredItem0}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{/with}}
-            </div>
-            {{/if}}
-
-            {{#if featuredItem1}}
-            <div class="ui one column grid">
-                {{#with featuredItem1}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{/with}}
-            </div>
-            {{/if}}
-
-            <div class="ui two column grid">
+            {{/with}}
+            
+            <div class="ui two column stackable grid">
                 <div class="ui stretched row">
                 {{#each workItems1:i}}
-                    <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                        <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                            <img class="ui image" src="/img/{{imageFilename}}" />
-                            <div class="centerHeaderHold">
-                                <div class="centerHeader">
-                                    <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{> videoBlock}}
                 {{/each}}
                 </div>
             </div>
-
-            {{#if featuredItem2}}
-            <div class="ui one column grid">
-                {{#with featuredItem2}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
+            
+            {{#with featuredItem2}}
+                <div class="ui one column grid">
+                {{> videoBlock}}
                 </div>
-                {{/with}}
-            </div>
-            {{/if}}
-
-            <div class="ui two column grid">
+            {{/with}}
+            
+            <div class="ui two column stackable grid">
                 <div class="ui stretched row">
                 {{#each workItems2:i}}
-                    <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                        <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                            <img class="ui image" src="/img/{{imageFilename}}" />
-                            <div class="centerHeaderHold">
-                                <div class="centerHeader">
-                                    <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{> videoBlock}}
                 {{/each}}
                 </div>
             </div>
-
-            {{#if featuredItem3}}
-            <div class="ui one column grid">
-                {{#with featuredItem3}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
+            
+            {{#with featuredItem3}}
+                <div class="ui one column grid">
+                {{> videoBlock}}
                 </div>
-                {{/with}}
-            </div>
-            {{/if}}
-
-            <div class="ui two column grid">
+            {{/with}}
+            
+            <div class="ui two column stackable grid">
                 <div class="ui stretched row">
                 {{#each workItems3:i}}
-                    <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                        <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                            <img class="ui image" src="/img/{{imageFilename}}" />
-                            <div class="centerHeaderHold">
-                                <div class="centerHeader">
-                                    <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{> videoBlock}}
                 {{/each}}
                 </div>
             </div>
-
-            {{#if featuredItem4}}
-            <div class="ui one column grid">
-                {{#with featuredItem4}}
-                <div class="ui column" intro="velocity:'transition.expandIn', { delay: {{(i+1) * 100}} }" style="padding: .5rem; opacity: 0;" on-tap="openCaseStudy">
-                    <div class="ui fluid link card" style="border: none; box-shadow: none; background: #000;">
-                        <img class="ui image" src="/img/{{imageFilename}}" />
-                        <div class="centerHeaderHold">
-                            <div class="centerHeader">
-                                <h4 class="ui inverted header" style="letter-spacing: 1rem; {{#if windowWidth < 768}}font-size: 1rem;{{/if}}">{{title}}</h4>
-                            </div>
-                        </div>
-                    </div>
+            
+            {{#with featuredItem4}}
+                <div class="ui one column grid">
+                {{> videoBlock}}
                 </div>
-                {{/with}}
+            {{/with}}
+            
+            <div class="ui two column stackable grid">
+                <div class="ui stretched row">
+                {{#each workItems4:i}}
+                    {{> videoBlock}}
+                {{/each}}
+                </div>
             </div>
-            {{/if}}
+            
+            {{#with featuredItem5}}
+                <div class="ui one column grid">
+                {{> videoBlock}}
+                </div>
+            {{/with}}
+            
+            <div class="ui two column stackable grid">
+                <div class="ui stretched row">
+                {{#each workItems5:i}}
+                    {{> videoBlock}}
+                {{/each}}
+                </div>
+            </div>
+            
+
         {{/partial}}
 
         {{#partial videoPlay}}
-            <div class="ui row" style="position: relative; opacity: 0;
-            /*border: 1px solid rgba(255, 255, 255, 0.15);
-            */border-radius: .5rem;
-            padding: 1rem;" intro="velocity:'transition.expandIn'">
+            <div class="ui row" style="position: relative; opacity: 0; border-radius: .5rem; padding: 1rem;" intro="velocity:'transition.expandIn'">
             {{#with singleInfo}}
                 <!-- <i class="large close icon" style="color: #fff; cursor: pointer; position: absolute; top: 1rem; right: 1rem;" on-tap="goHome"></i> -->
                 <h4 class="ui inverted header" style="color: #fff; cursor: pointer; position: absolute; top: 1rem; right: 1rem;" on-tap="goHome">
@@ -333,7 +246,7 @@
                 <h4 class="ui inverted header" style="letter-spacing: 1rem; margin: 0;">
                     {{title}}
                 </h4>
-                <iframe src="{{embedURL}}" width="100%" height="{{windowWidth < 768 ? '320' : '600'}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe src="{{embedURL}}" width="100%" height="{{windowWidth < 768 ? '320' : '600'}}" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <!-- <p style="color: #fff;">{{description}}</p> -->
             {{/with}}
             </div>
