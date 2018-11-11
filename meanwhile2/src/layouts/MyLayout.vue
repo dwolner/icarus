@@ -36,7 +36,7 @@
     >
         <q-modal-layout>
             <q-toolbar slot="header" style="background: rgba(0,0,0,0) !important; padding: 1rem;">
-                <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 100px; margin: -1.5rem;">
+                <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;">
 
                 <q-toolbar-title>
                 </q-toolbar-title>
