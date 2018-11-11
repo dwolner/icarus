@@ -3,21 +3,23 @@
     <q-layout-header>
       <q-toolbar
         id="top"
+        align="center"
+        color="grey"
+        style="max-height: 50px; overflow: visible"
       >
-        <img v-show="!showMenuModal" align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 100px; margin: -1.5rem;">
 
-        <q-toolbar-title>
-            <h5 v-show="!showMenuModal" class="text-white" style="margin: 0; font-weight: 900; font-style: italic;">meanwhile</h5>
+        <q-toolbar-title style="max-height: 50px; overflow: visible">
+            <q-btn
+                round
+                size="xl"
+                color="grey"
+                inverted
+                style=""
+            >
+                <img align="center" src="statics/media/DW_logo.png" style="max-height: 70px;">
+            </q-btn>
         </q-toolbar-title>
 
-        <q-btn
-            flat
-            @click="showMenuModal = !showMenuModal"
-            aria-label="Menu"
-            v-show="!showMenuModal"
-            >
-            <q-icon name="fas fa-bars" color="white" style="font-size: 1.5rem;" />
-        </q-btn>
 
       </q-toolbar>
     </q-layout-header>
