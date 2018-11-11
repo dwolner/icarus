@@ -1,9 +1,8 @@
 <template>
-  <q-layout view="lHh Lpr lFf" style="background: black;">
+  <q-layout view="lHh Lpr lFf">
     <q-layout-header>
       <q-toolbar
         id="top"
-        color="black"
       >
         <img v-show="!showMenuModal" align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 100px; margin: -1.5rem;">
 
