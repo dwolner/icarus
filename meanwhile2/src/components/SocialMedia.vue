@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h6 class="text-white" style="margin: 0;">Follow</h6>
+        <!-- <h6 class="text-white" style="margin: 0;">Follow</h6> -->
         <q-btn v-for="link in links" flat style="padding: .5rem;">
             <q-icon color="white" :name="link.icon" />
         </q-btn>

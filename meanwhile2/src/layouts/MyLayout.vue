@@ -5,10 +5,17 @@
         id="top"
         color="black"
       >
-        <img v-show="!showMenuModal" align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 100px; margin: -1.5rem;">
+        <q-btn
+          flat
+          @click="$router.push('/')"
+          aria-label="Menu"
+          v-show="!showMenuModal">
+            <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;">
+            <img align="center" alt="Meanwhile logo" src="statics/media/Meanwhile_text_white_logo.png" style="max-height: 60px;">
+        </q-btn>
 
         <q-toolbar-title>
-            <h5 v-show="!showMenuModal" class="text-white" style="margin: 0; font-weight: 900; font-style: italic;">meanwhile</h5>
+            <!-- <h5 v-show="!showMenuModal" class="text-white" style="margin: 0; font-weight: 900; font-style: italic;">meanwhile</h5> -->
         </q-toolbar-title>
 
         <q-btn
@@ -44,23 +51,31 @@
 
                 <q-list
                     no-border
-                    link
-                    inset-delimiter
                 >
-                    <q-item class="justify-center" @click.native="$router.push('/')">
-                        <h4 class="text-white" style="margin: .5rem 0;">Home</h4>
+                    <q-item class="justify-center">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/')">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Home</h4>
+                        </q-btn>
                     </q-item>
-                    <q-item class="justify-center" @click.native="scrollTo('')">
-                        <h4 class="text-white" style="margin: .5rem 0;">Video</h4>
+                    <q-item class="justify-center" >
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Video</h4>
+                        </q-btn>
                     </q-item>
-                    <q-item class="justify-center" @click.native="scrollTo('')">
-                        <h4 class="text-white" style="margin: .5rem 0;">Design</h4>
+                    <q-item class="justify-center">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Design</h4>
+                        </q-btn>
                     </q-item>
-                    <q-item class="justify-center" @click.native="scrollTo('')">
-                        <h4 class="text-white" style="margin: .5rem 0;">Store</h4>
+                    <q-item class="justify-center">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4>
+                        </q-btn>
                     </q-item>
-                    <q-item class="justify-center" @click.native="$router.push('/contact')">
-                        <h4 class="text-white" style="margin: .5rem 0;">Contact</h4>
+                    <q-item class="justify-center">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/contact')">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Contact</h4>
+                        </q-btn>
                     </q-item>
                 </q-list>
             </div>
