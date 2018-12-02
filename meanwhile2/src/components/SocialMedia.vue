@@ -1,8 +1,8 @@
 <template>
     <div>
         <!-- <h6 class="text-white" style="margin: 0;">Follow</h6> -->
-        <q-btn v-for="link in links" flat style="padding: .5rem;">
-            <q-icon color="white" :name="link.icon" />
+        <q-btn v-for="link in links" flat style="padding: .5rem;" @click="goto(link.link)">
+            <q-icon color="white" :name="link.icon" style="font-size: 1.5rem;" />
         </q-btn>
     </div>
 </template>
@@ -21,16 +21,16 @@ export default {
     return {
         links: [{
             icon: 'fas fa-envelope',
-            link: ''
+            link: 'mailto:info@meanwhilela.com'
         }, {
             icon: 'fab fa-instagram',
-            link: ''
+            link: 'https://www.instagram.com/meanwhilelax/'
         }, {
             icon: 'fab fa-twitter',
-            link: ''
-        }, {
-            icon: 'fab fa-facebook',
-            link: ''
+            link: 'https://twitter.com/MeanwhileLA'
+        // }, {
+        //     icon: 'fab fa-facebook',
+        //     link: ''
         }]
     };
   },
@@ -40,7 +40,10 @@ export default {
   },
 
   methods: {
-
+      goto(link) {
+          console.log('goto: ', link)
+          window.open(link, '_blank')
+      }
   },
 
   watch: {

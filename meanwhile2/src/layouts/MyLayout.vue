@@ -9,7 +9,7 @@
           flat
           @click="$router.push('/')"
           aria-label="Menu"
-          v-show="!showMenuModal">
+         >
             <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;">
             <img align="center" alt="Meanwhile logo" src="statics/media/Meanwhile_text_white_logo.png" style="max-height: 60px;">
         </q-btn>
@@ -22,8 +22,7 @@
             flat
             @click="showMenuModal = !showMenuModal"
             aria-label="Menu"
-            v-show="!showMenuModal"
-            >
+        >
             <q-icon name="fas fa-bars" color="white" style="font-size: 1.5rem;" />
         </q-btn>
 
@@ -36,7 +35,7 @@
     >
         <q-modal-layout>
             <q-toolbar slot="header" style="background: rgba(0,0,0,0) !important; padding: 1rem;">
-                <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;">
+                <!-- <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;"> -->
 
                 <q-toolbar-title>
                 </q-toolbar-title>
@@ -57,6 +56,11 @@
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Home</h4>
                         </q-btn>
                     </q-item>
+                    <q-item class="justify-center">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/about')">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">About</h4>
+                        </q-btn>
+                    </q-item>
                     <q-item class="justify-center" >
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Video</h4>
@@ -70,11 +74,6 @@
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4>
-                        </q-btn>
-                    </q-item>
-                    <q-item class="justify-center">
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/contact')">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Contact</h4>
                         </q-btn>
                     </q-item>
                 </q-list>

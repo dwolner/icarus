@@ -31,7 +31,7 @@
                  >
 
                  <div
-                     class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mediaItem"
+                     class="col-xs-12 col-sm-6 col-md-4 mediaItem"
                      align="center"
                      v-for="(item, index) in contentToDisplay"
                      :key="index"
@@ -39,9 +39,11 @@
                  >
                     <img :src="`statics/media/${item.imageFilename}`" />
                     <div class="centerHeaderHold">
-                        <div class="centerHeader">
+                        <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto;" />
+
+                        <div v-else class="centerHeader">
                             <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem;">{{item.title}}</h6>
-                            <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
+                            <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip>
                         </div>
                     </div>
                 </div>
