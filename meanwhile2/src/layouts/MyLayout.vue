@@ -11,7 +11,7 @@
           aria-label="Menu"
          >
             <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;">
-            <img align="center" alt="Meanwhile logo" src="statics/media/Meanwhile_text_white_logo.png" style="max-height: 60px;">
+            <img align="center" alt="Meanwhile logo" src="statics/media/Meanwhile_text_white_logo.png" :style="windowWidth < 768 ? 'max-height: 30px;' : 'max-height: 40px;'">
         </q-btn>
 
         <q-toolbar-title>
@@ -52,28 +52,28 @@
                     no-border
                 >
                     <q-item class="justify-center">
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/')">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/'), showMenuModal = false">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Home</h4>
                         </q-btn>
                     </q-item>
                     <q-item class="justify-center">
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/about')">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/about'), showMenuModal = false">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">About</h4>
                         </q-btn>
                     </q-item>
-                    <q-item class="justify-center" >
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
+                    <!-- <q-item class="justify-center" >
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo(''), showMenuModal = false">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Video</h4>
                         </q-btn>
                     </q-item>
                     <q-item class="justify-center">
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo(''), showMenuModal = false">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Design</h4>
                         </q-btn>
-                    </q-item>
+                    </q-item> -->
                     <q-item class="justify-center">
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo('')">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4>
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo(''), showMenuModal = false">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store (Coming soon...)</h4>
                         </q-btn>
                     </q-item>
                 </q-list>
@@ -94,13 +94,13 @@
 
 <script>
 import { openURL } from "quasar";
-import SocialMedia from '../components/SocialMedia';
+import SocialMedia from "../components/SocialMedia";
 
 export default {
   name: "MyLayout",
 
   components: {
-      SocialMedia
+    SocialMedia
   },
 
   data() {
@@ -108,6 +108,12 @@ export default {
       showMenuModal: false
     };
   },
+  computed: {
+    windowWidth() {
+      return this.$store.state.windowWidth;
+    }
+  },
+
   methods: {
     openURL,
     scrollTo(hash) {
@@ -122,7 +128,7 @@ export default {
 
 <style>
 .q-layout-header {
-    -webkit-box-shadow: none;
-    box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 </style>

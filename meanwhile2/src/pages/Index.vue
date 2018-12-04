@@ -36,10 +36,12 @@
                      v-for="(item, index) in contentToDisplay"
                      :key="index"
                      :data-index="index"
+                     style="cursor: pointer;"
+                     @click="viewSingleItem(item)"
                  >
                     <img :src="`statics/media/${item.imageFilename}`" />
                     <div class="centerHeaderHold">
-                        <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto;" />
+                        <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
 
                         <div v-else class="centerHeader">
                             <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem;">{{item.title}}</h6>
@@ -77,6 +79,28 @@
             </div>
         </div> -->
 
+        <q-modal
+          v-model="showSingleItem"
+          :content-css="{ minWidth: '100vw', minHeight: '100vh', background: 'rgba(0,0,0, 1)'}"
+        >
+            <q-modal-layout>
+                <q-toolbar slot="header" style="background: rgba(0,0,0,0) !important; padding: 1rem;">
+                    <!-- <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;"> -->
+
+                    <q-toolbar-title>
+                    </q-toolbar-title>
+
+                    <q-btn flat @click="showSingleItem = false">
+                        <q-icon name="fas fa-times" color="white" style="font-size: 1.5rem;" />
+                    </q-btn>
+                </q-toolbar>
+
+                <div style="padding: 1rem;" align="center">
+                    <img v-if="singleItem.overlayFilename" :src="`statics/media/${singleItem.overlayFilename}`" style="margin: 0 auto; width: 100%; max-width: 500px; transform: scale(0.7);" />
+                    <iframe :src="singleItem.embedURL" width="100%" :height="windowWidth < 768 ? '320' : '1080'" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </q-modal-layout>
+        </q-modal>
       </div>
 
 
@@ -92,13 +116,15 @@ export default {
   data() {
     return {
       contentLoad: false,
-      selectedTag: "featured"
+      selectedTag: "featured",
+      singleItem: '',
+      showSingleItem: false
     };
   },
 
   computed: {
     windowWidth() {
-        return this.$store.state.windowWidth
+      return this.$store.state.windowWidth;
     },
 
     content() {
@@ -126,13 +152,18 @@ export default {
   },
 
   methods: {
+    viewSingleItem(item) {
+        this.singleItem = item
+        this.showSingleItem = true
+    },
+
     selectTag(tag) {
       // this.$router.push(`/filter/${tag}`);
 
-      this.selectedTag = ''
+      this.selectedTag = "";
       this.$nextTick(() => {
-          this.selectedTag = tag;
-      })
+        this.selectedTag = tag;
+      });
     },
 
     beforeEnter(el) {
@@ -155,12 +186,12 @@ export default {
 
   watch: {
     urlTag() {
-        if (this.urlTag) {
-          this.selectedTag = ''
-          this.$nextTick(() => {
-              this.selectedTag = this.urlTag;
-          })
-        }
+      if (this.urlTag) {
+        this.selectedTag = "";
+        this.$nextTick(() => {
+          this.selectedTag = this.urlTag;
+        });
+      }
     }
   },
 
@@ -172,10 +203,10 @@ export default {
     console.log("TAG? ", this.urlTag);
 
     if (this.urlTag) {
-      this.selectedTag = ''
+      this.selectedTag = "";
       this.$nextTick(() => {
-          this.selectedTag = this.urlTag;
-      })
+        this.selectedTag = this.urlTag;
+      });
     }
   }
 };
@@ -244,14 +275,14 @@ export default {
 }
 
 @media only screen and (max-width: 1200px) {
-    #reelContainer {
-        height: 500px;
-    }
+  #reelContainer {
+    height: 500px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
-    #reelContainer {
-        height: 400px;
-    }
+  #reelContainer {
+    height: 400px;
+  }
 }
 </style>
