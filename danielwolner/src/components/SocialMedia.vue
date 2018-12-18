@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h6 class="text-white" style="margin: 0;">Follow</h6>
-        <q-btn v-for="link in links" flat style="padding: .5rem;">
-            <q-icon color="white" :name="link.icon" />
+        <!-- <h6 class="text-white" style="margin: 0;">Follow</h6> -->
+        <q-btn v-for="link in links" flat style="padding: .5rem;" @click="goto(link.link)">
+            <q-icon :color="link.color" :name="link.icon" style="font-size: 1.5rem;" />
         </q-btn>
     </div>
 </template>
@@ -21,16 +21,27 @@ export default {
     return {
         links: [{
             icon: 'fas fa-envelope',
-            link: ''
+            link: 'mailto:daniel.wolner@gmail.com',
+            color: 'grey-9'
+        }, {
+            icon: 'fab fa-facebook-f',
+            link: 'https://www.facebook.com/dannoschmanno/',
+            color: 'blue-9'
+        }, {
+            icon: 'fab fa-youtube',
+            link: 'https://www.youtube.com/c/danwolnerisme',
+            color: 'red-6'
         }, {
             icon: 'fab fa-instagram',
-            link: ''
+            link: 'https://www.instagram.com/dannoschmanno/',
+            color: 'purple-4'
         }, {
             icon: 'fab fa-twitter',
-            link: ''
-        }, {
-            icon: 'fab fa-facebook',
-            link: ''
+            link: 'https://twitter.com/danwolner',
+            color: 'blue-4'
+        // }, {
+        //     icon: 'fab fa-facebook',
+        //     link: ''
         }]
     };
   },
@@ -40,7 +51,10 @@ export default {
   },
 
   methods: {
-
+      goto(link) {
+          console.log('goto: ', link)
+          window.open(link, '_blank')
+      }
   },
 
   watch: {

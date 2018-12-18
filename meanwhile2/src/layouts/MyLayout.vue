@@ -4,6 +4,7 @@
       <q-toolbar
         id="top"
         color="black"
+        style="max-height: 75px;"
       >
         <q-btn
           flat
@@ -61,6 +62,11 @@
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">About</h4>
                         </q-btn>
                     </q-item>
+                    <q-item class="justify-center">
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/contact'), showMenuModal = false">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Contact</h4>
+                        </q-btn>
+                    </q-item>
                     <!-- <q-item class="justify-center" >
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo(''), showMenuModal = false">
                             <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Video</h4>
@@ -72,8 +78,8 @@
                         </q-btn>
                     </q-item> -->
                     <q-item class="justify-center">
-                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="scrollTo(''), showMenuModal = false">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store (Coming soon...)</h4>
+                        <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/store'), showMenuModal = false">
+                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4>
                         </q-btn>
                     </q-item>
                 </q-list>

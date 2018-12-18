@@ -56,7 +56,8 @@ module.exports = function (ctx) {
         'QCard',
         'QModal',
         'QModalLayout',
-        'QWindowResizeObservable'
+        'QWindowResizeObservable',
+        'QScrollObservable'
       ],
       directives: [
         'Ripple'

@@ -97,7 +97,7 @@
 
                 <div style="padding: 1rem;" align="center">
                     <img v-if="singleItem.overlayFilename" :src="`statics/media/${singleItem.overlayFilename}`" style="margin: 0 auto; width: 100%; max-width: 500px; transform: scale(0.7);" />
-                    <iframe :src="singleItem.embedURL" width="100%" :height="windowWidth < 768 ? '320' : '1080'" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe :src="singleItem.embedURL" width="100%" :height="windowWidth < 768 ? '320' : '720'" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
             </q-modal-layout>
         </q-modal>
