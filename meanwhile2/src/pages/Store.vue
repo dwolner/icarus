@@ -1,5 +1,5 @@
 <template>
-  <q-page class="">
+  <q-page style="background: url('statics/media/MW_repeat_bg.jpg'); background-size: cover;">
 
      <div align="center" style="padding: 2rem;">
          <h4 class="text-white">Coming soon...</h4>

@@ -6,14 +6,10 @@
         color="black"
         style="max-height: 75px;"
       >
-        <q-btn
-          flat
-          @click="$router.push('/')"
-          aria-label="Menu"
-         >
-            <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;">
-            <img align="center" alt="Meanwhile logo" src="statics/media/Meanwhile_text_white_logo.png" :style="windowWidth < 768 ? 'max-height: 30px;' : 'max-height: 40px;'">
-        </q-btn>
+        <a @click="$router.push('/')" style="cursor: pointer;">
+            <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" :style="`max-height: 100px; margin: -1rem;`">
+            <img align="center" alt="Meanwhile logo" src="statics/media/Meanwhile_text_white_logo.png" :style="windowWidth < 768 ? 'max-height: 25px;' : 'max-height: 40px;'">
+        </a>
 
         <q-toolbar-title>
             <!-- <h5 v-show="!showMenuModal" class="text-white" style="margin: 0; font-weight: 900; font-style: italic;">meanwhile</h5> -->
@@ -54,17 +50,20 @@
                 >
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/'), showMenuModal = false">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Home</h4>
+                            <!-- <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Home</h4> -->
+                            <img src="statics/media/home.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0;`" />
                         </q-btn>
                     </q-item>
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/about'), showMenuModal = false">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">About</h4>
+                            <!-- <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">About</h4> -->
+                            <img src="statics/media/about.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0;`" />
                         </q-btn>
                     </q-item>
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/contact'), showMenuModal = false">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Contact</h4>
+                            <!-- <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Contact</h4> -->
+                            <img src="statics/media/contact.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0;`" />
                         </q-btn>
                     </q-item>
                     <!-- <q-item class="justify-center" >
@@ -79,7 +78,8 @@
                     </q-item> -->
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/store'), showMenuModal = false">
-                            <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4>
+                            <!-- <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4> -->
+                            <img src="statics/media/store.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0;`" />
                         </q-btn>
                     </q-item>
                 </q-list>

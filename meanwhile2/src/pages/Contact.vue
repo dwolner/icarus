@@ -1,27 +1,32 @@
 <template>
-  <q-page class="">
+  <q-page style="background: url('statics/media/MW_repeat_bg.jpg'); background-size: cover;">
 
      <div class="row" align="center" style="padding: 2rem; max-width: 640px; margin: 0 auto;">
-         <div class="col-12"><h4 class="text-white">Contact us</h4></div>
+         <div class="col-12" style="padding: 1rem;">
+             <h4 class="text-white" style="margin: 1rem 0;">CONTACT</h4>
+
+             <SocialMedia />
+         </div>
+
          <div class="col-6" style="padding: .5rem;">
              <q-btn class="full-width" color="white" outline @click="selectForm('partner')">
                  <h6 class="text-white" style="margin: 1rem;">Partner</h6>
              </q-btn>
          </div>
+
          <div class="col-6" style="padding: .5rem;">
              <q-btn class="full-width" color="white" outline @click="selectForm('client')">
                  <h6 class="text-white" style="margin: 1rem;">Client</h6>
              </q-btn>
          </div>
+
+         <div class="col-12">
+             <iframe :src="formSrc" width="640" height="1163" frameborder="0" style="margin: 0 auto; width: 100%;">Loading...</iframe>
+         </div>
+
      </div>
 
-     <div class="col-12">
-         <iframe :src="formSrc" width="640" height="1163" frameborder="0" style="margin: 0 auto; width: 100%;">Loading...</iframe>
-     </div>
 
-     <div align="center" style="padding: 2rem;">
-         <SocialMedia />
-     </div>
   </q-page>
 </template>
 

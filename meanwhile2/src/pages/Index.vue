@@ -2,9 +2,16 @@
   <q-page class="">
 
       <div id="reelContainer">
-          <video autoplay muted loop id="reelBackground">
-            <source src="statics/media/MW REEL 10_18.mov" type="video/mp4">
+          <video autoplay :muted="muted" loop id="reelBackground">
+              <source src="statics/media/MW_reel_12-7.mp4" type="video/mp4">
           </video>
+      </div>
+
+      <div align="right" style="padding: 1rem;">
+          <q-btn color="white" flat @click="muted = !muted">
+              <q-icon :name="`fas ${muted ? 'fa-volume-up' : 'fa-volume-off'}`" style="margin-right: 1rem;" />
+              Volume
+          </q-btn>
       </div>
 
       <div class="bg-black" style="padding: 1rem;">
@@ -45,7 +52,7 @@
 
                         <div v-else class="centerHeader">
                             <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem;">{{item.title}}</h6>
-                            <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip>
+                            <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
                         </div>
                     </div>
                 </div>
@@ -118,7 +125,8 @@ export default {
       contentLoad: false,
       selectedTag: "featured",
       singleItem: '',
-      showSingleItem: false
+      showSingleItem: false,
+      muted: true
     };
   },
 

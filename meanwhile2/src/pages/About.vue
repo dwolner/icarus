@@ -1,19 +1,23 @@
 <template>
-  <q-page class="">
+  <q-page style="background: url('statics/media/MW_repeat_bg.jpg'); background-size: cover; padding-top: 2rem;">
 
-     <div align="center" style="padding: 2rem;">
-         <div class="relative-position" style="max-width: 1100px;">
-             <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE - Cream.png" style="opacity: .1; max-width: 300px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
-
-             <h6 class="text-white" style="margin: 5rem 0;">
-                 MEANWHILE is a Film, Commercial and Music Video company -- creating content with cinematic, colorful storytelling. Brian Lipko & Kyle P. Nolan (Creative Director and Managing Producer respectively) perfect each aspect in-house -- valuing originality, integrity, passion, excellence and execution.
+     <div class="row justify-center" align="center" style="background: black; padding: 2rem; max-width: 1100px; width: 100%; margin: 0 auto;">
+         <div class="col-sm-12 col-md-6" style="padding: 1rem 2rem;">
+             <img src="statics/media/AboutPhoto.png" align="center" style="max-width: 20rem; width: 100%;" />
+         </div>
+         <div class="col-sm-12 col-md-6" :align="windowWidth < 768 ? 'center' : 'left'" style="padding: 1rem 0;">
+             <h6 class="text-white">
+                 MEANWHILE is a Film, Commercial and Music Video company -- creating content with cinematic, colorful storytelling.
              </h6>
+             <h6 class="text-white">
+                 Brian Lipko & Kyle P. Nolan (Creative Director and Managing Producer respectively) perfect each aspect in-house -- valuing originality, integrity, passion, excellence and execution.
+             </h6>
+         </div>
+         <div class="col-12" align="center" style="padding: 2rem;">
+             <SocialMedia />
          </div>
      </div>
 
-     <div align="center" style="padding: 2rem;">
-         <SocialMedia />
-     </div>
   </q-page>
 </template>
 
@@ -40,7 +44,9 @@ export default {
   },
 
   computed: {
-
+      windowWidth() {
+        return this.$store.state.windowWidth;
+      },
   },
 
   methods: {
