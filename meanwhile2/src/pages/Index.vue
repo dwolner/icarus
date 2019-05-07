@@ -2,15 +2,15 @@
   <q-page class="">
 
       <div id="reelContainer">
-          <video autoplay :muted="muted" loop id="reelBackground">
+          <video autoplay :muted="!$q.platform.is.mobile && !$q.platform.is.safari ? muted : true" playsinline loop id="reelBackground">
               <source src="statics/media/MW_reel_12-7.mp4" type="video/mp4">
           </video>
       </div>
 
-      <div align="right" style="padding: 1rem;">
+      <div v-if="!$q.platform.is.mobile && !$q.platform.is.safari" align="right" style="padding: 1rem;">
           <q-btn color="white" flat @click="muted = !muted">
               <q-icon :name="`fas ${muted ? 'fa-volume-up' : 'fa-volume-off'}`" style="margin-right: 1rem;" />
-              Volume
+              {{muted ? 'Unmute' : 'Mute'}}
           </q-btn>
       </div>
 
@@ -208,7 +208,7 @@ export default {
     //   this.contentLoad = false;
     // }, 3000);
 
-    console.log("TAG? ", this.urlTag);
+    console.log("platform: ", this.$q.platform);
 
     if (this.urlTag) {
       this.selectedTag = "";

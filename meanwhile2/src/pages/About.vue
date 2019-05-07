@@ -7,10 +7,13 @@
          </div>
          <div class="col-sm-12 col-md-6" :align="windowWidth < 768 ? 'center' : 'left'" style="padding: 1rem 0;">
              <h6 class="text-white">
-                 MEANWHILE is a Film, Commercial and Music Video company -- creating content with cinematic, colorful storytelling.
+                 MEANWHILE is a Los Angeles based Film, Commercial and Music Video company -- creating content with cinematic, colorful storytelling.
              </h6>
              <h6 class="text-white">
-                 Brian Lipko & Kyle P. Nolan (Creative Director and Managing Producer respectively) perfect each aspect in-house -- valuing originality, integrity, passion, excellence and execution.
+                 Specializing in music, commercial, promotional, and narrative videos with a focus on colorful art direction, branding, VFX, and originality.
+             </h6>
+             <h6 class="text-white">
+                 Brian Lipko & Kyle P. Nolan (Creative Director and Managing Producer respectively) perfect each aspect in-house -- valuing integrity, passion, excellence and execution.
              </h6>
          </div>
          <div class="col-12" align="center" style="padding: 2rem;">

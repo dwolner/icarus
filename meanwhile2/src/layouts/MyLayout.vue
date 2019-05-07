@@ -63,7 +63,7 @@
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/contact'), showMenuModal = false">
                             <!-- <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Contact</h4> -->
-                            <img src="statics/media/contact.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0;`" />
+                            <img src="statics/media/contact.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0; transform: scale(0.85);`" />
                         </q-btn>
                     </q-item>
                     <!-- <q-item class="justify-center" >
@@ -79,7 +79,7 @@
                     <q-item class="justify-center">
                         <q-btn flat inverted v-ripple class="full-width" color="white" @click="$router.push('/store'), showMenuModal = false">
                             <!-- <h4 class="text-white" style="margin: .25rem 0; text-transform: uppercase;">Store</h4> -->
-                            <img src="statics/media/store.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0;`" />
+                            <img src="statics/media/store.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0; transform: scale(0.85);`" />
                         </q-btn>
                     </q-item>
                 </q-list>
