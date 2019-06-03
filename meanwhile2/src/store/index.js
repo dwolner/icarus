@@ -21,7 +21,7 @@ export default function(/* { ssrContext } */) {
         content: [
             {
               imageFilename: "DRIP_cover.png",
-              overlayFilename: "",
+              // overlayFilename: "",
               title: "DRIP",
               tags: ['featured', 'original'],
               embedURL:
@@ -31,7 +31,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "DRE_cover.png",
-              overlayFilename: "",
+              // overlayFilename: "",
               title: "LSP",
               tags: ['music'],
               embedURL:
@@ -41,7 +41,7 @@ export default function(/* { ssrContext } */) {
             },
             {
                 imageFilename: "TABLETSKY.png",
-                overlayFilename: "handwriting/iPadInspiration.png",
+                // overlayFilename: "handwriting/iPadInspiration.png",
                 title: "APPLE IPAD - INSPIRATION",
                 tags: ['commercial', 'featured'],
                 embedURL:
@@ -51,7 +51,7 @@ export default function(/* { ssrContext } */) {
             },
             {
                 imageFilename: "STARRO.jpg",
-                overlayFilename: "handwriting/StarroFantasy.png",
+                // overlayFilename: "handwriting/StarroFantasy.png",
                 title: "STARRO - FANTASY",
                 tags: ['music', 'featured'],
                 embedURL:
@@ -71,7 +71,7 @@ export default function(/* { ssrContext } */) {
             // },
             {
               imageFilename: "LIGHTYEAR.png",
-              overlayFilename: "handwriting/Lightyear.png",
+              // overlayFilename: "handwriting/Lightyear.png",
               title: "LIGHTYEAR",
               tags: ['commercial', 'vfx', 'featured'],
               embedURL:
@@ -81,7 +81,7 @@ export default function(/* { ssrContext } */) {
             },
             {
                 imageFilename: "image_123986672.JPG",
-                overlayFilename: "handwriting/YeezyCalabasas.png",
+                // overlayFilename: "handwriting/YeezyCalabasas.png",
                 title: "ADIDAS - YEEZY CALABASAS",
                 tags: ['commercial', 'featured'],
                 embedURL:
@@ -91,7 +91,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "HUNTR-Thumb.jpg",
-              overlayFilename: "handwriting/HuntrHigher.png",
+              // overlayFilename: "handwriting/HuntrHigher.png",
               title: "HUNTR - HIGHER",
               embedURL: "https://www.youtube.com/embed/0uISF_lQVqc",
               tags: ['music', 'vfx', 'featured'],
@@ -100,7 +100,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "Chela-Website-Frame.png",
-              overlayFilename: "handwriting/ChelaShutYouUp.png",
+              // overlayFilename: "handwriting/ChelaShutYouUp.png",
               title: "SHUT YOU UP",
               tags: ['music', 'featured'],
               embedURL:
@@ -110,7 +110,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "Finding-Waldo.png",
-              overlayFilename: "handwriting/Waldo.png",
+              // overlayFilename: "handwriting/Waldo.png",
               title: "FINDING WALDO",
               tags: ['original'],
               embedURL:
@@ -120,7 +120,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "IN_THE_NIGHT.png",
-              overlayFilename: "handwriting/Rituals.png",
+              // overlayFilename: "handwriting/Rituals.png",
               title: "THE RITUALS",
               tags: ['music', 'vfx'],
               embedURL:
@@ -130,7 +130,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "TELEPORT.png",
-              overlayFilename: "handwriting/Teleport.png",
+              // overlayFilename: "handwriting/Teleport.png",
               title: "TELEPORT",
               tags: ['commercial'],
               embedURL:
@@ -140,7 +140,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "LEECH-COVER.jpg",
-              overlayFilename: "handwriting/Leech.png",
+              // overlayFilename: "handwriting/Leech.png",
               title: "LEECH",
               tags: ['commercial', 'original'],
               embedURL:
@@ -150,7 +150,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "PIONEERS_Cover.png",
-              overlayFilename: "handwriting/EmmaZanderPioneers.png",
+              // overlayFilename: "handwriting/EmmaZanderPioneers.png",
               title: "PIONEERS",
               tags: ['music'],
               embedURL:
@@ -160,7 +160,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "ASICS.png",
-              overlayFilename: "handwriting/Asics.png",
+              // overlayFilename: "handwriting/Asics.png",
               title: "ASICS",
               tags: ['commercial'],
               embedURL:
@@ -170,7 +170,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "LUNA_CYCLE.png",
-              overlayFilename: "handwriting/LunaCycles.png",
+              // overlayFilename: "handwriting/LunaCycles.png",
               title: "LUNA CYCLE",
               tags: ['commercial'],
               embedURL:
@@ -180,7 +180,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "SLEEPING_ALONE.png",
-              overlayFilename: "handwriting/EmmaZanderSleepingAlone.png",
+              // overlayFilename: "handwriting/EmmaZanderSleepingAlone.png",
               title: "SLEEPING ALONE",
               tags: ['music'],
               embedURL:
@@ -190,7 +190,7 @@ export default function(/* { ssrContext } */) {
             },
             {
               imageFilename: "PBR30_cover.jpg",
-              overlayFilename: "handwriting/PBR.png",
+              // overlayFilename: "handwriting/PBR.png",
               title: "PBR 30",
               tags: ['commercial'],
               embedURL:
