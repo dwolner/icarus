@@ -1,21 +1,12 @@
 <template>
   <q-page style="background: url('statics/media/MW_repeat_bg.jpg'); background-size: cover;">
-    <div align="center" style="padding: 2rem;">
-      <h4 class="text-white">Coming soon...</h4>
+    <div align="center" style="padding: 1rem;">
+      <h3 class="text-white">Store</h3>
     </div>
 
-    <!-- <div class="row justify-center" style="padding: 1rem;">
-      <div class="col-sm-6 col-md-4 col-lg-2" v-for="item in products" style="padding: .5rem;">
-        <div class="cursor-pointer shadow-4 full-width" @click="openWindow(item)">
-          <div>
-            <img :src="item.image.src" style="max-width: 100%; border-radius: 1rem;" />
-          </div>
-
-          <h6 class="text-white" align="center">{{item.title}}</h6>
-        </div>
-      </div>
+    <div style="padding: 1rem;">
+      <div id="collection-component-dd682f01e24"></div>
     </div>
-     -->
   </q-page>
 </template>
 
@@ -36,7 +27,7 @@ export default {
 
     data() {
         return {
-          products: []
+            products: [],
         }
     },
 
@@ -47,29 +38,185 @@ export default {
             this.$axios
                 .get('https://meanwhilela.com/api')
                 // .get('https://meanwhilelax:Meanwhile22!!@meanwhilela.myshopify.com/admin/api/2019-04/products.json')
-                .then((response) => {
+                .then(response => {
                     // handle success
                     console.log('getShopifyProducts: ', response)
 
                     if (response && response.data) {
-                      this.products = response.data.products
+                        this.products = response.data.products
                     }
                 })
-                .catch((error) => {
+                .catch(error => {
                     // handle error
                     console.log(error)
                 })
         },
 
+        setupShopifyBuy() {
+            var client = ShopifyBuy.buildClient({
+                domain: 'meanwhilela.myshopify.com',
+                storefrontAccessToken: '483459b396f8a6e77eb8a7aeaf0580fb',
+            })
+
+            ShopifyBuy.UI.onReady(client).then(function(ui) {
+                ui.createComponent('collection', {
+                    id: 135599521856,
+                    node: document.getElementById('collection-component-dd682f01e24'),
+                    moneyFormat: '%24%7B%7Bamount%7D%7D',
+                    options: {
+                        product: {
+                            variantId: 'all',
+                            contents: {
+                                imgWithCarousel: false,
+                                variantTitle: false,
+                                description: false,
+                                buttonWithQuantity: false,
+                                quantity: false,
+                            },
+                            styles: {
+                                product: {
+                                    'max-width': 'calc(25% - 20px)',
+                                    'margin-left': '20px',
+                                    'margin-bottom': '50px',
+                                    'border-radius': '.5rem',
+                                    background: '#fff',
+                                    padding: '1rem',
+
+                                    imgWrapper: {
+                                        position: 'relative',
+                                        height: '0',
+                                        'padding-top': 'calc(75% + 15px)',
+                                    },
+
+                                    img: {
+                                        height: 'calc(100% - 15px)',
+                                        position: 'absolute',
+                                        left: '0',
+                                        right: '0',
+                                        top: '0',
+                                    },
+                                },
+                                button: {
+                                    'background-color': '#000',
+                                    color: '#fff',
+                                    'border-radius': '.5rem',
+                                    ':hover': {
+                                        'background-color': '#333',
+                                        color: '#fff',
+                                    },
+                                    ':focus': {
+                                        'background-color': '#e6e6e6',
+                                    },
+                                },
+                                title: {
+                                    color: '#000',
+                                },
+                                price: {
+                                    'font-size': '26px',
+                                    color: '#000',
+                                },
+                                compareAt: {
+                                    color: '#000',
+                                    'font-size': '22.099999999999998px',
+                                },
+                            },
+                        },
+                        cart: {
+                            contents: {
+                                button: true,
+                            },
+                            styles: {
+                                button: {
+                                    'background-color': '#ffffff',
+                                    color: '#000000',
+                                    ':hover': {
+                                        'background-color': '#e6e6e6',
+                                        color: '#000000',
+                                    },
+                                    ':focus': {
+                                        'background-color': '#e6e6e6',
+                                    },
+                                },
+                                footer: {
+                                    'background-color': '#ffffff',
+                                },
+                            },
+                        },
+                        modalProduct: {
+                            contents: {
+                                img: false,
+                                imgWithCarousel: true,
+                                variantTitle: false,
+                                buttonWithQuantity: true,
+                                button: false,
+                                quantity: false,
+                            },
+                            styles: {
+                                product: {
+                                    'max-width': '100%',
+                                    'margin-left': '0px',
+                                    'margin-bottom': '0px',
+                                },
+                                button: {
+                                    'background-color': '#ffffff',
+                                    color: '#000000',
+                                    ':hover': {
+                                        'background-color': '#e6e6e6',
+                                        color: '#000000',
+                                    },
+                                    ':focus': {
+                                        'background-color': '#e6e6e6',
+                                    },
+                                },
+                            },
+                        },
+                        toggle: {
+                            styles: {
+                                toggle: {
+                                    'background-color': '#ffffff',
+                                    ':hover': {
+                                        'background-color': '#e6e6e6',
+                                    },
+                                    ':focus': {
+                                        'background-color': '#e6e6e6',
+                                    },
+                                },
+                                count: {
+                                    color: '#000000',
+                                    ':hover': {
+                                        color: '#000000',
+                                    },
+                                },
+                                iconPath: {
+                                    fill: '#000000',
+                                },
+                            },
+                        },
+                        productSet: {
+                            styles: {
+                                products: {
+                                    '@media (min-width: 601px)': {
+                                        'margin-left': '-20px',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                })
+            })
+        },
+
         openWindow(item) {
-          window.open(`https://meanwhilela.myshopify.com/products/${item.handle}`, '_blank')
-        }
+            window.open(`https://meanwhilela.myshopify.com/products/${item.handle}`, '_blank')
+        },
     },
 
     watch: {},
 
     created() {
-		    this.getShopifyProducts()
-	  },
+        // this.getShopifyProducts()
+
+        this.setupShopifyBuy()
+    },
 }
 </script>
