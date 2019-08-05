@@ -1,7 +1,7 @@
 <template>
   <q-page style="background: url('statics/media/MW_repeat_bg.jpg'); background-size: cover;">
     <div align="center" style="padding: 1rem;">
-      <h3 class="text-white">Store</h3>
+      <img src="statics/media/store.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0; transform: scale(0.85);`" />
     </div>
 
     <div style="padding: 1rem;">
@@ -31,7 +31,11 @@ export default {
         }
     },
 
-    computed: {},
+    computed: {
+        windowWidth() {
+            return this.$store.state.windowWidth;
+        }
+    },
 
     methods: {
         getShopifyProducts() {
