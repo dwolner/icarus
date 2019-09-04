@@ -20,9 +20,29 @@ export default function(/* { ssrContext } */) {
         windowWidth: '',
         content: [
             {
+              imageFilename: "nopressure.jpg",
+              // overlayFilename: "",
+              title: "LOGIC - NO PRESSURE FREESTYLE",
+              tags: ['featured', 'music'],
+              embedURL:
+                "https://www.youtube.com/embed/eARR43lqqCA",
+              description:
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            },
+            {
+              imageFilename: "petermanos.jpg",
+              // overlayFilename: "",
+              title: "PETER MANOS - YOU DON'T KNOW ME",
+              tags: ['featured', 'vfx'],
+              embedURL:
+                "https://www.youtube.com/embed/tUVkynKSIyw",
+              description:
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            },
+            {
               imageFilename: "schoolboyq.jpg",
               // overlayFilename: "",
-              title: "ScHoolboy Q - Lies",
+              title: "SCHOOLBOYQ - LIES FEAT. TY DOLLA $IGN AND YG",
               tags: ['featured', 'music'],
               embedURL:
                 "https://www.youtube.com/embed/BxFk-6KppE4",
@@ -32,7 +52,7 @@ export default function(/* { ssrContext } */) {
             {
               imageFilename: "allday.jpg",
               // overlayFilename: "",
-              title: "John Lindahl - All Day",
+              title: "JOHN LINDAHL - ALL DAY",
               tags: ['featured', 'music'],
               embedURL:
                 "https://www.youtube.com/embed/Hs5t2IobO2k",
@@ -42,7 +62,7 @@ export default function(/* { ssrContext } */) {
             {
               imageFilename: "atnight.jpg",
               // overlayFilename: "",
-              title: "AQ - @Night",
+              title: "AQ - @NIGHT",
               tags: ['featured', 'music', 'vfx'],
               embedURL:
                 "https://www.youtube.com/embed/MtPb3_K_78c",
@@ -62,7 +82,7 @@ export default function(/* { ssrContext } */) {
             {
               imageFilename: "CAPTAIN_Frame.png",
               // overlayFilename: "",
-              title: "AQ - The Captain",
+              title: "AQ - THE CAPTAIN",
               tags: ['featured', 'music', 'vfx'],
               embedURL:
                 "https://www.youtube.com/embed/RpVcPfEmkG0",
@@ -113,7 +133,7 @@ export default function(/* { ssrContext } */) {
               imageFilename: "LIGHTYEAR.png",
               // overlayFilename: "handwriting/Lightyear.png",
               title: "LIGHTYEAR",
-              tags: ['commercial', 'vfx', 'featured'],
+              tags: ['commercial', 'vfx'],
               embedURL:
                 "https://player.vimeo.com/video/117845490?color=ffffff&autoplay=1",
               description:
@@ -134,7 +154,7 @@ export default function(/* { ssrContext } */) {
               // overlayFilename: "handwriting/HuntrHigher.png",
               title: "HUNTR - HIGHER",
               embedURL: "https://www.youtube.com/embed/0uISF_lQVqc",
-              tags: ['music', 'vfx', 'featured'],
+              tags: ['music', 'vfx'],
               description:
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
             },
@@ -142,7 +162,7 @@ export default function(/* { ssrContext } */) {
               imageFilename: "Chela-Website-Frame.png",
               // overlayFilename: "handwriting/ChelaShutYouUp.png",
               title: "SHUT YOU UP",
-              tags: ['music', 'featured'],
+              tags: ['music'],
               embedURL:
                 "https://www.youtube.com/watch?v=KjVz5r1fRxE",
               description:
