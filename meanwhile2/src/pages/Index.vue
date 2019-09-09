@@ -8,7 +8,7 @@
         loop
         id="reelBackground"
       >
-        <source src="statics/media/MW_reel_12-7.mp4" type="video/mp4">
+        <source src="statics/media/reel_8-26.m4v" type="video/mp4">
       </video>
     </div>
 
