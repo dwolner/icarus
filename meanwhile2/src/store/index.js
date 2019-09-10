@@ -22,7 +22,7 @@ export default function(/* { ssrContext } */) {
             {
               imageFilename: "aqflorida.jpg",
               // overlayFilename: "",
-              title: "LOGIC - NO PRESSURE FREESTYLE",
+              title: "AQ - FLORIDA",
               tags: ['featured', 'music'],
               embedURL:
                 "https://www.youtube.com/embed/VzdIoYPFVJk",
