@@ -1,92 +1,98 @@
 <template>
-  <q-page class>
-    <div id="reelContainer">
-      <video
-        autoplay
-        :muted="!$q.platform.is.mobile && !$q.platform.is.safari ? muted : true"
-        playsinline
-        loop
-        id="reelBackground"
-      >
-        <source src="statics/media/REEL_9-9.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div
-      v-if="!$q.platform.is.mobile && !$q.platform.is.safari"
-      align="right"
-      style="padding: 1rem;"
-    >
-      <q-btn color="white" flat @click="muted = !muted">
-        <q-icon
-          :name="`fas ${muted ? 'fa-volume-up' : 'fa-volume-off'}`"
-          style="margin-right: 1rem;"
-        />
-        {{muted ? 'Unmute' : 'Mute'}}
-      </q-btn>
-    </div>
-
-    <div class="bg-black" style="padding: 1rem;">
-      <!-- <div id="aboutSection" align="center" style="margin: 2rem 0;">
-              <h4 class="text-white">WHO IS MEANWHILE?</h4>
-              <q-icon name="fas fa-chevron-down" color="white" />
-      </div>-->
-
-      <div id="videoSection" align="center" style="margin: 0;">
-        <div :align="windowWidth < 768 ? 'center' : 'right'" style="opacity: .4; padding: 0 .5rem;">
-          <q-btn size="xs">
-            <h6
-              class="text-white"
-              style="margin: 0; font-size: .9rem; font-weight: 900;"
-            >#{{selectedTag}}</h6>
-          </q-btn>
-          <q-btn
-            size="xs"
-            v-for="tag in allTags"
-            v-if="tag !== selectedTag"
-            @click="selectTag(tag)"
-          >
-            <h6 class="text-grey" style="margin: 0; font-size: .9rem;">#{{tag}}</h6>
-          </q-btn>
+    <q-page class>
+        <div id="reelContainer">
+            <video
+                autoplay
+                :muted="!$q.platform.is.mobile && !$q.platform.is.safari ? muted : true"
+                playsinline
+                loop
+                id="reelBackground"
+            >
+                <source src="statics/media/REEL_9-9.mp4" type="video/mp4" />
+            </video>
         </div>
 
-        <transition-group
-          v-if="!contentLoad"
-          id="contentGrid"
-          class="row justify-center"
-          name="staggered-fade"
-          tag="div"
-          v-bind:css="false"
-          v-on:before-enter="beforeEnter"
-          v-on:enter="enter"
+        <div
+            v-if="!$q.platform.is.mobile && !$q.platform.is.safari"
+            align="right"
+            style="padding: 1rem;"
         >
-          <div
-            class="col-xs-12 col-sm-6 col-md-4 mediaItem"
-            align="center"
-            v-for="(item, index) in contentToDisplay"
-            :key="index"
-            :data-index="index"
-            style="cursor: pointer;"
-            @click="viewSingleItem(item)"
-          >
-            <img :src="`statics/media/${item.imageFilename}`">
-            <div class="centerHeaderHold">
-              <img
-                v-if="item.overlayFilename"
-                :src="`statics/media/${item.overlayFilename}`"
-                style="height: 100%; width: auto; transform: scale(0.7);"
-              >
+            <q-btn color="white" flat @click="muted = !muted">
+                <q-icon
+                    :name="`fas ${muted ? 'fa-volume-up' : 'fa-volume-off'}`"
+                    style="margin-right: 1rem;"
+                />
+                {{muted ? 'Unmute' : 'Mute'}}
+            </q-btn>
+        </div>
 
-              <div v-else class="centerHeader">
-                <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem;">{{item.title}}</h6>
-                <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
-              </div>
+        <div class="bg-black" style="padding: 1rem;">
+            <!-- <div id="aboutSection" align="center" style="margin: 2rem 0;">
+              <h4 class="text-white">WHO IS MEANWHILE?</h4>
+              <q-icon name="fas fa-chevron-down" color="white" />
+            </div>-->
+
+            <div id="videoSection" align="center" style="margin: 0;">
+                <div
+                    :align="windowWidth < 768 ? 'center' : 'right'"
+                    style="opacity: .4; padding: 0 .5rem;"
+                >
+                    <q-btn size="xs">
+                        <h6
+                            class="text-white"
+                            style="margin: 0; font-size: .9rem; font-weight: 900;"
+                        >#{{selectedTag}}</h6>
+                    </q-btn>
+                    <q-btn
+                        size="xs"
+                        v-for="tag in allTags"
+                        v-if="tag !== selectedTag"
+                        @click="selectTag(tag)"
+                    >
+                        <h6 class="text-grey" style="margin: 0; font-size: .9rem;">#{{tag}}</h6>
+                    </q-btn>
+                </div>
+
+                <transition-group
+                    v-if="!contentLoad"
+                    id="contentGrid"
+                    class="row justify-center"
+                    name="staggered-fade"
+                    tag="div"
+                    v-bind:css="false"
+                    v-on:before-enter="beforeEnter"
+                    v-on:enter="enter"
+                >
+                    <div
+                        class="col-xs-12 col-sm-6 col-md-4 mediaItem"
+                        align="center"
+                        v-for="(item, index) in contentToDisplay"
+                        :key="index"
+                        :data-index="index"
+                        style="cursor: pointer;"
+                        @click="viewSingleItem(item)"
+                    >
+                        <img :src="`statics/media/${item.imageFilename}`" />
+                        <div class="centerHeaderHold">
+                            <img
+                                v-if="item.overlayFilename"
+                                :src="`statics/media/${item.overlayFilename}`"
+                                style="height: 100%; width: auto; transform: scale(0.7);"
+                            />
+
+                            <div v-else class="centerHeader">
+                                <h6
+                                    class="text-white"
+                                    style="margin: 0; letter-spacing: 0.4rem;"
+                                >{{item.title}}</h6>
+                                <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
+                            </div>
+                        </div>
+                    </div>
+                </transition-group>
             </div>
-          </div>
-        </transition-group>
-      </div>
 
-      <!-- <div id="storeSection" style="margin: 2rem 1rem;">
+            <!-- <div id="storeSection" style="margin: 2rem 1rem;">
             <h4 class="text-white" style="margin: 0;">STORE</h4>
 
             <div class="row">
@@ -110,44 +116,58 @@
                     <q-icon color="white" name="fab fa-instagram" />
                 </q-btn>
             </div>
-      </div>-->
+            </div>-->
 
-      <q-modal
-        v-model="showSingleItem"
-        :content-css="{ minWidth: '100vw', minHeight: '100vh', background: 'rgba(0,0,0, 1)'}"
-      >
-        <q-modal-layout>
-          <q-toolbar slot="header" style="background: rgba(0,0,0,0) !important; padding: 1rem;">
-            <!-- <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;"> -->
-
-            <q-toolbar-title></q-toolbar-title>
-
-            <q-btn flat @click="showSingleItem = false">
-              <q-icon name="fas fa-times" color="white" style="font-size: 1.5rem;"/>
-            </q-btn>
-          </q-toolbar>
-
-          <div style="padding: 1rem;" align="center">
-            <img
-              v-if="singleItem.overlayFilename"
-              :src="`statics/media/${singleItem.overlayFilename}`"
-              style="margin: 0 auto; width: 100%; max-width: 500px; transform: scale(0.7);"
+            <q-modal
+                v-model="showSingleItem"
+                :content-css="{ minWidth: '100vw', minHeight: '100vh', background: 'rgba(0,0,0, 1)'}"
             >
-            <iframe
-              :src="singleItem.embedURL"
-              width="100%"
-              :height="windowWidth < 768 ? '320' : '720'"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              webkitallowfullscreen
-              mozallowfullscreen
-              allowfullscreen
-            ></iframe>
-          </div>
-        </q-modal-layout>
-      </q-modal>
-    </div>
-  </q-page>
+                <q-modal-layout>
+                    <q-toolbar
+                        slot="header"
+                        style="background: rgba(0,0,0,0) !important; padding: 1rem;"
+                    >
+                        <!-- <img align="center" alt="Meanwhile logo" src="statics/media/MEANWHILE-GLITCH-slower_edit.gif" style="max-height: 150px; margin: -2rem;"> -->
+
+                        <q-toolbar-title></q-toolbar-title>
+
+                        <q-btn flat @click="showSingleItem = false">
+                            <q-icon name="fas fa-times" color="white" style="font-size: 1.5rem;" />
+                        </q-btn>
+                    </q-toolbar>
+
+                    <div style="padding: 1rem;" align="center">
+                        <img
+                            v-if="singleItem.overlayFilename"
+                            :src="`statics/media/${singleItem.overlayFilename}`"
+                            style="margin: 0 auto; width: 100%; max-width: 500px; transform: scale(0.7);"
+                        />
+                        <iframe
+                            v-if="singleItem.embedURL"
+                            :src="singleItem.embedURL"
+                            width="100%"
+                            :height="windowWidth < 768 ? '320' : '720'"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media"
+                            webkitallowfullscreen
+                            mozallowfullscreen
+                            allowfullscreen
+                        ></iframe>
+
+                        <video
+                            v-if="singleItem.fileName"
+                            playsinline
+							controls
+							autoplay
+							width="100%"
+                            :height="windowWidth < 768 ? '320' : '720'"
+                            :src="`statics/media/${singleItem.fileName}`"
+                        />
+                    </div>
+                </q-modal-layout>
+            </q-modal>
+        </div>
+    </q-page>
 </template>
 
 <script>
