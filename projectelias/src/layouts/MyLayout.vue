@@ -24,8 +24,8 @@
 
         <q-drawer
             v-model="leftDrawerOpen"
+            overlay
             side="left"
-            content-class="bg-black text-white"
             content-css="width: 100px;"
         >
             <q-list>
@@ -35,6 +35,7 @@
                     clickable
                     tag="a"
                     target="_blank"
+                    @click="nav(item)"
                 >
                     <!-- <q-item-section avatar>
             			<q-icon name="code" />
@@ -61,9 +62,9 @@ export default {
         return {
             leftDrawerOpen: false,
             menuItems: [
-                { title: 'Home' },
+                { title: 'Home', sectionID: 'top' },
                 { title: 'My Listings' },
-                { title: 'Concierge' },
+                { title: 'Concierge', sectionID: 'concierge' },
                 { title: 'Buyers' },
                 { title: 'Sellers' },
                 { title: 'The Team' },
@@ -73,5 +74,11 @@ export default {
             ],
         }
     },
+
+    methods: {
+        nav(item) {
+            if (item.sectionID) this.scrollIt(item.sectionID, null, -100)
+        }
+    }
 }
 </script>
