@@ -91,7 +91,7 @@ module.exports = function (ctx) {
       manifest: {
         // name: 'projectelias',
         // short_name: 'projectelias',
-        // description: 'Next level real estate',
+        // description: 'Realty for the NEW San Diego',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

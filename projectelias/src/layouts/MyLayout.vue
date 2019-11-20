@@ -5,15 +5,15 @@
                 <q-btn
                     flat
                     dense
-                    round
                     @click="leftDrawerOpen = !leftDrawerOpen"
                     icon="fas fa-bars"
                     aria-label="Menu"
+                    style="font-size: .7rem;"
                 />
 
                 <div class="absolute" style="top: 2px; left: 50%; transform: translateX(-50%);">
                     <img
-                        src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
+                        src="statics/logos/RichardElias_LogoLockup-White.png"
                         style="max-height: 3rem;"
                     />
                 </div>
@@ -31,10 +31,10 @@
             <q-list>
                 <q-item
                     v-for="item in menuItems"
+                    :key="item.title"
                     clickable
                     tag="a"
                     target="_blank"
-                    href="https://github.quasar.dev"
                 >
                     <!-- <q-item-section avatar>
             			<q-icon name="code" />

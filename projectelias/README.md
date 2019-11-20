@@ -1,6 +1,6 @@
 # projectelias (projectelias)
 
-Next level real estate
+Realty for the NEW San Diego
 
 ## Install the dependencies
 ```bash

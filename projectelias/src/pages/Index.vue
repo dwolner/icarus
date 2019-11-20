@@ -2,12 +2,11 @@
     <q-page class="flex flex-center">
         <div class="hero">
             <div class="container text-white" align="center">
-				<img src="statics/logos/RichardElias_LogoLockup-White.png" style="max-width: 20rem;" />
-                <h1 class="q-ma-lg">Richard Elias Group</h1>
-                <h5>Helping you find your place in San Diego.</h5>
+				<img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 40rem;" />
+                <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
                 <q-btn flat color="light">
-                    <div class="full-width" style="font-size: 1.2rem;">See More</div>
-                    <q-icon name="fas fa-chevron-down" size="xs" />
+                    <div class="full-width" style="font-size: .8rem;">See More</div>
+                    <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
                 </q-btn>
             </div>
             <video
@@ -19,7 +18,7 @@
                 class="playing"
             >
                 <source
-                    src="//luxuryp.s3.amazonaws.com/2c7cb697773f62c41aeef634a325fdf9.mp4"
+                    src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4"
                     type="video/mp4"
                 />
             </video>
@@ -36,9 +35,10 @@ export default {
 <style scoped>
 .hero {
     width: 100%;
-    height: 100%;
     height: calc(100vh - 50px);
     background: #171819;
+    position: relative;
+    overflow: hidden;
 }
 
 @media (min-width: 768px) {
