@@ -5,15 +5,15 @@
                 <q-btn
                     flat
                     dense
-                    round
                     @click="leftDrawerOpen = !leftDrawerOpen"
                     icon="fas fa-bars"
                     aria-label="Menu"
+                    style="font-size: .7rem;"
                 />
 
                 <div class="absolute" style="top: 2px; left: 50%; transform: translateX(-50%);">
                     <img
-                        src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
+                        src="statics/logos/RichardElias_LogoLockup-White.png"
                         style="max-height: 3rem;"
                     />
                 </div>
@@ -24,17 +24,18 @@
 
         <q-drawer
             v-model="leftDrawerOpen"
+            overlay
             side="left"
-            content-class="bg-black text-white"
             content-css="width: 100px;"
         >
             <q-list>
                 <q-item
                     v-for="item in menuItems"
+                    :key="item.title"
                     clickable
                     tag="a"
                     target="_blank"
-                    href="https://github.quasar.dev"
+                    @click="nav(item)"
                 >
                     <!-- <q-item-section avatar>
             			<q-icon name="code" />
@@ -61,9 +62,9 @@ export default {
         return {
             leftDrawerOpen: false,
             menuItems: [
-                { title: 'Home' },
+                { title: 'Home', sectionID: 'top' },
                 { title: 'My Listings' },
-                { title: 'Concierge' },
+                { title: 'Concierge', sectionID: 'concierge' },
                 { title: 'Buyers' },
                 { title: 'Sellers' },
                 { title: 'The Team' },
@@ -73,5 +74,11 @@ export default {
             ],
         }
     },
+
+    methods: {
+        nav(item) {
+            if (item.sectionID) this.scrollIt(item.sectionID, null, -100)
+        }
+    }
 }
 </script>
