@@ -2,3 +2,5 @@ audish/app/.gobble-build/
 nbsignup/node_modules/
 audish/node_modules/
 danielwolner/src/statics/media/*
+.DS_STORE
+*/.DS_STORE

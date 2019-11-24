@@ -4,7 +4,7 @@
       <img src="statics/media/store.png" :style="`max-height: ${windowWidth > 768 ? '4rem' : '2rem'}; margin: 1rem 0; transform: scale(0.85);`" />
     </div>
 
-    <div style="padding: 1rem;">
+    <div style="padding: 1rem; margin: 0 auto; max-width: 1280px;">
       <div id="collection-component-dd682f01e24"></div>
     </div>
   </q-page>
@@ -71,33 +71,53 @@ export default {
                         product: {
                             variantId: 'all',
                             contents: {
-                                imgWithCarousel: false,
+                                img: false,
+                                imgWithCarousel: true,
                                 variantTitle: false,
                                 description: false,
                                 buttonWithQuantity: false,
                                 quantity: false,
                             },
+                            classes: {
+                                mainImageWrapper: 'main-image-wrapper',
+                                carouselButton: 'carousel-button',
+                                carouselButtonArrow: 'carousel-button-arrow',
+                                carouselItem: 'shopify-buy__carousel-item'
+                            },
                             styles: {
                                 product: {
                                     'max-width': 'calc(25% - 20px)',
-                                    'margin-left': '20px',
-                                    'margin-bottom': '50px',
-                                    'border-radius': '.5rem',
+                                    // 'min-width': 'unset',
+                                    'margin': '.5rem',
+                                    'border-radius': '.25rem',
                                     background: '#fff',
                                     padding: '1rem',
+                                    display: 'flex',
+                                    'flex-wrap': 'wrap',
 
                                     imgWrapper: {
                                         position: 'relative',
                                         height: '0',
-                                        'padding-top': 'calc(75% + 15px)',
+                                        width: '100%',
+                                        'padding-top': 'calc(100% + 4rem)',
                                     },
 
                                     img: {
-                                        height: 'calc(100% - 15px)',
+                                        width: '100%',
+                                        height: 'auto',
                                         position: 'absolute',
                                         left: '0',
                                         right: '0',
                                         top: '0',
+                                        'padding': '1rem',
+                                    },
+
+                                    prices: {
+                                        width: '100%',
+                                    },
+
+                                    buttonWrapper: {
+                                        width: '100%',
                                     },
                                 },
                                 button: {
@@ -112,12 +132,43 @@ export default {
                                         'background-color': '#e6e6e6',
                                     },
                                 },
+                                mainImageWrapper: {
+                                    'position': 'absolute',
+                                    'top': 0,
+                                    'width': '100%',
+                                    'height': '100%'
+                                },
+                                carouselButton: {
+                                    width: '20px',
+                                    padding: 0,
+                                    'z-index': 999
+                                },
+                                carouselButtonArrow: {
+                                    width: '17px',
+                                    'margin-left': 'unset'
+                                },
+                                'carousel': {
+                                    'margin-left': 'unset',
+                                    'margin-top': 'unset',
+                                    'min-height': '50px',
+                                    'position': 'absolute',
+                                    'bottom': 0,
+                                    'width': '100%'
+                                },
+                                'carouselItem': {
+                                    margin: '0 7px'
+                                },
+                                'btn-wrapper': {
+                                    width: '100%',
+                                },
                                 title: {
                                     color: '#000',
+                                    width: '100%',
                                 },
                                 price: {
                                     'font-size': '26px',
                                     color: '#000',
+                                    width: '100%',
                                 },
                                 compareAt: {
                                     color: '#000',
@@ -199,9 +250,10 @@ export default {
                         productSet: {
                             styles: {
                                 products: {
-                                    '@media (min-width: 601px)': {
-                                        'margin-left': '-20px',
-                                    },
+                                    display: 'flex',
+                                    'flex-wrap': 'wrap',
+                                    'margin-left': 0,
+                                    'justify-content': 'center'
                                 },
                             },
                         },
