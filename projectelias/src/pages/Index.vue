@@ -1,105 +1,48 @@
 <template>
     <q-page class="flex flex-center">
+        <!-- <div id="top" class="hero">
+            <div class="container text-white" align="center">
+                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
+                <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
+                <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
+                <q-btn flat color="light">
+                    <div class="full-width" style="font-size: .8rem;">See More</div>
+                    <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
+                </q-btn>
+            </div>
+            <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
+                <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
+            </video>
+        </div> -->
+
         <div id="top" class="hero">
             <div class="container text-white" align="center">
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
                 <h5 class="q-my-lg">Coming soon!</h5>
-                <!-- <h5 class="q-my-md">Helping you find your place in San Diego.</h5> -->
-                <!-- <q-btn flat color="light">
-                    <div class="full-width" style="font-size: .8rem;">See More</div>
-                    <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
-                </q-btn> -->
             </div>
             <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
                 <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
             </video>
         </div>
 
-        <!-- <div id="concierge" class="row container" style="min-height: 100vh;">
-            <div class="col-sm-12 col-md-6 bg-grey-1 q-py-xl">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
-                    <div class="q-pa-md">
-                        <h3>Compass Concierge</h3>
-                        <p>Get fronted for the cost of home improvement services with no interest — ever.</p> -->
-                        <!-- <p>Compass Concierge is the hassle-free way to sell your home faster and for a higher price with services like staging, flooring, painting, and more.</p> -->
-                    <!-- </div>
-                    <div id="contact-profile" class="row">
-                        <div class="col-sm-12 col-md-4 q-pa-md">
-                            <img src="https://d2787ndpv5cwhz.cloudfront.net/d2557d28756d2818f42b4c7e4bf61bf9712ddcf0/300x300.jpg" style="max-width: 100%;" />
-                        </div>
-                        <div class="col-sm-12 col-md-8 q-pa-md">
-                            <h5>Learn how Richard can help sell your home faster and for a higher price with Concierge.</h5>
-                            <div>
-                                <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                                <p class="q-my-sm">richard.elias@compass.com</p>
-                                <p class="q-my-sm">M: 619.672.2020</p>
-                            </div>
-                        </div>
-                        <div class="col-12 q-pa-sm">
-                            <q-form @submit="onSubmit" @reset="onReset" class="row">
-                                <q-input
-                                    v-model="name" 
-                                    class="col-6 q-pa-sm"
-                                    filled 
-                                    lazy-rules 
-                                    label="Your name"
-                                    :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                                />
-
-                                <q-input
-                                    v-model="zip" 
-                                    class="col-6 q-pa-sm"
-                                    filled 
-                                    lazy-rules 
-                                    label="Your zip"
-                                    :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                                />
-
-                                <q-input 
-                                    v-model="email" 
-                                    class="col-6 q-pa-sm"
-                                    filled 
-                                    lazy-rules 
-                                    label="Your email"
-                                    :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                                />
-
-                                <q-input 
-                                    v-model="phone" 
-                                    class="col-6 q-pa-sm"
-                                    filled 
-                                    lazy-rules 
-                                    label="Your number"
-                                    :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                                />
-
-                                <div class="q-pa-sm">
-                                    <q-btn label="Work with Richard" type="submit" color="primary" />
-                                    <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-                                </div>
-                            </q-form>
-
-                            <p v-if="conciergeFormSuccess" class="q-my-md">Thank you! Richard will be in touch soon.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="col-sm-12 col-md-6 relative-position"
-                style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
-            > -->
-                <!-- <span class="object-fit"> -->
-                <!-- <img src="//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif"> -->
-                <!-- </span> -->
-            <!-- </div>
-        </div> -->
+        <!-- <Concierge /> -->
+        
+        <MyListings />
     </q-page>
 </template>
 
 <script>
+import Concierge from '../components/Concierge'
+import MyListings from '../components/MyListings'
+
 export default {
     name: 'PageIndex',
+
+    components: {
+        Concierge,
+        MyListings
+    },
 
     data() {
         return {
@@ -129,7 +72,7 @@ export default {
 <style scoped>
 .hero {
     width: 100%;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 50px);
     background: #171819;
     position: relative;
     overflow: hidden;

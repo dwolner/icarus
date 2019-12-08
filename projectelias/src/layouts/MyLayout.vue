@@ -1,21 +1,20 @@
 <template>
     <q-layout view="hhh LpR fFf">
         <q-header reveal elevated>
-            <q-toolbar style="height: 75px;">
-                <!-- <q-btn
+            <q-toolbar>
+                <q-btn
                     flat
                     dense
                     @click="leftDrawerOpen = !leftDrawerOpen"
                     icon="fas fa-bars"
                     aria-label="Menu"
                     style="font-size: .7rem;"
-                /> -->
+                />
 
-                <!-- <div class="absolute" style="top: 2px; left: 50%; transform: translateX(-50%);"> -->
-                <div class="absolute" style="top: 2px; left: 0;">
+                <div class="absolute" style="top: 2px; left: 50%; transform: translateX(-50%);">
                     <img
                         src="statics/logos/RichardElias_LogoLockup-White.png"
-                        style="max-height: 4.5rem;"
+                        style="max-height: 3rem;"
                     />
                 </div>
 
