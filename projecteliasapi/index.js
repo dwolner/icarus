@@ -8,6 +8,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', function (req, res) {
+    res.send("Hello World!");
+});
+
 app.get('/listings', (req, res) => {
     request('https://www.compass.com/api/v3/listings/search/list/relations',
         {
