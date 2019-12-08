@@ -1,24 +1,25 @@
 <template>
     <q-layout view="hhh LpR fFf">
         <q-header reveal elevated>
-            <q-toolbar>
-                <q-btn
+            <q-toolbar style="height: 75px;">
+                <!-- <q-btn
                     flat
                     dense
                     @click="leftDrawerOpen = !leftDrawerOpen"
                     icon="fas fa-bars"
                     aria-label="Menu"
                     style="font-size: .7rem;"
-                />
+                /> -->
 
-                <div class="absolute" style="top: 2px; left: 50%; transform: translateX(-50%);">
+                <!-- <div class="absolute" style="top: 2px; left: 50%; transform: translateX(-50%);"> -->
+                <div class="absolute" style="top: 2px; left: 0;">
                     <img
                         src="statics/logos/RichardElias_LogoLockup-White.png"
-                        style="max-height: 3rem;"
+                        style="max-height: 4.5rem;"
                     />
                 </div>
 
-                <!-- <div>Quasar v{{ $q.version }}</div> -->
+                <div class="full-width" align="right"><p class="text-white q-ma-md" style="opacity: .25;">DRE 01104411</p></div>
             </q-toolbar>
         </q-header>
 
