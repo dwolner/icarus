@@ -20,6 +20,26 @@ export default function(/* { ssrContext } */) {
         windowWidth: '',
         content: [
             {
+              imageFilename: "riverrundry.png",
+              // overlayFilename: "",
+              title: "RIVER RUN DRY",
+              tags: ['featured', 'music'],
+              embedURL:
+                "https://www.youtube.com/embed/ESdunfZPrv0",
+              description:
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            },
+            {
+              imageFilename: "deepblues.png",
+              // overlayFilename: "",
+              title: "DAN ATTA - DEEP BLUES",
+              tags: ['music'],
+              embedURL:
+                "https://www.youtube.com/embed/9iawkgbO6Q4",
+              description:
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            },
+            {
               imageFilename: "santamonica.png",
               // overlayFilename: "",
               title: "MOHA LA SQUALE - SANTA MONICA",
@@ -93,7 +113,7 @@ export default function(/* { ssrContext } */) {
               imageFilename: "atnight.jpg",
               // overlayFilename: "",
               title: "AQ - @NIGHT",
-              tags: ['featured', 'music', 'vfx'],
+              tags: ['music', 'vfx'],
               embedURL:
                 "https://www.youtube.com/embed/MtPb3_K_78c",
               description:
@@ -123,7 +143,7 @@ export default function(/* { ssrContext } */) {
               imageFilename: "CAPTAIN_Frame.png",
               // overlayFilename: "",
               title: "AQ - THE CAPTAIN",
-              tags: ['featured', 'music', 'vfx'],
+              tags: ['music', 'vfx'],
               embedURL:
                 "https://www.youtube.com/embed/RpVcPfEmkG0",
               description:
