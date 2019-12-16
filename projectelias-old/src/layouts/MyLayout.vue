@@ -63,14 +63,14 @@ export default {
             leftDrawerOpen: false,
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
-                { title: 'Concierge', sectionID: 'Concierge' },
-                { title: 'My Listings', sectionID: 'MyListings'},
+                { title: 'My Listings' },
+                { title: 'Concierge', sectionID: 'concierge' },
                 { title: 'Buyers' },
                 { title: 'Sellers' },
-                { title: 'The Team', sectionID: 'Team' },
-                { title: 'Testimonials', sectionID: 'Testimonials' },
-                { title: 'Contact', sectionID: 'Contact' },
-                { title: 'Compass Search', sectionID: 'CompassSearch' },
+                { title: 'The Team' },
+                { title: 'Testimonials' },
+                { title: 'Contact' },
+                { title: 'Compass Search' },
             ],
         }
     },
@@ -78,8 +78,6 @@ export default {
     methods: {
         nav(item) {
             if (item.sectionID) this.scrollIt(item.sectionID, null, -100)
-
-            this.leftDrawerOpen = false
         }
     }
 }

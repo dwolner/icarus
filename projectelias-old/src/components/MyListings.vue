@@ -1,9 +1,9 @@
 <template>
     <div id="MyListings">
-        <div class="q-pa-xl">
+        <div class="q-pa-md" style="position: relative; top: 50%; transform: translateY(-50%);">
             <div class="row container justify-center">
                 <div class="col-12 q-pa-sm">
-                    <h3 class="text-white">Listings</h3>
+                    <h6 class="text-white">Listings</h6>
                 </div>
                 <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-3 q-pa-sm" style="">
                     <!-- <div class="shadow-4 relative-position" :style="`background: url(${ item.media[0].originalUrl }); background-size: cover; background-position: 50%;`"> -->
@@ -58,19 +58,14 @@ export default {
                 relationTypes: [0]
             }
 
-            this.api.post('/api', req, res => {
-                console.log('listing res: ', res)
+            this.api.post('/listings', req, res => {
+                k('listing res: ', res)
                 cb(res)
             })
         },
 
         formatListings(res) {
-            // this.listings = res.listingRelations.map(listing => {
-            //     return listing.listing
-            // })
-
-            //TODO: for dev
-            this.listings = res.listingRelations.map(listing => {
+            this.listings = dummy.listingRelations.map(listing => {
                 return listing.listing
             })
 
@@ -80,8 +75,7 @@ export default {
 
     created() {
         // this.getListings(res => {
-            // this.formatListings(res)
-            this.formatListings(dummy)
+            this.formatListings()
         // })
     },
 }
@@ -1813,7 +1807,7 @@ let dummy = {
 <style scoped>
 #MyListings {
     width: 100%;
-    /* min-height: 100vh; */
+    height: calc(100vh - 50px);
     background: #171819;
     position: relative;
     overflow: hidden;
@@ -1821,7 +1815,7 @@ let dummy = {
 
 .container {
     width: 100%;
-    height: 100%;
+    height: 100&;
     overflow: hidden;
 }
 

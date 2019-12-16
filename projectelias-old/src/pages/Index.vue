@@ -1,18 +1,6 @@
 <template>
     <q-page class="flex flex-center">
-
         <!-- <div id="top" class="hero">
-            <div class="container text-white" align="center">
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
-                <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
-                <h5 class="q-my-lg">Coming soon!</h5>
-            </div>
-            <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
-                <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
-            </video>
-        </div> -->
-         
-        <div id="top" class="hero">
             <div class="container text-white" align="center">
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
@@ -25,29 +13,35 @@
             <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
                 <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
             </video>
+        </div> -->
+
+        <div id="top" class="hero">
+            <div class="container text-white" align="center">
+                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
+                <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
+                <h5 class="q-my-lg">Coming soon!</h5>
+            </div>
+            <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
+                <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
+            </video>
         </div>
 
-        <Concierge />
+        <!-- <Concierge /> -->
         
         <MyListings />
-        
-        <Team />
-        
     </q-page>
 </template>
 
 <script>
 import Concierge from '../components/Concierge'
 import MyListings from '../components/MyListings'
-import Team from '../components/Team'
 
 export default {
     name: 'PageIndex',
 
     components: {
         Concierge,
-        MyListings,
-        Team
+        MyListings
     },
 
     data() {
