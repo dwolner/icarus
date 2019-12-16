@@ -1811,42 +1811,42 @@ let dummy = {
 </script>
 
 <style scoped>
-#MyListings {
-    width: 100%;
-    /* min-height: 100vh; */
-    background: #171819;
-    position: relative;
-    overflow: hidden;
-}
+    #MyListings {
+        width: 100%;
+        /* min-height: 100vh; */
+        background: #080808;
+        position: relative;
+        overflow: hidden;
+    }
 
-.container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+    .container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
 
-.centerHeaderHold {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.5);
-    -webkit-transition: background 0.5s, opacity 0.5s;
-    transition: background 0.5s, opacity 0.5s;
-}
+    .centerHeaderHold {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.5);
+        -webkit-transition: background 0.5s, opacity 0.5s;
+        transition: background 0.5s, opacity 0.5s;
+    }
 
-.centerHeader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 100%;
-    padding: 1rem;
-}
+    .centerHeader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        padding: 1rem;
+    }
 
-.centerHeaderHold:hover {
-    opacity: 0;
-}
+    .centerHeaderHold:hover {
+        opacity: 0;
+    }
 </style>

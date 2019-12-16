@@ -21,41 +21,13 @@
                     </div>
                     <div class="col-12">
                         <q-form @submit="onSubmit" @reset="onReset" class="row">
-                            <q-input
-                                v-model="name"
-                                class="col-6 q-pa-md bg-white"
-                                filled 
-                                lazy-rules 
-                                label="Your name"
-                                :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                            />
+                            <q-input v-model="name" class="col-6 q-pa-md bg-white" filled lazy-rules label="Your name" :rules="[val => (val && val.length > 0) || 'Please type something']" />
 
-                            <q-input
-                                v-model="zip"
-                                class="col-6 q-pa-md bg-white"
-                                filled 
-                                lazy-rules 
-                                label="Your zip"
-                                :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                            />
+                            <q-input v-model="zip" class="col-6 q-pa-md bg-white" filled lazy-rules label="Your zip" :rules="[val => (val && val.length > 0) || 'Please type something']" />
 
-                            <q-input 
-                                v-model="email"
-                                class="col-6 q-pa-md bg-white"
-                                filled 
-                                lazy-rules 
-                                label="Your email"
-                                :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                            />
+                            <q-input v-model="email" class="col-6 q-pa-md bg-white" filled lazy-rules label="Your email" :rules="[val => (val && val.length > 0) || 'Please type something']" />
 
-                            <q-input 
-                                v-model="phone"
-                                class="col-6 q-pa-md bg-white"
-                                filled 
-                                lazy-rules 
-                                label="Your number"
-                                :rules="[val => (val && val.length > 0) || 'Please type something']" 
-                            />
+                            <q-input v-model="phone" class="col-6 q-pa-md bg-white" filled lazy-rules label="Your number" :rules="[val => (val && val.length > 0) || 'Please type something']" />
 
                             <div class="q-pa-md">
                                 <q-btn label="Work with Richard" type="submit" color="primary" />
@@ -72,10 +44,20 @@
             class="col-sm-12 col-md-6 relative-position"
             style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
         >
-            <!-- <span class="object-fit">
-                <img src="//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif">
-            </span> -->
+            <div class="center">
+                <q-btn flat @click="showConciergePromo = true">
+                    <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
+                </q-btn>
+            </div>
         </div>
+
+        <q-dialog v-model="showConciergePromo" @show="showVideo = true" @hide="showVideo = false">
+            <q-card>
+                <q-card-section>
+                    <video v-if="showVideo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />
+                </q-card-section>
+            </q-card>
+        </q-dialog>
     </div>
 </template>
 
@@ -89,7 +71,9 @@ export default {
             zip: '',
             email: '',
             phone: '',
-            conciergeFormSuccess: false
+            conciergeFormSuccess: false,
+            showConciergePromo: false,
+            showVideo: false,
         }
     },
 
@@ -98,14 +82,14 @@ export default {
             // email richard and steve
             this.conciergeFormSuccess = true
         },
-        
+
         onReset() {
             this.name = ''
             this.zip = ''
             this.email = ''
             this.phone = ''
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -140,6 +124,17 @@ export default {
     }
 }
 
+.center {
+    position: relative;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 .hero .container {
     position: relative;
     top: 50%;
@@ -147,7 +142,6 @@ export default {
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    position: relative;
     z-index: 100;
 }
 
@@ -170,12 +164,5 @@ export default {
     background: #171819;
     background-size: cover;
     display: inline-block;
-}
-
-.cx-dotGridBackground {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAGIQU8tAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3BpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplNDU4YjVhNC05NzMyLTQ3NTctOTgzYi0wMGVhMTk2MTVjM2UiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUY2M0VCNkIwMTY4MTFFNUIyQzBDNzlDOTQ3MDA2RUMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUY2M0VCNkEwMTY4MTFFNUIyQzBDNzlDOTQ3MDA2RUMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MjIyQjNFNkY3QzAxMUU0QjZGRjhDRjQ5ODM4RDZDQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MjIyQjNFN0Y3QzAxMUU0QjZGRjhDRjQ5ODM4RDZDQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtV2jhkAAACbSURBVHjaYvz//z8DOmBiwALAgg8fPoQrB7IZAAKIkWTtDMjGAAQQVu04dRMDAAKI+ibSUCFyaGITAwggoj1DdScOHwNZ8AQwo7y8PE6NuNQBBNBopIwaOOgSNrRgBSdMYGJlxJOocaqjugsBAozqOWXQx8moA0cdOOpAOgMWfJKwFic6wFfzU9s8FiLMRS8oGSkMFJLMG/RRDADgFUEHYLMY5gAAAABJRU5ErkJggg==);
-    background-size: 20px 10px;
-    -webkit-box-shadow: rgb(255, 255, 255) 0px -60px 170px 0px inset;
-    box-shadow: rgb(255, 255, 255) 0px -60px 170px 0px inset;
 }
 </style>

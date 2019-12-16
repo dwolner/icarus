@@ -17,7 +17,7 @@
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
                 <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
-                <q-btn flat color="light">
+                <q-btn flat color="light" @click="scrollIt('Concierge', null, -50)">
                     <div class="full-width" style="font-size: .8rem;">See More</div>
                     <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
                 </q-btn>
@@ -30,8 +30,14 @@
         <Concierge />
         
         <MyListings />
+
+        <BuyersSellers />
         
         <Team />
+        
+        <Testimonials />
+        
+        <Contact />
         
     </q-page>
 </template>
@@ -39,7 +45,10 @@
 <script>
 import Concierge from '../components/Concierge'
 import MyListings from '../components/MyListings'
+import BuyersSellers from '../components/BuyersSellers'
 import Team from '../components/Team'
+import Testimonials from '../components/Testimonials'
+import Contact from '../components/Contact'
 
 export default {
     name: 'PageIndex',
@@ -47,7 +56,10 @@ export default {
     components: {
         Concierge,
         MyListings,
-        Team
+        BuyersSellers,
+        Team,
+        Testimonials,
+        Contact
     },
 
     data() {

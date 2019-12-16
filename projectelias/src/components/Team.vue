@@ -1,7 +1,7 @@
 <template>
-    <div id="Team" class="row container cx-dotGridBackground">
+    <div id="Team" class="row container">
         <div class="col-sm-12 col-md-6 q-pa-xl">
-            <h3>The Team</h3>
+            <h3 class="text-white">The Team</h3>
         </div>
     </div>
 </template>
@@ -23,10 +23,10 @@ export default {
 </script>
 
 <style scoped>
-.hero {
+#Team {
     width: 100%;
     min-height: 100vh;
-    background: #171819;
+    background: #080808;
     position: relative;
     overflow: hidden;
 }
@@ -35,12 +35,5 @@ export default {
     width: 100%;
     height: 100&;
     overflow: hidden;
-}
-
-.cx-dotGridBackground {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAGIQU8tAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3BpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplNDU4YjVhNC05NzMyLTQ3NTctOTgzYi0wMGVhMTk2MTVjM2UiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUY2M0VCNkIwMTY4MTFFNUIyQzBDNzlDOTQ3MDA2RUMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUY2M0VCNkEwMTY4MTFFNUIyQzBDNzlDOTQ3MDA2RUMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MjIyQjNFNkY3QzAxMUU0QjZGRjhDRjQ5ODM4RDZDQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MjIyQjNFN0Y3QzAxMUU0QjZGRjhDRjQ5ODM4RDZDQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtV2jhkAAACbSURBVHjaYvz//z8DOmBiwALAgg8fPoQrB7IZAAKIkWTtDMjGAAQQVu04dRMDAAKI+ibSUCFyaGITAwggoj1DdScOHwNZ8AQwo7y8PE6NuNQBBNBopIwaOOgSNrRgBSdMYGJlxJOocaqjugsBAozqOWXQx8moA0cdOOpAOgMWfJKwFic6wFfzU9s8FiLMRS8oGSkMFJLMG/RRDADgFUEHYLMY5gAAAABJRU5ErkJggg==);
-    background-size: 20px 10px;
-    -webkit-box-shadow: rgb(255, 255, 255) 0px -60px 170px 0px inset;
-    box-shadow: rgb(255, 255, 255) 0px -60px 170px 0px inset;
 }
 </style>
