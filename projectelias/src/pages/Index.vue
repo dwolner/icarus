@@ -1,7 +1,7 @@
 <template>
     <q-page class="flex flex-center">
 
-        <!-- <div id="top" class="hero">
+        <div id="top" class="hero">
             <div class="container text-white" align="center">
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
@@ -10,34 +10,7 @@
             <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
                 <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
             </video>
-        </div> -->
-         
-        <div id="top" class="hero">
-            <div class="container text-white" align="center">
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
-                <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
-                <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
-                <q-btn flat color="light" @click="scrollIt('Concierge', null, -50)">
-                    <div class="full-width" style="font-size: .8rem;">See More</div>
-                    <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
-                </q-btn>
-            </div>
-            <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
-                <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
-            </video>
         </div>
-
-        <Concierge />
-        
-        <MyListings />
-
-        <BuyersSellers />
-        
-        <Team />
-        
-        <Testimonials />
-        
-        <Contact />
         
     </q-page>
 </template>

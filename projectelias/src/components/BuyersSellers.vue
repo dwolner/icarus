@@ -1,8 +1,8 @@
 <template>
-    <div id="BuyersSellers" class="cx-dotGridBackground">
+    <div id="BuyersSellers" class="cx-dotGridBackground q-pa-xl">
         <div class="row well container justify-center">
-            <div class="col-sm-12 q-pa-xl">
-                <h3>Buying Or Selling?</h3>
+            <div class="col-sm-12 q-py-xl">
+                <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
             </div>
 
             <div v-for="item in features" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-md">

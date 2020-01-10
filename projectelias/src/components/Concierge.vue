@@ -3,7 +3,7 @@
         <div class="col-sm-12 col-md-6 q-pa-xl">
             <div style="position: relative; top: 50%; transform: translateY(-50%);">
                 <div class="q-pa-md">
-                    <h3>Compass Concierge</h3>
+                    <h3 class="Compass-Serif-Regular">Compass Concierge</h3>
                     <p>Get fronted for the cost of home improvement services with no interest — ever.</p>
                     <p>Compass Concierge is the hassle-free way to sell your home faster and for a higher price with services like staging, flooring, painting, and more.</p>
                 </div>
@@ -54,6 +54,9 @@
         <q-dialog v-model="showConciergePromo" @show="showVideo = true" @hide="showVideo = false">
             <q-card>
                 <q-card-section>
+                    <q-btn class="absolute" round size="sm" color="white" @click="showConciergePromo = false" style="top: .5rem; right: .5rem;">
+                        <q-icon name="fas fa-times" color="black" />
+                    </q-btn>
                     <video v-if="showVideo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />
                 </q-card-section>
             </q-card>
