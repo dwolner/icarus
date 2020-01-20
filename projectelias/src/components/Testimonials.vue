@@ -1,55 +1,57 @@
 <template>
-    <div id="Testimonials" class="row container cx-dotGridBackground">
-        <div class="col-sm-12 q-pt-xl q-px-xl">
-            <h3 class="Compass-Serif-Regular">Testimonials</h3>
-        </div>
+    <div id="Testimonials" :class="`container cx-dotGridBackground q-pa-md`">
+        <div class="row well">
+            <div class="col-sm-12">
+                <h3 class="Compass-Serif-Regular q-mb-md">Testimonials</h3>
+            </div>
 
-        <div class="col-sm-12 q-pa-xl">
-            <q-carousel 
-                v-model="slideIndex" 
-                class="rounded-borders"
-                control-color="primary"
-                transition-prev="slide-right" 
-                transition-next="slide-left" 
-                animated 
-                swipeable 
-                navigation 
-                padding 
-                arrows
-                infinite
-            >
-                <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
-                    <q-icon name="fas fa-quote-right" color="primary" size="md" />
-                    <div class="q-mt-md text-center">
-                        <p>{{ slide.text }}</p>
-                        <h6>
-                            <span style="font-weight: bold;">{{ slide.author }}</span> - {{ slide.date }}
-                        </h6>
-                    </div>
-                </q-carousel-slide>
-            </q-carousel>
-        </div>
+            <div class="col-xs-12 q-pa-sm">
+                <q-carousel 
+                    v-model="slideIndex" 
+                    class="rounded-borders"
+                    control-color="primary"
+                    transition-prev="slide-right" 
+                    transition-next="slide-left" 
+                    animated 
+                    swipeable 
+                    navigation 
+                    padding 
+                    arrows
+                    infinite
+                >
+                    <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
+                        <q-icon name="fas fa-quote-right" color="primary" size="md" />
+                        <div class="q-mt-md text-center">
+                            <p>{{ slide.text }}</p>
+                            <h6>
+                                <span style="font-weight: bold;">{{ slide.author }}</span> - {{ slide.date }}
+                            </h6>
+                        </div>
+                    </q-carousel-slide>
+                </q-carousel>
+            </div>
 
-        <div class="col-sm-12 q-pa-xl">
-            <q-carousel 
-                v-model="videoSlideIndex" 
-                class="rounded-borders"
-                control-color="primary"
-                transition-prev="slide-right" 
-                transition-next="slide-left" 
-                animated 
-                swipeable 
-                navigation 
-                padding 
-                arrows
-                infinite
-            >
-                <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center q-pa-md">
-                    <div class="q-mt-lg text-center" style="max-width: 500px; margin: 0 auto;">
-                        <iframe width="500" height="315" :src="`https://www.youtube.com/embed/${ slide.id }`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </q-carousel-slide>
-            </q-carousel>
+            <div class="col-xs-12 q-pa-sm">
+                <q-carousel 
+                    v-model="videoSlideIndex" 
+                    class="rounded-borders"
+                    control-color="primary"
+                    transition-prev="slide-right" 
+                    transition-next="slide-left" 
+                    animated 
+                    swipeable 
+                    navigation 
+                    padding 
+                    arrows
+                    infinite
+                >
+                    <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center q-pa-md">
+                        <div class="q-mt-lg text-center" style="max-width: 500px; margin: 0 auto;">
+                            <iframe :width="500" height="315" :src="`https://www.youtube.com/embed/${ slide.id }`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </q-carousel-slide>
+                </q-carousel>
+            </div>
         </div>
     </div>
 </template>

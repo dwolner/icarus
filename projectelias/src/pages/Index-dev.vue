@@ -2,8 +2,8 @@
     <q-page class="flex flex-center">
 
         <div id="top" class="hero">
-            <div class="container text-white" align="center">
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
+            <div class="container text-white q-pa-lg" align="center">
+                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
                 <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
                 <q-btn flat color="light" @click="scrollIt('Concierge', null, -50)">
@@ -87,7 +87,6 @@ export default {
 
 .container {
     width: 100%;
-    height: 100&;
     overflow: hidden;
 }
 
@@ -101,11 +100,11 @@ export default {
     overflow: hidden;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .hero {
         min-height: 600px;
     }
-}
+} */
 
 .hero .container {
     position: relative;

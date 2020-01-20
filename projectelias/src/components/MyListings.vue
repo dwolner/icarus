@@ -3,7 +3,7 @@
         <div class="q-pa-xl">
             <div class="row container justify-center">
                 <div class="col-12 q-pa-sm">
-                    <h3 class="text-white Compass-Serif-Regular">Listings</h3>
+                    <h3 class="text-white Compass-Serif-Regular q-mb-md">Listings</h3>
                 </div>
                 <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-3 q-pa-sm" style="">
                     <!-- <div class="shadow-4 relative-position" :style="`background: url(${ item.media[0].originalUrl }); background-size: cover; background-position: 50%;`"> -->
@@ -20,7 +20,7 @@
                                 <h6
                                     align="center"
                                     class="text-white"
-                                    style="margin: 0; letter-spacing: 0.4rem;"
+                                    style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;"
                                 >{{item.location.prettyAddress}}</h6>
                                 <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
                             </div>
