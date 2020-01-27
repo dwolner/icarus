@@ -5,7 +5,7 @@
                 <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
             </div>
 
-            <div v-for="item in features" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
+            <div v-for="item in features" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
                 <div class="bg-white q-pa-md full-height">
                     <q-icon :name="item.icon" style="font-size: 3rem;" />
                     <h5 class="q-my-lg">{{ item.title }}</h5>

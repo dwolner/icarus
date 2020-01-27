@@ -2,31 +2,31 @@
     <div id="Contact" style="background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%;"> 
         <div class="overlay"></div>
 
-        <div class="well row container q-pa-xl" style="position: absolute; z-index: 999; color: white;">
-            <div class="col-sm-12 col-md-4 q-pa-sm" align="center">
+        <div class="well row container q-pa-xl" style="position: relative; z-index: 999; color: white;">
+            <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
                 <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6>
                 <p>San Diego Real Estate</p>
                 <p>Richard Elias Team | Compass</p>
                 <p>Realtor® DRE #01104411</p>
             </div>
-            <div class="col-sm-12 col-md-4 q-pa-sm" align="center">
+            <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
                 <h6 class="Compass-Serif-Regular q-my-md">LOCATION</h6>
-                <iframe width="300" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=655+W+Broadway+Ste.+1650,+San+Diego,+CA,+92101&key=AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs" allowfullscreen></iframe>
+                <iframe :width="mapWidth" :height="mapWidth" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=655+W+Broadway+Ste.+1650,+San+Diego,+CA,+92101&key=AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs" allowfullscreen></iframe>
             </div>
-            <div class="col-sm-12 col-md-4 q-pa-sm" align="center">
+            <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
                 <h6 class="Compass-Serif-Regular q-my-md">CONTACT US</h6>
                 <p>619.672.2020</p>
                 <p>richard.elias@compass.com</p>
             </div>
-            <div class="col-sm-12 q-pt-md q-px-xl" align="center">
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem;" />
+            <div class="col-xs-12 q-pt-md q-px-md" align="center">
+                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem; width: 100%;" />
                 <p>While some of the listings on this site may not be our exclusive listings, we have ongoing relationships with all of the listing agents.</p>
-                <p>Designed and developed by Daniel Wolner.</p>
+                <p class="q-my-lg"><span style="font-style: italic;">Designed and developed by</span> Daniel Wolner.</p>
             </div>
-            <div class="col-sm-6 q-py-xl q-px-md" align="left">
+            <div class="col-xs-6 q-pt-xl q-px-sm" align="left">
                 <p style="font-size: .8rem;">© COPYRIGHT 2020 | PRIVACY POLICY</p>
             </div>
-            <div class="col-sm-6 q-py-xl q-px-md" align="right">
+            <div class="col-xs-6 q-pt-xl q-px-sm" align="right">
                 <p style="font-size: .8rem;">THE RICHARD ELIAS TEAM</p>
             </div>
         </div>
@@ -39,7 +39,14 @@ export default {
 
     data() {
         return {
-            
+            mapOffset: 150
+        }
+    },
+
+    computed: {
+        mapWidth() {
+            let width = this.$q.screen.width - this.mapOffset
+            return width < 300 ? width : 300
         }
     },
 

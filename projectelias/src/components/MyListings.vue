@@ -1,14 +1,12 @@
 <template>
     <div id="MyListings">
         <div class="q-pa-xl">
-            <div class="row container justify-center">
+            <div class="row well container justify-center">
                 <div class="col-12 q-pa-sm">
                     <h3 class="text-white Compass-Serif-Regular q-mb-md">Listings</h3>
                 </div>
-                <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-3 q-pa-sm" style="">
-                    <!-- <div class="shadow-4 relative-position" :style="`background: url(${ item.media[0].originalUrl }); background-size: cover; background-position: 50%;`"> -->
-                    <div class="shadow-4 relative-position" style="height: 100%;">
-                        <img :src="item.media[0].originalUrl" style="max-width: 100%;" />
+                <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-3 q-pa-sm cursor-pointer" @click="selectListing(item)">
+                    <div class="shadow-4 relative-position" :style="`height: 100%; background: url(' ${ item.media[0].originalUrl }'; background-size: cover; background-position: 50%; height: 250px;`">
                         <div class="centerHeaderHold">
                             <img
                                 v-if="item.overlayFilename"
@@ -29,6 +27,18 @@
                 </div>
             </div>
         </div>
+
+        <q-dialog v-model="showSingleListing">
+            <q-card>
+                <q-card-section>
+                    <q-btn class="absolute" round size="sm" color="white" @click="showSingleListing = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                        <q-icon name="fas fa-times" color="black" />
+                    </q-btn>
+                    
+
+                </q-card-section>
+            </q-card>
+        </q-dialog>
     </div>
 </template>
 
@@ -39,6 +49,8 @@ export default {
     data() {
         return {
             listings: null,
+            showSingleListing: false,
+            singleLsiting: null
         }
     },
 
@@ -75,7 +87,14 @@ export default {
             })
 
             console.log('listings: ', this.listings)
-        }
+        },
+
+        selectListing(item) {
+            console.log('selectListing: ', item)
+            
+            this.singleLsiting = item
+            this.showSingleListing = true
+        } 
     },
 
     created() {

@@ -1,11 +1,11 @@
 <template>
-    <div id="Testimonials" :class="`container cx-dotGridBackground q-pa-md`">
+    <div id="Testimonials" :class="`container cx-dotGridBackground q-px-md q-py-xl`">
         <div class="row well">
-            <div class="col-sm-12">
-                <h3 class="Compass-Serif-Regular q-mb-md">Testimonials</h3>
+            <div class="col-sm-12 q-py-sm q-px-lg">
+                <h3 class="Compass-Serif-Regular q-mb-md" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
             </div>
 
-            <div class="col-xs-12 q-pa-sm">
+            <div class="col-xs-12 q-pa-sm q-mb-md">
                 <q-carousel 
                     v-model="slideIndex" 
                     class="rounded-borders"
@@ -44,10 +44,11 @@
                     padding 
                     arrows
                     infinite
+                    style="height: 100%;"
                 >
-                    <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center q-pa-md">
-                        <div class="q-mt-lg text-center" style="max-width: 500px; margin: 0 auto;">
-                            <iframe :width="500" height="315" :src="`https://www.youtube.com/embed/${ slide.id }`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center">
+                        <div class="text-center" :style="`max-width: 100%; margin: 0 auto;`">
+                            <iframe :width="videoWidth" :height="videoHeight" :src="`https://www.youtube.com/embed/${ slide.id }`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </q-carousel-slide>
                 </q-carousel>
@@ -102,7 +103,20 @@ export default {
                 {
                     id: 'NVArUyrNXzw'
                 },
-            ]
+            ],
+
+            videoOffset: 160
+        }
+    },
+
+    computed: {
+        videoWidth() {
+            let width = this.$q.screen.width - this.videoOffset
+            return width < 1312 ? width : 1312
+        },
+
+        videoHeight() {
+            return this.videoWidth * .5625
         }
     },
 
