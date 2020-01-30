@@ -28,13 +28,14 @@
             </div>
         </div>
 
-        <q-dialog v-model="showSingleListing">
-            <q-card>
+        <q-dialog v-model="showSingleListing" :style="`width: ${ embedWidth }`">
+            <q-card v-if="showSingleListing && singleListing">
                 <q-card-section>
                     <q-btn class="absolute" round size="sm" color="white" @click="showSingleListing = false" style="top: .5rem; right: .5rem; z-index: 999;">
                         <q-icon name="fas fa-times" color="black" />
                     </q-btn>
                     
+                    <iframe :src="`https://compass.com${ singleListing.pageLink }`" width="100%" :height="embedHeight" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe>
 
                 </q-card-section>
             </q-card>
@@ -50,7 +51,17 @@ export default {
         return {
             listings: null,
             showSingleListing: false,
-            singleLsiting: null
+            singleListing: null
+        }
+    },
+
+    computed: {
+        embedWidth() {
+            return this.$q.screen.width - 200
+        },
+
+        embedHeight() {
+            return this.$q.screen.height - 200
         }
     },
 
@@ -92,7 +103,7 @@ export default {
         selectListing(item) {
             console.log('selectListing: ', item)
             
-            this.singleLsiting = item
+            this.singleListing = item
             this.showSingleListing = true
         } 
     },

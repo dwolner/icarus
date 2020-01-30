@@ -1,7 +1,7 @@
 <template>
     <div id="Concierge" class="cx-dotGridBackground" style="width: 100%;">
         <div class="row well container" style="min-height: 100vh; ">
-            <div class="col-xs-12 col-md-6 q-py-xl q-pr-xl">
+            <div class="col-xs-12 col-md-6 q-pa-xl">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="q-pa-sm">
                         <h3 class="Compass-Serif-Regular q-mb-md">Compass Concierge</h3>
