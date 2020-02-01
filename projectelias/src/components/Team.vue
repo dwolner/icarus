@@ -1,14 +1,35 @@
 <template>
     <div id="Team" class="q-pa-xl">
-        <div class="row well container">
-            <div class="col-xs-12 q-pa-sm q-mb-md">
-                <h3 class="text-white Compass-Serif-Regular q-mb-md">The Team</h3>
-            </div>
+         <div class="row well container" style="min-height: 100vh; ">
+            <div class="col-xs-12">
+                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                    <div class="row">
+                        <div class="col-xs-12 q-pa-sm q-mb-md">
+                            <h3 class="text-white Compass-Serif-Regular q-mb-md">The Team</h3>
+                        </div>
 
-            <div v-for="item in team" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
-                <div class="bg-white q-pa-md full-height">
-                    <q-img :src="`statics/team/${ item.filename }`" />
-                    <h5 class="q-my-lg">{{ item.name }}</h5>
+                        <div v-for="item in team" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
+                            <div class="bg-white">
+                                <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`">
+                                    <div class="relative-position cursor-pointer shadow-2" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
+                                        <div class="learnMoreOverlay q-pa-md">
+                                            <div style="border: solid 2px white; height: 100%;">
+                                                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                                                    <h6 class="text-white">Learn More</h6>
+                                                    <q-icon class="text-white" name="fas fa-external-link-alt" size="xs" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <q-img :src="`statics/team/${ item.filename }`" />
+                                    </div>
+                                    <h4 class="q-mt-lg q-mb-sm Compass-Serif-Regular">{{ item.name }}</h4>
+                                    <div class="q-mx-md" :style="`border-bottom: 1.5px solid ${ item.mainman ? '#d2b623' : '#999' };`"></div>
+                                    <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
+                                    <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.number }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,29 +43,51 @@ export default {
     data() {
         return {
             team: [{
-                filename: 'Diego.jpg',
-                name: 'Diego'
-            }, {
-                filename: 'Jane.jpg',
-                name: 'Jane'
-            }, {
-                filename: 'John.jpg',
-                name: 'John'
-            }, {
-                filename: 'Mari.jpg',
-                name: 'Mari'
-            }, {
                 filename: 'Richard.jpg',
-                name: 'Richard'
+                name: 'Richard',
+                role: 'Lead Realtor',
+                number: '619.672.2020',
+                slug: 'richard-elias',
+                mainman: true
+            }, {
+                filename: 'Christina.jpg',
+                name: 'Christina',
+                role: 'Realtor',
+                number: '619.504.9236',
+                slug: 'christina-battikha'
             }, {
                 filename: 'Sammie.jpg',
-                name: 'Sammie'
+                name: 'Sammie',
+                role: 'Realtor',
+                number: '559.288.9060',
+                slug: 'samantha-lopez'
+            }, {
+                filename: 'Mari.jpg',
+                name: 'Mari',
+                role: 'Realtor',
+                number: '619.344.1619',
+                slug: 'mari-rosas'
+            }, {
+                filename: 'Yann.jpg',
+                name: 'Yann',
+                role: 'Realtor',
+                number: '619.366.7343',
+                slug: 'yann-crenn'
+            }, {
+                filename: 'Diego.jpg',
+                name: 'Diego',
+                role: 'Realtor',
+                number: '619.205.9664',
+                slug: 'diego-martinez'
             }]
         }
     },
 
     methods: {
-        
+        openWindow(link) {
+            let options = {}
+            window.open(link, '_blank')
+        }
     }
 }
 </script>
@@ -60,7 +103,24 @@ export default {
 
 .container {
     width: 100%;
-    height: 100&;
+    height: 100%;
     overflow: hidden;
+}
+
+.learnMoreOverlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-transition: background 0.5s, opacity 0.5s;
+    transition: background 0.5s, opacity 0.5s;
+}
+
+.learnMoreOverlay:hover {
+    opacity: 1;
 }
 </style>

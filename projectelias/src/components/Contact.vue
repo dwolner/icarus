@@ -3,18 +3,16 @@
         <div class="overlay"></div>
 
         <div class="well row container q-pa-xl" style="position: relative; z-index: 999; color: white;">
-            <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
+            <div class="col-xs-12 col-md-6 q-pa-sm" align="center">
                 <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6>
                 <p>San Diego Real Estate</p>
                 <p>Richard Elias Team | Compass</p>
                 <p>Realtor® DRE #01104411</p>
             </div>
-            <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
+            <div class="col-xs-12 col-md-6 q-pa-sm" align="center">
                 <h6 class="Compass-Serif-Regular q-my-md">LOCATION</h6>
-                <iframe :width="mapWidth" :height="mapWidth" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=655+W+Broadway+Ste.+1650,+San+Diego,+CA,+92101&key=AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs" allowfullscreen></iframe>
-            </div>
-            <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
-                <h6 class="Compass-Serif-Regular q-my-md">CONTACT US</h6>
+                <p style="margin-bottom: 0;">655 W Broadway #1650, San Diego, CA, 92101</p>
+                <p><a @click="showMap = true">Get directions</a></p>
                 <p>619.672.2020</p>
                 <p>richard.elias@compass.com</p>
             </div>
@@ -30,6 +28,17 @@
                 <p style="font-size: .8rem;">THE RICHARD ELIAS TEAM</p>
             </div>
         </div>
+
+        <q-dialog v-model="showMap">
+            <q-card>
+                <q-card-section>
+                    <q-btn class="absolute" round size="sm" color="white" @click="showMap = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                        <q-icon name="fas fa-times" color="black" />
+                    </q-btn>
+                    <iframe :width="mapWidth" :height="mapWidth" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=655+W+Broadway+Ste.+1650,+San+Diego,+CA,+92101&key=AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs" allowfullscreen></iframe>
+                </q-card-section>
+            </q-card>
+        </q-dialog>
     </div>
 </template>
 
@@ -39,7 +48,8 @@ export default {
 
     data() {
         return {
-            mapOffset: 150
+            mapOffset: 150,
+            showMap: false
         }
     },
 

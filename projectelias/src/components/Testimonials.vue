@@ -21,7 +21,7 @@
                 >
                     <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
                         <q-icon name="fas fa-quote-right" color="primary" size="md" />
-                        <div class="q-mt-md text-center">
+                        <div class="q-mt-md text-center" style="max-width: 540px;">
                             <p>{{ slide.text }}</p>
                             <h6>
                                 <span style="font-weight: bold;">{{ slide.author }}</span> - {{ slide.date }}
@@ -112,7 +112,7 @@ export default {
     computed: {
         videoWidth() {
             let width = this.$q.screen.width - this.videoOffset
-            return width < 1312 ? width : 1312
+            return width < 540 ? width : 540
         },
 
         videoHeight() {

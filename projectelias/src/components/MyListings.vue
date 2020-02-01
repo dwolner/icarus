@@ -7,20 +7,22 @@
                 </div>
                 <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-3 q-pa-sm cursor-pointer" @click="selectListing(item)">
                     <div class="shadow-4 relative-position" :style="`height: 100%; background: url(' ${ item.media[0].originalUrl }'; background-size: cover; background-position: 50%; height: 250px;`">
-                        <div class="centerHeaderHold">
-                            <img
-                                v-if="item.overlayFilename"
-                                :src="`statics/media/${item.overlayFilename}`"
-                                style="height: 100%; width: auto; transform: scale(0.7);"
-                            />
+                        <div class="centerHeaderHold q-pa-md">
+                            <div style="border: solid 2px white; height: 100%;">
+                                <img
+                                    v-if="item.overlayFilename"
+                                    :src="`statics/media/${item.overlayFilename}`"
+                                    style="height: 100%; width: auto; transform: scale(0.7);"
+                                />
 
-                            <div v-else class="centerHeader">
-                                <h6
-                                    align="center"
-                                    class="text-white"
-                                    style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;"
-                                >{{item.location.prettyAddress}}</h6>
-                                <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
+                                <div v-else class="centerHeader q-pa-md">
+                                    <h6
+                                        align="center"
+                                        class="text-white"
+                                        style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;"
+                                    >{{item.location.prettyAddress}}</h6>
+                                    <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -144,11 +146,12 @@ export default {
 
         openWindow(link) {
             let options = {}
-            window.open(link, '_blank', options)
+            window.open(link, '_blank')
         }
     },
 
     created() {
+        // TODO: FOR DEV
         this.formatListings(dummy)
 
         this.getListings(res => {
