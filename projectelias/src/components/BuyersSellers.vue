@@ -1,30 +1,36 @@
 <template>
-    <div id="BuyersSellers" class="cx-dotGridBackground q-pa-xl">
-        <div class="row well container justify-center">
-            <div class="col-sm-12 q-pa-sm q-mb-md">
-                <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
-            </div>
+    <div id="BuyersSellers" class="cx-dotGridBackground" style="width: 100%;">
+        <div class="row well container" style="min-height: 100vh; ">
+            <div class="col-xs-12 q-pa-xl">
+                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                    <div class="row justify-center">
+                        <div class="col-sm-12 q-pa-sm q-mb-md">
+                            <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
+                        </div>
 
-            <div v-for="item in features" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
-                <div class="bg-white q-pa-md full-height">
-                    <q-icon :name="item.icon" style="font-size: 3rem;" />
-                    <h5 class="q-my-lg">{{ item.title }}</h5>
-                    <p>{{ item.desc }}</p>
+                        <div v-for="item in features" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
+                            <div class="bg-white q-pa-md full-height">
+                                <q-icon :name="item.icon" style="font-size: 3rem;" />
+                                <h5 class="q-my-lg">{{ item.title }}</h5>
+                                <p>{{ item.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-center">
+                        <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                            <q-btn class="full-width" color="primary" size="xl" @click="">
+                                I am a buyer
+                            </q-btn>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                            <q-btn class="full-width" color="primary" size="xl" @click="">
+                                I am a seller
+                            </q-btn>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row well container justify-center">
-            <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                <q-btn class="full-width" color="primary" size="xl" @click="">
-                    I am a buyer
-                </q-btn>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                <q-btn class="full-width" color="primary" size="xl" @click="">
-                    I am a seller
-                </q-btn>
             </div>
         </div>
     </div>

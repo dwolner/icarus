@@ -21,7 +21,7 @@
             <div class="col-xs-12 q-pt-md q-px-md" align="center">
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 20rem; width: 100%;" />
                 <p>While some of the listings on this site may not be our exclusive listings, we have ongoing relationships with all of the listing agents.</p>
-                <p class="q-my-lg"><span style="font-style: italic;">Designed and developed by</span> Daniel Wolner.</p>
+                <p class="q-my-lg"><span style="font-style: italic;">Designed and developed by </span> <a href="http://danwolner.com/">Daniel Wolner.</a></p>
             </div>
             <div class="col-xs-6 q-pt-xl q-px-sm" align="left">
                 <p style="font-size: .8rem;">© COPYRIGHT 2020 | PRIVACY POLICY</p>
@@ -60,7 +60,7 @@ export default {
     #Contact {
         width: 100%;
         height: 100%;
-        min-height: 100vh;
+        /* min-height: 100vh; */
         background: #171819;
         position: relative;
         overflow: hidden;

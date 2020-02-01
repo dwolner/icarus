@@ -28,14 +28,54 @@
             </div>
         </div>
 
-        <q-dialog v-model="showSingleListing" :style="`width: ${ embedWidth }`">
-            <q-card v-if="showSingleListing && singleListing">
+        <q-dialog v-model="showSingleListing">
+            <q-card v-if="showSingleListing && singleListing" :style="`width: ${ embedWidth }px;`">
                 <q-card-section>
-                    <q-btn class="absolute" round size="sm" color="white" @click="showSingleListing = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                    <q-btn class="absolute" round size="xs" color="white" @click="showSingleListing = false" style="top: .5rem; right: .5rem; z-index: 999;">
                         <q-icon name="fas fa-times" color="black" />
                     </q-btn>
                     
-                    <iframe :src="`https://compass.com${ singleListing.pageLink }`" width="100%" :height="embedHeight" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe>
+                    <!-- <iframe :src="`https://compass.com${ singleListing.pageLink }`" width="100%" :height="embedHeight" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe> -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <h6>{{ singleListing.location.prettyAddress }}</h6>
+                            <p>{{ singleListing.location.city }}, {{ singleListing.location.state }} {{ singleListing.location.zipCode }}</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-3" :align="$q.screen.width > 767 ? 'center' : 'left'">
+                            <h6>{{ singleListing.price.formatted }}</h6>
+                            <p>Last known price</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-1" align="center">
+                            <h6>{{ singleListing.size.bedrooms }}</h6>
+                            <p>Beds</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-1" align="center">
+                            <h6>{{ singleListing.size.bathrooms }}</h6>
+                            <p>Baths</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-3" :align="$q.screen.width > 767 ? 'center' : 'left'">
+                            <h6>{{ singleListing.size.squareFeet }} Sq. Ft.</h6>
+                            <p>${{singleListing.price.perSquareFoot.toFixed(0) }} / Sq. Ft. </p>
+                        </div>
+                    </div>
+
+                    <q-img :src="singleListing.media[0].originalUrl" />
+
+                    <div class="row q-mt-md">
+                        <div class="q-pa-xs col-xs-12 col-sm-6">
+                            <q-btn class="full-width" size="lg" @click="">
+                                <h6 class="q-mt-xs">Contact Us</h6>
+                            </q-btn>
+                        </div>
+
+                        <div class="q-pa-xs col-xs-12 col-sm-6">
+                            <q-btn color="black" class="full-width" size="lg" @click="openWindow(`https://compass.com${ singleListing.pageLink }`)">
+                                <h6 class="q-mt-xs">See More</h6>
+                                <q-icon class="q-ml-md" name="fas fa-arrow-right" size="xs" />
+                            </q-btn>
+                        </div>
+                    </div>
 
                 </q-card-section>
             </q-card>
@@ -57,7 +97,7 @@ export default {
 
     computed: {
         embedWidth() {
-            return this.$q.screen.width - 200
+            return this.$q.screen.width > 768 ? this.$q.screen.width - 200 : this.$q.screen.width
         },
 
         embedHeight() {
@@ -88,11 +128,6 @@ export default {
         },
 
         formatListings(res) {
-            // this.listings = res.listingRelations.map(listing => {
-            //     return listing.listing
-            // })
-
-            //TODO: for dev
             this.listings = res.listingRelations.map(listing => {
                 return listing.listing
             })
@@ -105,14 +140,20 @@ export default {
             
             this.singleListing = item
             this.showSingleListing = true
-        } 
+        },
+
+        openWindow(link) {
+            let options = {}
+            window.open(link, '_blank', options)
+        }
     },
 
     created() {
-        // this.getListings(res => {
+        this.formatListings(dummy)
+
+        this.getListings(res => {
             // this.formatListings(res)
-            this.formatListings(dummy)
-        // })
+        })
     },
 }
 
