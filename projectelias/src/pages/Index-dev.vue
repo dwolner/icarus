@@ -27,6 +27,42 @@
         <Testimonials />
         
         <Contact />
+
+        <q-dialog v-model="showContactFormOverlay" style="width: 100%; padding: 1rem;">
+            <div class="bg-white relative-position" style="width: 100%; max-width: 750px;">
+                <q-btn class="absolute" round flat color="white" @click="showContactFormOverlay = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                    <q-icon name="fas fa-times" color="black" />
+                </q-btn>
+                
+                <div class="row q-pa-md">
+                    <div class="col-12 q-pa-md">
+                        <h6 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h6>
+                        <h2 class="Compass-Serif-Regular ">Contact</h2>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="q-mx-md" :style="`border-bottom: 1px solid #999;`"></div>
+                    </div>
+
+                    <ContactForm v-if="showContactFormOverlay" class="col-12 q-my-sm q-pa-sm" />
+
+                    <!-- <div class="col-xs-12 col-md-6 q-pa-md" align="center">
+                        <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6>
+                        <p>San Diego Real Estate</p>
+                        <p>Richard Elias Team | Compass</p>
+                        <p>Realtor® DRE #01104411</p>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 q-pa-md" align="center">
+                        <h6 class="Compass-Serif-Regular q-my-md">LOCATION</h6>
+                        <p style="margin-bottom: 0;">655 W Broadway #1650, San Diego, CA, 92101</p>
+                        <p><a @click="showMap = true">Get directions</a></p>
+                        <p>619.672.2020</p>
+                        <p>richard.elias@compass.com</p>
+                    </div> -->
+                </div>
+            </div>
+        </q-dialog>
         
     </q-page>
 </template>
@@ -38,6 +74,7 @@ import BuyersSellers from '../components/BuyersSellers'
 import Team from '../components/Team'
 import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
+import ContactForm from '../components/ContactForm'
 
 export default {
     name: 'PageIndex',
@@ -48,30 +85,22 @@ export default {
         BuyersSellers,
         Team,
         Testimonials,
-        Contact
+        Contact,
+        ContactForm
     },
 
     data() {
         return {
-            name: '',
-            zip: '',
-            email: '',
-            phone: ''
+            showContactFormOverlay: false
         }
     },
 
     methods: {
-        onSubmit() {
-            // email richard and steve
-
-        },
         
-        onReset() {
-            this.name = ''
-            this.zip = ''
-            this.email = ''
-            this.phone = ''
-        }
+    },
+
+    mounted() {
+        this.$root.$on('showContactFormOverlay', () => { this.showContactFormOverlay = true })
     }
 }
 </script>

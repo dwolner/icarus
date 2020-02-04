@@ -10,17 +10,25 @@ Concierge:
     Error handling
     send email with info
 Listings:
-    Single listings view
-    CSS for cards
+    Single listings view √
+    CSS for cards √
+    full height
+    carousel view mobile
 Buyers/Sellers
     Contact
 Team
-    new images
-    resize to same aspect ratio
-    get correct names
-    roles?
+    new images √
+    resize to same aspect ratio √
+    get correct names √
+    roles? √
+    carousel view mobile
 Testimonials
     header size √
     repsonsive spacing √
+    curate videos 
 Contact/Footer √
     height css √
+
+
+section scroll speed faster
+contact form overlay

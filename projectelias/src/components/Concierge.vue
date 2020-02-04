@@ -21,26 +21,7 @@
                             </div>
                         </div>
                         <div class="col-12 bg-white">
-                            <q-form @submit="onSubmit" @reset="onReset" class="row">
-                                <q-input v-model="name" class="col-6 q-pa-sm" filled lazy-rules label="Your name" :rules="[val => (val && val.length > 0) || 'Please type something']" />
-
-                                <q-input v-model="zip" class="col-6 q-pa-sm" filled lazy-rules label="Your zip" :rules="[val => (val && val.length > 0) || 'Please type something']" />
-
-                                <q-input v-model="email" class="col-6 q-pa-sm" filled lazy-rules label="Your email" :rules="[val => (val && val.length > 0) || 'Please type something']" />
-
-                                <q-input v-model="phone" class="col-6 q-pa-sm" filled lazy-rules label="Your number" :rules="[val => (val && val.length > 0) || 'Please type something']" />
-
-                                <div class="row q-pa-sm">
-                                    <div class="col-9">
-                                        <q-btn label="Work with Richard" type="submit" class="full-width" color="primary" />
-                                    </div>
-                                    <div class="col-3">
-                                        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-                                    </div>
-                                </div>
-                            </q-form>
-
-                            <p v-if="conciergeFormSuccess" class="q-my-md">Thank you! Richard will be in touch soon.</p>
+                            <ContactForm />
                         </div>
                     </div>
                 </div>
@@ -71,36 +52,25 @@
 </template>
 
 <script>
+import ContactForm from './ContactForm'
+
 export default {
     name: 'Concierge',
 
+    components: {
+        ContactForm
+    },
+
     data() {
         return {
-            name: '',
-            zip: '',
-            email: '',
-            phone: '',
-            conciergeFormSuccess: false,
             showConciergePromo: false,
-            showVideo: false,
+            showVideo: false
         }
     },
 
     methods: {
-        onSubmit() {
-            // email richard and steve
-
-            
-            this.conciergeFormSuccess = true
-        },
-
-        onReset() {
-            this.name = ''
-            this.zip = ''
-            this.email = ''
-            this.phone = ''
-        },
-    },
+        
+    }
 }
 </script>
 

@@ -5,8 +5,8 @@
                 <div class="col-12 q-pa-sm">
                     <h3 class="text-white Compass-Serif-Regular q-mb-md">Listings</h3>
                 </div>
-                <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-3 q-pa-sm cursor-pointer" @click="selectListing(item)">
-                    <div class="shadow-4 relative-position" :style="`height: 100%; background: url(' ${ item.media[0].originalUrl }'; background-size: cover; background-position: 50%; height: 250px;`">
+                <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
+                    <div class="shadow-4 relative-position" :style="`height: 100%; background: url(' ${ item.media[0].originalUrl }'; background-size: cover; background-position: 50%; height: 300px;`">
                         <div class="centerHeaderHold q-pa-md">
                             <div style="border: solid 2px white; height: 100%;">
                                 <img
@@ -33,31 +33,31 @@
         <q-dialog v-model="showSingleListing">
             <q-card v-if="showSingleListing && singleListing" :style="`width: ${ embedWidth }px;`">
                 <q-card-section>
-                    <q-btn class="absolute" round size="xs" color="white" @click="showSingleListing = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                    <q-btn class="absolute" round flat color="white" @click="showSingleListing = false" style="top: .5rem; right: .5rem; z-index: 999;">
                         <q-icon name="fas fa-times" color="black" />
                     </q-btn>
                     
                     <!-- <iframe :src="`https://compass.com${ singleListing.pageLink }`" width="100%" :height="embedHeight" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe> -->
 
-                    <div class="row">
+                    <div class="row q-pt-lg q-pr-lg">
                         <div class="col-xs-12 col-sm-4">
-                            <h6>{{ singleListing.location.prettyAddress }}</h6>
+                            <h6 style="line-height: 1.5rem;">{{ singleListing.location.prettyAddress }}</h6>
                             <p>{{ singleListing.location.city }}, {{ singleListing.location.state }} {{ singleListing.location.zipCode }}</p>
                         </div>
                         <div class="col-xs-6 col-sm-3" :align="$q.screen.width > 767 ? 'center' : 'left'">
-                            <h6>{{ singleListing.price.formatted }}</h6>
+                            <h6 style="line-height: 1.5rem;">{{ singleListing.price.formatted }}</h6>
                             <p>Last known price</p>
                         </div>
                         <div class="col-xs-3 col-sm-1" align="center">
-                            <h6>{{ singleListing.size.bedrooms }}</h6>
+                            <h6 style="line-height: 1.5rem;">{{ singleListing.size.bedrooms }}</h6>
                             <p>Beds</p>
                         </div>
                         <div class="col-xs-3 col-sm-1" align="center">
-                            <h6>{{ singleListing.size.bathrooms }}</h6>
+                            <h6 style="line-height: 1.5rem;">{{ singleListing.size.bathrooms }}</h6>
                             <p>Baths</p>
                         </div>
                         <div class="col-xs-12 col-sm-3" :align="$q.screen.width > 767 ? 'center' : 'left'">
-                            <h6>{{ singleListing.size.squareFeet }} Sq. Ft.</h6>
+                            <h6 style="line-height: 1.5rem;">{{ singleListing.size.squareFeet }} Sq. Ft.</h6>
                             <p>${{singleListing.price.perSquareFoot.toFixed(0) }} / Sq. Ft. </p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
 
                     <div class="row q-mt-md">
                         <div class="q-pa-xs col-xs-12 col-sm-6">
-                            <q-btn class="full-width" size="lg" @click="">
+                            <q-btn class="full-width" size="lg" @click="showSingleListing = false, $root.$emit('showContactFormOverlay')">
                                 <h6 class="q-mt-xs">Contact Us</h6>
                             </q-btn>
                         </div>
@@ -109,23 +109,28 @@ export default {
 
     methods: {
         getListings(cb) {
-            let req = {
-                searchQuery: {
-                    start: 0,
-                    num: 24,
-                    sortOrder: 90,
-                    listingTypes: [2],
-                    agentSearch: true,
-                    saleStatuses: [9, 12],
-                    geography: 'san_diego',
-                    listingDetailsAllowPartialMatch: { 'Agent Name': { listValues: ['richard elias'] } },
-                },
-                relationTypes: [0]
-            }
+            // let req = {
+            //     searchQuery: {
+            //         start: 0,
+            //         num: 24,
+            //         sortOrder: 90,
+            //         listingTypes: [2],
+            //         agentSearch: true,
+            //         saleStatuses: [9, 12],
+            //         geography: 'san_diego',
+            //         listingDetailsAllowPartialMatch: { 'Agent Name': { listValues: ['richard elias'] } },
+            //     },
+            //     relationTypes: [0]
+            // }
 
-            this.api.post('/api', req, res => {
+            this.api.get('https://richardelias.com/api/listings', req, res => {
                 console.log('listing res: ', res)
-                cb(res)
+
+                if (res.success) {
+                    cb(res.body)
+                } else {
+                    // error
+                }
             })
         },
 
@@ -152,10 +157,10 @@ export default {
 
     created() {
         // TODO: FOR DEV
-        this.formatListings(dummy)
+        // this.formatListings(dummy)
 
         this.getListings(res => {
-            // this.formatListings(res)
+            this.formatListings(res)
         })
     },
 }

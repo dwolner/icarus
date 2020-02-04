@@ -15,10 +15,10 @@
                 <q-btn size="xs" icon="fab fa-instagram" @click="openWindow('https://www.instagram.com/richardeliasteam/')" />
                 <q-btn size="xs" icon="fab fa-facebook" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')" />
 
-                <q-btn>
+                <q-btn @click="scrollIt('top', null, -100)">
                     <img
                         src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
-                        style="max-height: 4rem;"
+                        style="max-height: 3.4rem;"
                     />
                 </q-btn>
 
@@ -49,7 +49,7 @@
             </q-list>
 
             <div class="full-width" align="center">
-                <q-btn round outline>
+                <q-btn round outline @click="$root.$emit('showContactFormOverlay')">
                     <q-icon size="xs" name="far fa-envelope" />
                 </q-btn>
             </div>
