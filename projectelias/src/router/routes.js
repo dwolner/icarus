@@ -15,7 +15,8 @@ const routes = [
     path: '/dev',
     component: () => import('layouts/dev.vue'),
     children: [
-      { path: '', component: () => import('pages/Index-dev.vue') }
+      { path: '', component: () => import('pages/Index-dev.vue') },
+      { path: '/search', component: () => import('components/CompassSearch.vue') }
     ]
   }
 ]

@@ -9,6 +9,10 @@
 
             <q-input v-model.number="phone" type="number" mask="(###) ### - ####" class="col-xs-12 col-sm-6 q-py-md q-px-sm" filled fill-mask lazy-rules label="Your number" :rules="[val => (val && val.length > 0) || 'Please enter your number']" />
 
+            <q-select v-model="localInquiryType" :options="options" class="col-xs-12 q-py-md q-px-sm" filled label="Inquiry Type" :rules="[val => (val && val.length > 0) || 'Please select an inquiry type']" />
+
+            <q-input v-if="localInquiryType === 'Other'" v-model="otherText" type="text" class="col-xs-12 q-py-md q-px-sm" filled fill-mask lazy-rules label="Other:" :rules="[val => (val && val.length > 0) || 'Please fill in your request']" />
+
             <div class="row q-py-md q-px-sm">
                 <div class="col-9">
                     <q-btn label="Work with Richard" type="submit" class="full-width" color="primary" />
@@ -27,12 +31,24 @@
 export default {
     name: 'ContactForm',
 
+    props: {
+        inquiryType: {
+            type: String,
+            default: 'General'
+        }
+    },
+
     data() {
         return {
             name: '',
             zip: '',
             email: '',
             phone: '',
+            localInquiryType: '',
+            options: [
+                'General', 'Buying', 'Selling', 'Concierge', 'Other'
+            ],
+            otherText: '',
             conciergeFormSuccess: false
         }
     },
@@ -44,7 +60,8 @@ export default {
                 name: this.name,
                 zip: this.zip,
                 email: this.email,
-                phone: this.phone
+                phone: this.phone,
+                type: this.localInquiryType === 'Other' ? this.otherText : this.localInquiryType
             }
 
             this.api.post('https://richardelias.com/api/contact', req, res => {
@@ -66,6 +83,10 @@ export default {
             this.phone = ''
         },
     },
+
+    created() {
+        if (this.inquiryType) this.localInquiryType = this.inquiryType
+    }
 }
 </script>
 

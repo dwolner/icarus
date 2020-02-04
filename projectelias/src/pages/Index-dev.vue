@@ -25,6 +25,10 @@
         <Team />
         
         <Testimonials />
+
+        <!-- <Lender /> -->
+
+        <Homebot />
         
         <Contact />
 
@@ -73,6 +77,8 @@ import MyListings from '../components/MyListings'
 import BuyersSellers from '../components/BuyersSellers'
 import Team from '../components/Team'
 import Testimonials from '../components/Testimonials'
+import Homebot from '../components/Homebot'
+import Lender from '../components/Lender'
 import Contact from '../components/Contact'
 import ContactForm from '../components/ContactForm'
 
@@ -85,6 +91,8 @@ export default {
         BuyersSellers,
         Team,
         Testimonials,
+        Lender,
+        Homebot,
         Contact,
         ContactForm
     },

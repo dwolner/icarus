@@ -10,17 +10,29 @@ Vue.use(VueRouter)
  * directly export the Router instantiation
  */
 
-export default function (/* { store, ssrContext } */) {
-  const Router = new VueRouter({
-    scrollBehavior: () => ({ x: 0, y: 0 }),
-    routes,
 
-    // Leave these as is and change from quasar.conf.js instead!
-    // quasar.conf.js -> build -> vueRouterMode
-    // quasar.conf.js -> build -> publicPath
-    mode: 'history',
-    base: process.env.VUE_ROUTER_BASE
-  })
+const Router = new VueRouter({
+	scrollBehavior(to, from, savedPosition) {
+		console.log('scrollbehave: ', to)
+		if (to.hash) {
+			return {
+				selector: to.hash
+				// , offset: { x: 0, y: 10 }
+			}
+		}
+	},
+	routes,
 
-  return Router
-}
+	// Leave these as is and change from quasar.conf.js instead!
+	// quasar.conf.js -> build -> vueRouterMode
+	// quasar.conf.js -> build -> publicPath
+	mode: 'history',
+	base: process.env.VUE_ROUTER_BASE
+})
+
+Router.beforeEach((to, from, next) => {
+	console.log('before route: ', to, from)
+	next()
+})
+
+export default Router

@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="col-12 bg-white">
-                            <ContactForm />
+                            <ContactForm inquiryType="Concierge" />
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 <template>
-    <div id="Testimonials" :class="`container cx-dotGridBackground q-px-md q-py-xl`">
+    <div id="Testimonials" :class="`container cx-dotGridBackground q-py-xl`">
         <div class="row well">
-            <div class="col-sm-12 q-py-sm q-px-lg">
+            <div class="col-sm-12 q-py-sm q-px-xl">
                 <h3 class="Compass-Serif-Regular q-mb-md" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
             </div>
 
-            <div class="col-xs-12 q-pa-sm q-mb-md">
+            <div class="col-xs-12 q-mb-xl">
                 <q-carousel 
                     v-model="slideIndex" 
                     class="rounded-borders"
@@ -18,6 +18,7 @@
                     padding 
                     arrows
                     infinite
+                    style="max-width: 1350px; margin: 0 auto;"
                 >
                     <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
                         <q-icon name="fas fa-quote-right" color="primary" size="md" />
@@ -31,7 +32,7 @@
                 </q-carousel>
             </div>
 
-            <div class="col-xs-12 q-pa-sm">
+            <div class="col-xs-12">
                 <q-carousel 
                     v-model="videoSlideIndex" 
                     class="rounded-borders"
@@ -44,7 +45,7 @@
                     padding 
                     arrows
                     infinite
-                    style="height: 100%;"
+                    style="height: 100%; max-width: 1350px; margin: 0 auto;"
                 >
                     <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center">
                         <div class="text-center" :style="`max-width: 100%; margin: 0 auto;`">
@@ -89,13 +90,13 @@ export default {
                     date: '01/17/2019',
                 },
             ],
-            videoSlideIndex: 'Z0qWj-aqhII',
+            videoSlideIndex: 'x0my8qD-x4U',
             videoSlides: [
                 {
-                    id: 'Z0qWj-aqhII'
+                    id: 'x0my8qD-x4U'
                 },
                 {
-                    id: 'x0my8qD-x4U'
+                    id: 'Z0qWj-aqhII'
                 },
                 {
                     id: '_35q8_RBLYc'

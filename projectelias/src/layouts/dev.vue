@@ -15,7 +15,7 @@
                 <q-btn size="xs" icon="fab fa-instagram" @click="openWindow('https://www.instagram.com/richardeliasteam/')" />
                 <q-btn size="xs" icon="fab fa-facebook" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')" />
 
-                <q-btn @click="scrollIt('top', null, -100)">
+                <q-btn @click="nav(menuItems[0])">
                     <img
                         src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
                         style="max-height: 3.4rem;"
@@ -75,15 +75,20 @@ export default {
                 { title: 'Buyers & Sellers', sectionID: 'BuyersSellers'},
                 { title: 'The Team', sectionID: 'Team' },
                 { title: 'Testimonials', sectionID: 'Testimonials' },
+                { title: 'Home Valuation', sectionID: 'Homebot' },
                 { title: 'Contact', sectionID: 'Contact' },
-                { title: 'Compass Search', sectionID: 'CompassSearch' },
+                { title: 'Compass Search', route: '/search' }
             ],
         }
     },
 
     methods: {
         nav(item) {
-            if (item.sectionID) this.scrollIt(item.sectionID, null, -100)
+            if (item.sectionID) {
+                if (this.$router.currentRoute !== '/dev') this.$router.push('/dev')
+                this.scrollIt(item.sectionID, null, -100)
+            }
+            if (item.route) this.$router.push(item.route)
 
             this.leftDrawerOpen = false
         },
@@ -91,6 +96,16 @@ export default {
         openWindow(link) {
             let options = {}
             window.open(link, '_blank')
+        }
+    },
+
+    mounted() {
+        console.log('ROuter: ', this.$router.currentRoute)
+
+        if (this.$router.currentRoute && this.$router.currentRoute.hash) {
+            this.$nextTick(() => {
+                this.scrollIt(this.$router.currentRoute.hash.replace('#', ''), null, -100)
+            })
         }
     }
 }

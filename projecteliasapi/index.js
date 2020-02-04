@@ -1,8 +1,15 @@
 const express = require('express');
 const axios = require('axios');
+const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -43,28 +50,34 @@ app.get('/listings', function (req, res) {
         });
 });
 
-app.post('/contact', function (req, res) {
+app.post('/contact', function (req, expressRes) {
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'gmail', //smtp.gmail.com  //in place of service use host...
+        secure: false, //true
+        port: 25, //465
         auth: {
-            user: 'walnutman21@gmail.com',
-            pass: 'Setessan12'
+            user: 'richardeliasbot01@gmail.com',
+            pass: 'richardbot1'
+        }, 
+        tls: {
+            rejectUnauthorized: false
         }
     })
 
     const mailOptions = {
-        to: 'xxatticus@gmail.com',
+        to: ['richard@richardelias.com', 'xxatticus@gmail.com'],
         from: `${ req.body.email }`,
         subject: `A new lead from RichardElias.com! ${ req.body.name }`,
         text: `A new lead from RichardElias.com! This is a reminder to email ${ req.body.name } (${ req.body.email }) ${ req.body.zip } about their inquiry. Courtesy of your friendly RichardElias.com email bot!`,
         html: `
-            <h6>A new lead from RichardElias.com!</h6>
+            <h2>A new lead from RichardElias.com!</h2>
             <p>This is a reminder to email <strong>${ req.body.name }</strong> about their inquiry.</p>
 
             <p>Name: <strong>${ req.body.name }</strong></p> 
             <p>Email: <strong>${ req.body.email }</strong></p> 
             <p>#: <strong>${ req.body.phone }</strong></p> 
             <p>Zip: <strong>${ req.body.zip }</strong></p> 
+            <p>Type: <strong>${ req.body.type }</strong></p> 
             <br /><br />
             <p>Courtesy of your friendly RichardElias.com email bot!</p>
         `,
@@ -74,13 +87,13 @@ app.post('/contact', function (req, res) {
     transporter.sendMail(mailOptions, function (err, res) {
         if (err) {
             console.error('there was an error: ', err)
-            res.send({
+            expressRes.send({
                 success: false,
                 message: 'there was an error sending the email'
             })
         } else {
             console.log('here is the res: ', res)
-            res.send({
+            expressRes.send({
                 success: true,
                 message: 'sent email!',
                 body: res
