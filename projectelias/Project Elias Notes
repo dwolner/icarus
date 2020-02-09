@@ -6,16 +6,16 @@ rsync -avz ./ root@167.99.109.0:/home/projecteliasapi/
 
 
 Concierge:
-    Contact Form
+    Contact Form √
     Error handling
     send email with info
 Listings:
     Single listings view √
     CSS for cards √
-    full height
+    full height 
     carousel view mobile
 Buyers/Sellers
-    Contact
+    Contact 
 Team
     new images √
     resize to same aspect ratio √
@@ -31,4 +31,4 @@ Contact/Footer √
 
 
 section scroll speed faster
-contact form overlay
+contact form overlay √

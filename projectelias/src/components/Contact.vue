@@ -4,19 +4,7 @@
 
         <div class="well row container q-pa-xl" style="position: relative; z-index: 999; color: white;">
             <div class="col-xs-12 col-md-4 q-py-sm" align="center">
-                <div class="row">
-                    <div class="col-xs-6" align="right">
-                        <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
-                    </div>
-
-                    <div class="col-xs-6 q-pl-md" align="left">
-                        <h6 class="text-white Compass-Serif-Regular">Lender</h6>
-                        <q-img src="statics/logos/GuildLogo.png" style="max-width: 7rem;" />
-                        <h5 class="text-white q-my-sm">Tom Weikel</h5>
-                        <p class="text-white" style="margin: 0; font-size: .8rem;">NMLS # 243656</p>
-                        <p class="text-white" style="margin: 0; font-size: .8rem;">Phone 858.597.3772</p>
-                    </div>
-                </div>
+                
             </div>
             <div class="col-xs-12 col-md-4 q-pa-sm" align="center">
                 <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6>

@@ -26,6 +26,7 @@
                                         <h4 class="q-mt-lg q-mb-sm Compass-Serif-Regular text-black">{{ item.name }}</h4>
                                         <div class="q-mx-md" :style="`border-bottom: 1.5px solid ${ item.mainman ? '#d2b623' : '#999' };`"></div>
                                         <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
+                                        <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.email }}</h6>
                                         <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.number }}</h6>
                                     </div>
                                 </div>
@@ -65,6 +66,7 @@
                                             <h4 class="q-mt-lg q-mb-sm Compass-Serif-Regular text-black">{{ item.name }}</h4>
                                             <div class="q-mx-md" :style="`border-bottom: 1.5px solid ${ item.mainman ? '#d2b623' : '#999' };`"></div>
                                             <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
+                                            <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.email }}</h6>
                                             <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.number }}</h6>
                                         </div>
                                     </div>
@@ -92,6 +94,7 @@ export default {
                 name: 'Richard',
                 role: 'Lead Realtor',
                 number: '619.672.2020',
+                email: 'richard.elias@compass.com',
                 slug: 'richard-elias',
                 mainman: true
             }, {
@@ -99,30 +102,35 @@ export default {
                 name: 'Christina',
                 role: 'Realtor',
                 number: '619.504.9236',
+                email: 'christina.battikha@compass.com',
                 slug: 'christina-battikha'
             }, {
                 filename: 'Sammie.jpg',
                 name: 'Sammie',
                 role: 'Realtor',
                 number: '559.288.9060',
+                email: 'samantha.lopez@compass.com',
                 slug: 'samantha-lopez'
             }, {
                 filename: 'Mari.jpg',
                 name: 'Mari',
                 role: 'Realtor',
                 number: '619.344.1619',
+                email: 'mari.rosas@compass.com',
                 slug: 'mari-rosas'
             }, {
                 filename: 'Yann.jpg',
                 name: 'Yann',
                 role: 'Realtor',
                 number: '619.366.7343',
+                email: 'yann.crenn@compass.com',
                 slug: 'yann-crenn'
             }, {
                 filename: 'Diego.jpg',
                 name: 'Diego',
                 role: 'Realtor',
                 number: '619.205.9664',
+                email: 'diego.martinez@compass.com',
                 slug: 'diego-martinez'
             }]
         }

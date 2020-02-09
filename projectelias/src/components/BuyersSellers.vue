@@ -1,9 +1,9 @@
 <template>
     <div id="BuyersSellers" class="cx-dotGridBackground" style="width: 100%;">
-        <div class="row well container" style="min-height: 100vh; ">
-            <div class="col-xs-12 q-pa-xl">
+        <div class="row" style="min-height: 100vh; ">
+            <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
-                    <div class="row justify-center">
+                    <div class="row well justify-center q-pa-xl">
                         <div class="col-sm-12 q-pa-sm q-mb-md">
                             <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
                         </div>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
 
-                    <div class="row justify-center">
+                    <div class="row well justify-center q-px-xl">
                         <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
                             <q-btn class="full-width" color="primary" size="lg" @click="toggleMoreInfo('Buyers')">
                                 I am a buyer
@@ -31,12 +31,46 @@
                         </div>
                     </div>
 
-                    <div v-if="showMoreInfo" class="row justify-center relative-position q-mt-lg">
-                        <div class="col-xs-12 q-pa-sm" align="center">
-                            <h5>Top Videos For {{currentMoreInfoType}}</h5>
+                    <div v-show="showMoreInfo" class="bg-white q-pa-xl">
+                        <div class="row relative-position">
+                            <div class="col-xs-12 q-pa-sm" align="right">
+                                <q-btn round flat color="white" @click="showMoreInfo = false">
+                                    <q-icon name="fas fa-times" color="black" />
+                                </q-btn>
+                            </div>
+
+                            <template v-show="currentMoreInfoType === 'Sellers'">
+                                <Homebot />
+                            </template>
+
+                            <template v-show="currentMoreInfoType === 'Buyers'">
+                                <div class="col-xs-6" align="right">
+                                    <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
+                                </div>
+
+                                <div class="col-xs-6 q-pl-md" align="left">
+                                    <h6 class="Compass-Serif-Regular">Lender</h6>
+                                    <q-img src="statics/logos/GuildLogo.png" style="max-width: 7rem;" />
+                                    <h5 class="q-my-sm">Tom Weikel</h5>
+                                    <p class="" style="margin: 0; font-size: .8rem;">NMLS # 243656</p>
+                                    <p class="" style="margin: 0; font-size: .8rem;">Phone 858.597.3772</p>
+                                </div>
+
+                                <div class="col-12 q-pa-lg" align="center">
+                                    <q-btn color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay')">
+                                        Get Started on your preapproval
+                                    </q-btn>
+                                </div>
+                            </template>
                         </div>
-                        <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo">
-                            <iframe sandbox="allow-scripts" :src="item" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>
+
+                        <div class="row justify-center relative-position q-mt-lg">
+                            <div class="col-xs-12 q-pa-sm" align="center">
+                                <h5>Top Videos For {{currentMoreInfoType}}</h5>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo">
+                                <iframe sandbox="allow-scripts" :src="item" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,8 +80,14 @@
 </template>
 
 <script>
+import Homebot from './Homebot'
+
 export default {
     name: 'Team',
+
+    components: {
+        Homebot
+    },
 
     data() {
         return {
@@ -97,14 +137,12 @@ export default {
 
     methods: {
         toggleMoreInfo(type) {
-            if (this.showMoreInfo && type === this.currentMoreInfoType) {
+            if (!this.showMoreInfo && type !== this.currentMoreInfoType) {
+                this.currentMoreInfoType = type
                 this.showMoreInfo = !this.showMoreInfo
-            }
-            if (this.showMoreInfo && type !== this.currentMoreInfoType) {
+            } else if (this.showMoreInfo && type !== this.currentMoreInfoType) {
                 this.currentMoreInfoType = type
-            } 
-            if (!this.showMoreInfo) {
-                this.currentMoreInfoType = type
+            } else {
                 this.showMoreInfo = !this.showMoreInfo
             }
         }

@@ -87,6 +87,9 @@ export default {
             if (item.sectionID) {
                 if (this.$router.currentRoute !== '/dev') this.$router.push('/dev')
                 this.scrollIt(item.sectionID, null, -100)
+                if (item.sectionID === 'Homebot') {
+                    this.$root.$emit('goToHomebot', true)
+                }
             }
             if (item.route) this.$router.push(item.route)
 

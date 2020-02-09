@@ -10,20 +10,27 @@ Vue.use(Vuex)
  * directly export the Store instantiation
  */
 
-export default function (/* { ssrContext } */) {
-  const Store = new Vuex.Store({
-    modules: {
-      // example
-    },
+export default function ( /* { ssrContext } */ ) {
+	const Store = new Vuex.Store({
+		modules: {
+			// example
+		},
 
-    // enable strict mode (adds overhead!)
-    // for dev mode only
-    strict: process.env.DEV,
+		// enable strict mode (adds overhead!)
+		// for dev mode only
+		strict: process.env.DEV,
 
-    state: {
-      secret: 'eliasteam'
-    }
-  })
+		state: {
+			secret: 'eliasteam',
+			globalInquiryType: 'General'
+		},
 
-  return Store
+		mutations: {
+			globalInquiryType(state, payload) {
+				state.globalInquiryType = payload
+			}
+		}
+	})
+
+	return Store
 }

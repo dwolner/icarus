@@ -9,9 +9,9 @@
 
             <q-input v-model.number="phone" type="number" mask="(###) ### - ####" class="col-xs-12 col-sm-6 q-py-md q-px-sm" filled fill-mask lazy-rules label="Your number" :rules="[val => (val && val.length > 0) || 'Please enter your number']" />
 
-            <q-select v-model="localInquiryType" :options="options" class="col-xs-12 q-py-md q-px-sm" filled label="Inquiry Type" :rules="[val => (val && val.length > 0) || 'Please select an inquiry type']" />
+            <q-select v-model="inquiryType" :options="options" class="col-xs-12 q-py-md q-px-sm" filled label="Inquiry Type" :rules="[val => (val && val.length > 0) || 'Please select an inquiry type']" />
 
-            <q-input v-if="localInquiryType === 'Other'" v-model="otherText" type="text" class="col-xs-12 q-py-md q-px-sm" filled fill-mask lazy-rules label="Other:" :rules="[val => (val && val.length > 0) || 'Please fill in your request']" />
+            <q-input v-if="inquiryType === 'Other'" v-model="otherText" type="text" class="col-xs-12 q-py-md q-px-sm" filled fill-mask lazy-rules label="Other:" :rules="[val => (val && val.length > 0) || 'Please fill in your request']" />
 
             <div class="row q-py-md q-px-sm">
                 <div class="col-9">
@@ -32,9 +32,9 @@ export default {
     name: 'ContactForm',
 
     props: {
-        inquiryType: {
+        inquiryTypeInput: {
             type: String,
-            default: 'General'
+            default: ''
         }
     },
 
@@ -44,12 +44,18 @@ export default {
             zip: '',
             email: '',
             phone: '',
-            localInquiryType: '',
             options: [
                 'General', 'Buying', 'Selling', 'Concierge', 'Other'
             ],
+            inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false
+        }
+    },
+
+    computed: {
+        globalInquiryType() {
+            return this.$store.state.globalInquiryType
         }
     },
 
@@ -61,7 +67,7 @@ export default {
                 zip: this.zip,
                 email: this.email,
                 phone: this.phone,
-                type: this.localInquiryType === 'Other' ? this.otherText : this.localInquiryType
+                type: this.inquiryType === 'Other' ? this.otherText : this.inquiryType
             }
 
             this.api.post('https://richardelias.com/api/contact', req, res => {
@@ -85,7 +91,11 @@ export default {
     },
 
     created() {
-        if (this.inquiryType) this.localInquiryType = this.inquiryType
+        if (this.inquiryTypeInput) {
+            this.inquiryType = this.inquiryTypeInput
+        } else if (this.globalInquiryType) {
+            this.inquiryType = this.globalInquiryType
+        }
     }
 }
 </script>

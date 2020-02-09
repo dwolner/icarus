@@ -1,5 +1,5 @@
 <template>
-    <div id="Homebot" class="q-pa-xl">
+    <div id="Homebot">
         <div class="row well container">
             <div class="col-xs-12">
                 <div id="homebot_homeowner"></div>

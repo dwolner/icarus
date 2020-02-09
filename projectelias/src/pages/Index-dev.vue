@@ -32,7 +32,7 @@
         
         <Contact />
 
-        <q-dialog v-model="showContactFormOverlay" style="width: 100%; padding: 1rem;">
+        <q-dialog v-model="showContactFormOverlay" @hide="$store.commit('globalInquiryType', 'General')" style="width: 100%; padding: 1rem;">
             <div class="bg-white relative-position" style="width: 100%; max-width: 750px;">
                 <q-btn class="absolute" round flat color="white" @click="showContactFormOverlay = false" style="top: .5rem; right: .5rem; z-index: 999;">
                     <q-icon name="fas fa-times" color="black" />
