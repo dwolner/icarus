@@ -23,9 +23,9 @@
                     <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
                         <q-icon name="fas fa-quote-right" color="primary" size="md" />
                         <div class="q-mt-md text-center" style="max-width: 540px;">
-                            <p>{{ slide.text }}</p>
+                            <p style="font-size: 1rem;">{{ slide.text }}</p>
                             <h6>
-                                <span style="font-weight: bold;">{{ slide.author }}</span> - {{ slide.date }}
+                                <span style="font-weight: bold;">{{ slide.author }}</span>
                             </h6>
                         </div>
                     </q-carousel-slide>
@@ -45,10 +45,10 @@
                     padding 
                     arrows
                     infinite
-                    style="height: 100%; max-width: 1350px; margin: 0 auto;"
+                    style="height: 100%; max-width: 1350px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
                 >
-                    <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center">
-                        <div class="text-center" :style="`max-width: 100%; margin: 0 auto;`">
+                    <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center" style="padding-bottom: 75px;">
+                        <div class="text-center shadow-2 q-pa-md bg-white" :style="`max-width: 100%; margin: 0 auto;`">
                             <iframe :width="videoWidth" :height="videoHeight" :src="`https://www.youtube.com/embed/${ slide.id }`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </q-carousel-slide>

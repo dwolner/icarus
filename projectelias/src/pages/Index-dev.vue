@@ -22,13 +22,13 @@
 
         <BuyersSellers />
         
+        <Homebot />
+
         <Team />
         
         <Testimonials />
 
         <!-- <Lender /> -->
-
-        <Homebot />
         
         <Contact />
 

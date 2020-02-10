@@ -1,7 +1,7 @@
 <template>
     <div id="Homebot">
         <div class="row well container">
-            <div class="col-xs-12">
+            <div class="col-xs-12 q-pa-xl">
                 <div id="homebot_homeowner"></div>
             </div>
         </div>

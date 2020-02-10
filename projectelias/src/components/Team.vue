@@ -4,7 +4,7 @@
             <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="row">
-                        <div class="col-xs-12 q-pt-xl q-px-xl">
+                        <div class="col-xs-12 q-py-xl q-px-xl">
                             <h3 class="text-white Compass-Serif-Regular">The Team</h3>
                         </div>
 

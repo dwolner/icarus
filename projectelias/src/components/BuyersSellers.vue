@@ -31,19 +31,13 @@
                         </div>
                     </div>
 
-                    <div v-show="showMoreInfo" class="bg-white q-pa-xl">
-                        <div class="row relative-position">
-                            <div class="col-xs-12 q-pa-sm" align="right">
-                                <q-btn round flat color="white" @click="showMoreInfo = false">
-                                    <q-icon name="fas fa-times" color="black" />
-                                </q-btn>
-                            </div>
+                    <div v-if="showMoreInfo" class="bg-white q-pa-xl">
+                        <div class="row relative-position" style="min-height: 1rem;">
+                            <q-btn class="absolute" round flat color="white" style="right: 0; top: 0; z-index: 999;" @click="showMoreInfo = false">
+                                <q-icon name="fas fa-times" color="black" />
+                            </q-btn>
 
-                            <template v-show="currentMoreInfoType === 'Sellers'">
-                                <Homebot />
-                            </template>
-
-                            <template v-show="currentMoreInfoType === 'Buyers'">
+                            <template v-if="currentMoreInfoType === 'Buyers'">
                                 <div class="col-xs-6" align="right">
                                     <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
                                 </div>

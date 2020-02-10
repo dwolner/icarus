@@ -12,10 +12,14 @@
                 
                 <q-toolbar-title></q-toolbar-title>
 
+                <q-btn size="sm" icon="fas fa-search" @click="$router.push('/search')">
+                    <span class="gt-sm">Search for homes</span>
+                </q-btn>
                 <q-btn size="xs" icon="fab fa-instagram" @click="openWindow('https://www.instagram.com/richardeliasteam/')" />
                 <q-btn size="xs" icon="fab fa-facebook" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')" />
+                <q-btn size="xs" icon="fab fa-linkedin" @click="openWindow('https://www.linkedin.com/in/richardeliasrealtor/')" />
 
-                <q-btn @click="nav(menuItems[0])">
+                <q-btn @click="nav(menuItems[0])" style="padding: 0;">
                     <img
                         src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
                         style="max-height: 3.4rem;"
@@ -77,7 +81,7 @@ export default {
                 { title: 'Testimonials', sectionID: 'Testimonials' },
                 { title: 'Home Valuation', sectionID: 'Homebot' },
                 { title: 'Contact', sectionID: 'Contact' },
-                { title: 'Compass Search', route: '/search' }
+                // { title: 'Compass Search', route: '/search' }
             ],
         }
     },

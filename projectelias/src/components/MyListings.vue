@@ -99,7 +99,7 @@
 
                     <div class="row q-mt-md">
                         <div class="q-pa-xs col-xs-12 col-sm-6">
-                            <q-btn class="full-width" size="lg" @click=";(showSingleListing = false), $root.$emit('showContactFormOverlay')">
+                            <q-btn class="full-width" size="lg" @click="showSingleListing = false, $store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay')">
                                 <h6 class="q-mt-xs">Contact Us</h6>
                             </q-btn>
                         </div>
