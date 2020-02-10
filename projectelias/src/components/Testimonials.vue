@@ -89,11 +89,26 @@ export default {
                     author: 'Roxanne Granados',
                     date: '01/17/2019',
                 },
+                {
+                    text:
+                        'I reached out to Christina when my husband and I were interested in purchasing a home in California. My husband is active military and got orders in a different state so Christina picked up where we left off and found us a reliable realtor in Texas. She would check in periodically during our home  buying process and was always available when we had questions. After we purchased our home she continued to check in. She was very personable and I will be referring her to anyone I know wanting to buy/sell in San Diego.',
+                    author: 'Astetler40',
+                    date: '01/27/2020',
+                },
+                {
+                    text:
+                        'Samantha is the utmost professional! She responds immediately to my text and email correspondence. Her technical expertise is brilliant, and she cares at a personal level for what is best for her clients. Samantha is one in a million!',
+                    author: 'Jessica Von Prisk',
+                    date: '01/19/2019',
+                },
             ],
             videoSlideIndex: 'x0my8qD-x4U',
             videoSlides: [
                 {
                     id: 'x0my8qD-x4U'
+                },
+                {
+                    id: 'BCcUohRDjr0'
                 },
                 {
                     id: 'Z0qWj-aqhII'

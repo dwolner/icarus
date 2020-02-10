@@ -13,7 +13,7 @@
                 <q-toolbar-title></q-toolbar-title>
 
                 <q-btn size="sm" icon="fas fa-search" @click="$router.push('/search')">
-                    <span class="gt-sm">Search for homes</span>
+                    <span class="gt-sm q-pl-sm">Search for homes</span>
                 </q-btn>
                 <q-btn size="xs" icon="fab fa-instagram" @click="openWindow('https://www.instagram.com/richardeliasteam/')" />
                 <q-btn size="xs" icon="fab fa-facebook" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')" />
@@ -77,9 +77,9 @@ export default {
                 { title: 'Concierge', sectionID: 'Concierge' },
                 { title: 'My Listings', sectionID: 'MyListings'},
                 { title: 'Buyers & Sellers', sectionID: 'BuyersSellers'},
+                { title: 'Home Valuation', sectionID: 'Homebot' },
                 { title: 'The Team', sectionID: 'Team' },
                 { title: 'Testimonials', sectionID: 'Testimonials' },
-                { title: 'Home Valuation', sectionID: 'Homebot' },
                 { title: 'Contact', sectionID: 'Contact' },
                 // { title: 'Compass Search', route: '/search' }
             ],
