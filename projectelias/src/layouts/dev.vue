@@ -10,16 +10,23 @@
                     style="font-size: .7rem;"
                 />
                 
-                <q-toolbar-title></q-toolbar-title>
+                <q-toolbar-title style="padding: 0;"></q-toolbar-title>
 
-                <q-btn size="sm" icon="fas fa-search" @click="$router.push('/search')">
+                <q-btn dense size="sm" @click="$router.push('/search')">
+                    <q-icon name="fas fa-search" class="q-mx-xs" />
                     <span class="gt-sm q-pl-sm">Search for homes</span>
                 </q-btn>
-                <q-btn size="xs" icon="fab fa-instagram" @click="openWindow('https://www.instagram.com/richardeliasteam/')" />
-                <q-btn size="xs" icon="fab fa-facebook" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')" />
-                <q-btn size="xs" icon="fab fa-linkedin" @click="openWindow('https://www.linkedin.com/in/richardeliasrealtor/')" />
+                <q-btn dense size="xs" @click="openWindow('https://www.instagram.com/richardeliasteam/')">
+                    <q-icon name="fab fa-instagram" class="q-mx-xs" />
+                </q-btn>
+                <q-btn dense size="xs" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')">
+                    <q-icon name="fab fa-facebook" class="q-mx-xs" />
+                </q-btn>
+                <q-btn dense size="xs" @click="openWindow('https://www.linkedin.com/in/richardeliasrealtor/')">
+                    <q-icon name="fab fa-linkedin" class="q-mx-xs" />
+                </q-btn>
 
-                <q-btn @click="nav(menuItems[0])" style="padding: 0;">
+                <q-btn dense @click="nav(menuItems[0])">
                     <img
                         src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
                         style="max-height: 3.4rem;"

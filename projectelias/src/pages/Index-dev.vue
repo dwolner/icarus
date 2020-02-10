@@ -22,7 +22,7 @@
 
         <BuyersSellers />
         
-        <Homebot />
+        <!-- <Homebot /> -->
 
         <Team />
         

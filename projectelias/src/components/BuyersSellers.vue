@@ -1,5 +1,5 @@
 <template>
-    <div id="BuyersSellers" class="cx-dotGridBackground" style="width: 100%;">
+    <div id="BuyersSellers" class="cx-dotGridBackground q-pb-xl" style="width: 100%;">
         <div class="row" style="min-height: 100vh; ">
             <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -33,9 +33,15 @@
 
                     <div v-if="showMoreInfo" class="bg-white q-pa-xl">
                         <div class="row relative-position" style="min-height: 1rem;">
-                            <q-btn class="absolute" round flat color="white" style="right: 0; top: 0; z-index: 999;" @click="showMoreInfo = false">
+                            <q-btn class="absolute" round flat color="white" style="right: 0; top: 0; z-index: 999; height: unset;" @click="showMoreInfo = false">
                                 <q-icon name="fas fa-times" color="black" />
                             </q-btn>
+
+                            <template v-if="currentMoreInfoType === 'Sellers'">
+                                <div class="col-12">
+                                    <div id="homebot_homeowner"></div>
+                                </div>
+                            </template>
 
                             <template v-if="currentMoreInfoType === 'Buyers'">
                                 <div class="col-xs-6" align="right">
@@ -131,6 +137,7 @@ export default {
 
     methods: {
         toggleMoreInfo(type) {
+
             if (!this.showMoreInfo && type !== this.currentMoreInfoType) {
                 this.currentMoreInfoType = type
                 this.showMoreInfo = !this.showMoreInfo
@@ -139,6 +146,18 @@ export default {
             } else {
                 this.showMoreInfo = !this.showMoreInfo
             }
+            
+            this.$nextTick(() => {
+                let homebotElement = document.getElementById('homebot_homeowner')
+                console.log('homebotElement: ', homebotElement)
+                console.log('type: ', type)
+    
+                if (type === 'Sellers' && homebotElement) {
+                    console.log('show homebot')
+                    window.Homebot('#homebot_homeowner', '926161d8746a94461a4f2df4afa8ef7a1186cea8f0be1ff3')
+                }
+            })
+            
         }
     }
 }
