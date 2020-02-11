@@ -96,10 +96,13 @@ export default {
     methods: {
         nav(item) {
             if (item.sectionID) {
-                if (this.$router.currentRoute !== '/dev') this.$router.push('/dev')
-                this.scrollIt(item.sectionID, null, -100)
+                if (this.$router.currentRoute.path !== '/') this.$router.push('/')
+
                 if (item.sectionID === 'Homebot') {
                     this.$root.$emit('goToHomebot', true)
+                    this.scrollIt('BuyersSellers', null, -100)
+                } else {
+                    this.scrollIt(item.sectionID, null, -100)
                 }
             }
             if (item.route) this.$router.push(item.route)

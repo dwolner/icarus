@@ -10,7 +10,7 @@
                     </div>
                     <div id="contact-profile" class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
-                            <img src="https://d2787ndpv5cwhz.cloudfront.net/d2557d28756d2818f42b4c7e4bf61bf9712ddcf0/300x300.jpg" style="max-width: 100%;" />
+                            <img src="statics/team/richard_square.jpg" style="max-width: 100%;" />
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-8 q-pa-sm">
                             <h5 class="q-mb-md">Learn how Richard can help sell your home faster and for a higher price with Concierge.</h5>

@@ -159,6 +159,12 @@ export default {
             })
             
         }
+    },
+
+    created() {
+        this.$root.$on('goToHomebot', () => {
+            this.toggleMoreInfo('Sellers')
+        })
     }
 }
 </script>
