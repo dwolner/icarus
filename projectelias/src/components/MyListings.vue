@@ -8,7 +8,7 @@
                             <h3 class="text-white Compass-Serif-Regular">Listings</h3>
                         </div>
 
-                        <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pa-xl">
+                        <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pt-xl q-px-xl">
                             <div v-for="item in listings" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
                                 <div class="shadow-4 relative-position" :style="`height: 100%; background: url(' ${item.media[0].originalUrl}'; background-size: cover; background-position: 50%; height: 300px;`">
                                     <div class="centerHeaderHold q-pa-md">
@@ -58,6 +58,12 @@
                             </q-carousel>
                         </template>
 
+                        <div class="col-12 q-pa-xl" align="center">
+                            <q-btn class="bg-white" size="lg" @click="$router.push('/search')">
+                                <q-icon size="sm" name="fas fa-search" class="q-mr-sm" />
+                                <h6>Search for more homes</h6>
+                            </q-btn>
+                        </div>
                     </div>
                 </div>
             </div>
