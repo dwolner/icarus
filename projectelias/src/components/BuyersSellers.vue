@@ -33,7 +33,7 @@
 
                     <div v-if="showMoreInfo" class="bg-white q-pa-xl">
                         <div class="row well relative-position" style="min-height: 1rem;">
-                            <q-btn class="absolute" round flat color="white" style="right: 0; top: 0; z-index: 999; height: unset;" @click="showMoreInfo = false">
+                            <q-btn class="absolute" round flat color="white" :style="`right: ${ $q.screen.width > 767 ? '2rem' : '0' }; top: 1rem; z-index: 999; height: unset;`" @click="showMoreInfo = false">
                                 <q-icon name="fas fa-times" color="black" />
                             </q-btn>
 
