@@ -32,7 +32,7 @@
                     </div>
 
                     <div v-if="showMoreInfo" class="bg-white q-pa-xl">
-                        <div class="row relative-position" style="min-height: 1rem;">
+                        <div class="row well relative-position" style="min-height: 1rem;">
                             <q-btn class="absolute" round flat color="white" style="right: 0; top: 0; z-index: 999; height: unset;" @click="showMoreInfo = false">
                                 <q-icon name="fas fa-times" color="black" />
                             </q-btn>
@@ -64,11 +64,11 @@
                             </template>
                         </div>
 
-                        <div class="row justify-center relative-position q-mt-lg">
+                        <div class="row well justify-center relative-position q-mt-lg">
                             <div class="col-xs-12 q-pa-sm" align="center">
                                 <h5>Top Videos For {{currentMoreInfoType}}</h5>
                             </div>
-                            <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo">
+                            <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo" align="center">
                                 <iframe sandbox="allow-scripts" :src="item" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>
                             </div>
                         </div>
@@ -149,11 +149,11 @@ export default {
             
             this.$nextTick(() => {
                 let homebotElement = document.getElementById('homebot_homeowner')
-                console.log('homebotElement: ', homebotElement)
-                console.log('type: ', type)
+                // console.log('homebotElement: ', homebotElement)
+                // console.log('type: ', type)
     
                 if (type === 'Sellers' && homebotElement) {
-                    console.log('show homebot')
+                    // console.log('show homebot')
                     window.Homebot('#homebot_homeowner', '926161d8746a94461a4f2df4afa8ef7a1186cea8f0be1ff3')
                 }
             })
