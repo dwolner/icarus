@@ -61,7 +61,7 @@
                         <div class="col-12 q-pa-xl" align="center">
                             <q-btn class="bg-white" size="lg" @click="$router.push('/search')">
                                 <q-icon size="sm" name="fas fa-search" class="q-mr-sm" />
-                                <h6>Search for more homes</h6>
+                                <h6>Search for homes</h6>
                             </q-btn>
                         </div>
                     </div>
