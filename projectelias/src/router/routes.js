@@ -9,16 +9,20 @@ const routes = [
         path: '/whycompass',
         component: () => import('pages/WhyCompass.vue')
       },
+      {
+        path: '/search',
+        component: () => import('components/CompassSearch.vue')
+      }
     ]
   },
-  {
-    path: '/dev',
-    component: () => import('layouts/dev.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index-dev.vue') },
-      { path: '/search', component: () => import('components/CompassSearch.vue') }
-    ]
-  }
+  // {
+  //   path: '/dev',
+  //   component: () => import('layouts/dev.vue'),
+  //   children: [
+  //     { path: '', component: () => import('pages/Index-dev.vue') },
+  //     { path: '/search', component: () => import('components/CompassSearch.vue') }
+  //   ]
+  // }
 ]
 
 // Always leave this as last one
