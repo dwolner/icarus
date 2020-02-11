@@ -13,17 +13,17 @@
                 <q-toolbar-title style="padding: 0;"></q-toolbar-title>
 
                 <q-btn dense size="sm" @click="$router.push('/search')">
-                    <q-icon name="fas fa-search" class="q-mx-xs" />
-                    <span class="gt-sm q-pl-sm">Search for homes</span>
+                    <q-icon name="fas fa-search" class="q-ma-xs" />
+                    <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Search for homes</span>
                 </q-btn>
                 <q-btn dense size="xs" @click="openWindow('https://www.instagram.com/richardeliasteam/')">
-                    <q-icon name="fab fa-instagram" class="q-mx-xs" />
+                    <q-icon name="fab fa-instagram" class="q-ma-xs" />
                 </q-btn>
                 <q-btn dense size="xs" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')">
-                    <q-icon name="fab fa-facebook" class="q-mx-xs" />
+                    <q-icon name="fab fa-facebook" class="q-ma-xs" />
                 </q-btn>
                 <q-btn dense size="xs" @click="openWindow('https://www.linkedin.com/in/richardeliasrealtor/')">
-                    <q-icon name="fab fa-linkedin" class="q-mx-xs" />
+                    <q-icon name="fab fa-linkedin" class="q-ma-xs" />
                 </q-btn>
 
                 <q-btn dense @click="nav(menuItems[0])">

@@ -4,15 +4,15 @@
             <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="row">
-                        <div class="col-xs-12 q-py-xl q-px-xl">
+                        <div class="col-xs-12 q-pt-xl q-px-xl">
                             <h3 class="text-white Compass-Serif-Regular">The Team</h3>
                         </div>
 
                         <div v-if="$q.screen.width > 767" class="col-xs-12 row q-pa-xl">
                             <div v-for="item in team" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
                                 <div class="bg-white full-width">
-                                    <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`" align="center">
-                                        <div class="relative-position cursor-pointer shadow-2" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
+                                    <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`" align="center" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
+                                        <div class="relative-position cursor-pointer shadow-2">
                                             <div class="learnMoreOverlay q-pa-md">
                                                 <div style="border: solid 2px white; height: 100%;">
                                                     <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -26,8 +26,8 @@
                                         <h4 class="q-mt-lg q-mb-sm Compass-Serif-Regular text-black">{{ item.name }}</h4>
                                         <div class="q-mx-md" :style="`border-bottom: 1.5px solid ${ item.mainman ? '#d2b623' : '#999' };`"></div>
                                         <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
-                                        <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.email }}</h6>
-                                        <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.number }}</h6>
+                                        <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">{{ item.email }}</h6>
+                                        <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">{{ item.number }}</h6>
                                     </div>
                                 </div>
                             </div>
