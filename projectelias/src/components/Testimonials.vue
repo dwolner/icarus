@@ -1,15 +1,15 @@
 <template>
-    <div id="Testimonials" :class="`container cx-dotGridBackground q-py-xl`">
+    <div id="Testimonials" class="container bg-black q-py-xl">
         <div class="row well">
-            <div class="col-sm-12 q-py-sm q-px-xl">
-                <h3 class="Compass-Serif-Regular q-mb-md" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
+            <div class="col-xs-12 q-py-sm q-px-xl">
+                <h3 class="Compass-Serif-Regular q-mb-md text-white" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
             </div>
 
             <div class="col-xs-12 q-mb-xl">
                 <q-carousel 
                     v-model="slideIndex" 
                     class="rounded-borders"
-                    control-color="primary"
+                    control-color="white"
                     transition-prev="slide-right" 
                     transition-next="slide-left" 
                     animated 
@@ -18,15 +18,18 @@
                     padding 
                     arrows
                     infinite
-                    style="max-width: 1350px; margin: 0 auto;"
+                    style="max-width: 1350px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
                 >
                     <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
-                        <q-icon name="fas fa-quote-right" color="primary" size="md" />
-                        <div class="q-mt-md text-center" style="max-width: 540px;">
-                            <p style="font-size: 1rem;">{{ slide.text }}</p>
-                            <h6>
-                                <span style="font-weight: bold;">{{ slide.author }}</span>
-                            </h6>
+                        <div class="text-center shadow-2 q-pa-sm bg-white" :style="`max-width: 100%; margin: 0 auto; border-radius: .25rem;`">
+                            <div class="q-mt-md q-pa-md text-center" style="max-width: 540px;">
+                                <q-icon class="q-mb-lg" name="fas fa-quote-right" color="primary" size="md" />
+
+                                <p style="font-size: 1rem;">{{ slide.text }}</p>
+                                <h6>
+                                    <span style="font-weight: bold;">{{ slide.author }}</span>
+                                </h6>
+                            </div>
                         </div>
                     </q-carousel-slide>
                 </q-carousel>
@@ -36,7 +39,7 @@
                 <q-carousel 
                     v-model="videoSlideIndex" 
                     class="rounded-borders"
-                    control-color="primary"
+                    control-color="white"
                     transition-prev="slide-right" 
                     transition-next="slide-left" 
                     animated 
@@ -48,7 +51,7 @@
                     style="height: 100%; max-width: 1350px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
                 >
                     <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center" style="padding-bottom: 75px;">
-                        <div class="text-center shadow-2 q-pa-md bg-white" :style="`max-width: 100%; margin: 0 auto;`">
+                        <div class="text-center shadow-2 q-pa-sm bg-white" :style="`max-width: 100%; margin: 0 auto; border-radius: .25rem;`">
                             <iframe :width="videoWidth" :height="videoHeight" :src="`https://www.youtube.com/embed/${ slide.id }`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </q-carousel-slide>
@@ -121,7 +124,7 @@ export default {
                 },
             ],
 
-            videoOffset: 160
+            videoOffset: 130
         }
     },
 

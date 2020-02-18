@@ -36,7 +36,7 @@
                         <template v-else>
                             <q-carousel
                                 v-model="slideIndex"
-                                class="col-12 rounded-borders"
+                                class="col-12 q-mt-lg rounded-borders"
                                 control-color="white"
                                 transition-prev="slide-right"
                                 transition-next="slide-left"

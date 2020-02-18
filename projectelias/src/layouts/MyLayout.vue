@@ -73,6 +73,10 @@
 </template>
 
 <script>
+
+import { scroll } from 'quasar'
+const { getScrollTarget, setScrollPosition } = scroll
+
 export default {
     name: 'MyLayout',
 
@@ -81,11 +85,11 @@ export default {
             leftDrawerOpen: false,
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
-                { title: 'Concierge', sectionID: 'Concierge' },
-                { title: 'My Listings', sectionID: 'MyListings'},
-                { title: 'Buyers & Sellers', sectionID: 'BuyersSellers'},
-                { title: 'Home Valuation', sectionID: 'Homebot' },
                 { title: 'The Team', sectionID: 'Team' },
+                { title: 'Buyers & Sellers', sectionID: 'BuyersSellers'},
+                { title: 'My Listings', sectionID: 'MyListings'},
+                { title: 'Concierge', sectionID: 'Concierge' },
+                { title: 'Home Valuation', sectionID: 'Homebot' },
                 { title: 'Testimonials', sectionID: 'Testimonials' },
                 { title: 'Contact', sectionID: 'Contact' },
                 // { title: 'Compass Search', route: '/search' }
@@ -95,14 +99,17 @@ export default {
 
     methods: {
         nav(item) {
+            console.log('nav: ', item)
             if (item.sectionID) {
                 if (this.$router.currentRoute.path !== '/') this.$router.push('/')
 
                 if (item.sectionID === 'Homebot') {
                     this.$root.$emit('goToHomebot', true)
-                    this.scrollIt('BuyersSellers', null, -100)
+                    var element = id ? document.getElementById('BuyersSellers') : false
+                    this.scrollToElement(element)
                 } else {
-                    this.scrollIt(item.sectionID, null, -100)
+                    var element = item.sectionID ? document.getElementById(item.sectionID) : false
+                    this.scrollToElement(element)
                 }
             }
             if (item.route) this.$router.push(item.route)
@@ -113,15 +120,22 @@ export default {
         openWindow(link) {
             let options = {}
             window.open(link, '_blank')
+        },
+
+        scrollToElement(el) {
+            const target = getScrollTarget(el)
+            const offset = el.offsetTop
+            const duration = 400
+            setScrollPosition(target, offset, duration)
         }
     },
 
-    mounted() {
+    created() {
         console.log('ROuter: ', this.$router.currentRoute)
 
         if (this.$router.currentRoute && this.$router.currentRoute.hash) {
             this.$nextTick(() => {
-                this.scrollIt(this.$router.currentRoute.hash.replace('#', ''), null, -100)
+                this.scrollToElement(this.$router.currentRoute.hash.replace('#', ''))
             })
         }
     }

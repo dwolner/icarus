@@ -54,10 +54,10 @@ export default {
             compassLocations: [
                 { title: 'Carmel Valley', url: 'https://goo.gl/maps/ctwZ8TRrRyT3otcE7' },
                 { title: 'Downtown San Diego', url: 'https://goo.gl/maps/13TsfmWnC5P81jMx7' },
-                { title: 'La Jolla', url: 'https://goo.gl/maps/MnjHdzyzdaUk3dMP7' },
+                { title: 'La Jolla', url: 'https://goo.gl/maps/bnEd8AawhDhS3CgV6' },
                 { title: 'Rancho Santa Fe', url: 'https://goo.gl/maps/K6J9fmxHn7TT6Wbp9' },
                 { title: 'Encinitas', url: 'https://goo.gl/maps/ruLgE5svAwjDqNi39' },
-                { title: 'Cardiff', url: 'https://g.page/kellyhowardrealestate?share' },
+                { title: 'Cardiff', url: 'https://goo.gl/maps/ioJn3YpXu6rWGH8H7' },
             ]
         }
     },

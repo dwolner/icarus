@@ -16,16 +16,16 @@
             </video>
         </div>
 
-        <Concierge />
-        
-        <MyListings />
+        <Team />
 
         <BuyersSellers />
         
+        <MyListings />
+
+        <Concierge />
+        
         <!-- <Homebot /> -->
 
-        <Team />
-        
         <Testimonials />
 
         <!-- <Lender /> -->
