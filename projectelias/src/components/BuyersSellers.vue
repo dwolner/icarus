@@ -17,7 +17,7 @@
                         </div>
                     </div>
 
-                    <div class="row well justify-center q-px-xl">
+                    <div id="BuyersSellersButtons" class="row well justify-center q-px-xl">
                         <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
                             <q-btn class="full-width" color="primary" size="lg" @click="toggleMoreInfo('Buyers')">
                                 I am a buyer

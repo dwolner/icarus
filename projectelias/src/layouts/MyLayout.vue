@@ -105,10 +105,11 @@ export default {
 
                 if (item.sectionID === 'Homebot') {
                     this.$root.$emit('goToHomebot', true)
-                    var element = id ? document.getElementById('BuyersSellers') : false
-                    this.scrollToElement(element)
+                    var el = document.getElementById('BuyersSellers')
+                    var element = document.getElementById('BuyersSellersButtons')
+                    this.scrollToElement(element, el.offsetTop)
                 } else {
-                    var element = item.sectionID ? document.getElementById(item.sectionID) : false
+                    var element = document.getElementById(item.sectionID)
                     this.scrollToElement(element)
                 }
             }
@@ -122,10 +123,11 @@ export default {
             window.open(link, '_blank')
         },
 
-        scrollToElement(el) {
+        scrollToElement(el, extraOffset) {
             const target = getScrollTarget(el)
-            const offset = el.offsetTop
+            const offset = el.offsetTop + extraOffset
             const duration = 400
+            console.log('scrollToElement: ', target, offset, extraOffset, duration)
             setScrollPosition(target, offset, duration)
         }
     },
