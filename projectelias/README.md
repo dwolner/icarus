@@ -1,6 +1,6 @@
-# projectelias (projectelias)
+# Quasar App (projecteliasfix)
 
-Realty for the NEW San Diego
+A Quasar Framework app
 
 ## Install the dependencies
 ```bash
