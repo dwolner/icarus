@@ -56,7 +56,7 @@ export default {
                 { title: 'Downtown San Diego', url: 'https://goo.gl/maps/13TsfmWnC5P81jMx7' },
                 { title: 'La Jolla', url: 'https://goo.gl/maps/bnEd8AawhDhS3CgV6' },
                 { title: 'Rancho Santa Fe', url: 'https://goo.gl/maps/K6J9fmxHn7TT6Wbp9' },
-                { title: 'Encinitas', url: 'https://goo.gl/maps/ruLgE5svAwjDqNi39' },
+                { title: 'Encinitas', url: 'https://goo.gl/maps/8twVKAsvHXxGvNTr6' },
                 { title: 'Cardiff', url: 'https://goo.gl/maps/ioJn3YpXu6rWGH8H7' },
             ]
         }

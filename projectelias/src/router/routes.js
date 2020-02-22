@@ -10,6 +10,10 @@ const routes = [
         component: () => import('pages/WhyCompass.vue')
       },
       {
+        path: '/news',
+        component: () => import('pages/News.vue')
+      },
+      {
         path: '/search',
         component: () => import('components/CompassSearch.vue')
       }
