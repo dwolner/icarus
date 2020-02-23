@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const Parser = require('rss-parser');
 
 const app = express();
 
@@ -48,6 +49,30 @@ app.get('/listings', function (req, res) {
                 body: error
             })
         });
+});
+
+app.get('/newsFeed', function (req, res) {
+    let rssURL = 'https://www.simplifyingthemarket.com/en/feed/?a=35238-70afc3829d7f0cdac24400a255ace4ba'
+    console.log(rssURL)
+
+    let parser = new Parser();
+
+    parser.parseURL(rssURL, (err, feed) => {
+        console.log('NEWS FEED: ')
+        console.log(feed.title)
+
+        if (err) {
+            res.send({
+                success: false,
+                body: err
+            })
+        } else {
+            res.send({
+                success: true,
+                body: feed
+            })
+        }
+    });
 });
 
 app.post('/contact', function (req, expressRes) {
