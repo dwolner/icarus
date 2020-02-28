@@ -16,7 +16,7 @@
             </video>
         </div>
 
-        <InstaFeed />
+        <!-- <InstaFeed /> -->
 
         <Team />
 

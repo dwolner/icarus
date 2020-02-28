@@ -9,7 +9,7 @@
                         </div>
 
                         <div v-if="$q.screen.width > 767" class="col-xs-12 row q-pa-xl">
-                            <div v-for="item in team" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
+                            <div v-for="(item, index) in team" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
                                 <div class="bg-white full-width">
                                     <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`" align="center" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
                                         <div class="relative-position cursor-pointer shadow-2">
