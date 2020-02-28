@@ -16,6 +16,8 @@
             </video>
         </div>
 
+        <InstaFeed />
+
         <Team />
 
         <BuyersSellers />
@@ -73,6 +75,7 @@
 
 <script>
 import Concierge from '../components/Concierge'
+import InstaFeed from '../components/InstaFeed'
 import MyListings from '../components/MyListings'
 import BuyersSellers from '../components/BuyersSellers'
 import Team from '../components/Team'
@@ -87,6 +90,7 @@ export default {
 
     components: {
         Concierge,
+        InstaFeed,
         MyListings,
         BuyersSellers,
         Team,
@@ -126,22 +130,6 @@ export default {
     width: 100%;
     overflow: hidden;
 }
-
-.object-fit {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* @media (min-width: 768px) {
-    .hero {
-        min-height: 600px;
-    }
-} */
 
 .hero .container {
     position: relative;

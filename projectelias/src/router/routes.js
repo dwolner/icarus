@@ -14,6 +14,11 @@ const routes = [
         component: () => import('pages/News.vue')
       },
       {
+        path: '/openhouses/:neighborhood',
+        component: () => import('pages/News.vue'),
+        props: true
+      },
+      {
         path: '/search',
         component: () => import('components/CompassSearch.vue')
       }

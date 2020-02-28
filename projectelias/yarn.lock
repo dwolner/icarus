@@ -1740,6 +1740,13 @@ axios@^0.18.1:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
 
+axios@^0.19.0:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
+
 babel-extract-comments@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/babel-extract-comments/-/babel-extract-comments-1.0.0.tgz#0a2aedf81417ed391b85e18b4614e693a0351a21"
@@ -8591,6 +8598,14 @@ vue-i18n@^8.15.3:
   version "8.15.3"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.15.3.tgz#9f947802d9b734fcb92e2ce724da654f2f9fc0f4"
   integrity sha512-PVNgo6yhOmacZVFjSapZ314oewwLyXHjJwAqjnaPN1GJAJd/dvsrShGzSiJuCX4Hc36G4epJvNXUwO8y7wEKew==
+
+vue-instagram@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-instagram/-/vue-instagram-3.0.0.tgz#dcb2c43159879b6127be82cc1f6363d11dd4d50f"
+  integrity sha512-wXEqHR3yGfHwwNrCdD62aJeAumHU+FNKHGSAgmkq9eSWEfrR4SxGqWCb/p5wbtcEZMOhSKpi1YBu2l2mrnoIJg==
+  dependencies:
+    axios "^0.19.0"
+    lodash "^4.17.15"
 
 vue-loader@15.9.0:
   version "15.9.0"
