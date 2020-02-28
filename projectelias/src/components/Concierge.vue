@@ -1,6 +1,7 @@
 <template>
     <div id="Concierge" class="cx-dotGridBackground" style="width: 100%;">
-        <div class="row well container" style="min-height: 100vh; ">
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container" style="min-height: 100vh; ">
+
             <div class="col-xs-12 col-md-6 q-pa-xl">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="q-pa-sm">
@@ -26,6 +27,7 @@
                     </div>
                 </div>
             </div>
+
             <div
                 class="col-xs-12 col-md-6 relative-position"
                 style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"

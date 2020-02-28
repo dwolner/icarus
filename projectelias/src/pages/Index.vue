@@ -3,10 +3,10 @@
 
         <div id="top" class="hero">
             <div class="container text-white q-pa-lg" align="center">
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
-                <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
-                <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
-                <q-btn flat color="light" @click="scrollIt('Concierge', null, -50)">
+                <img v-scroll-reveal.reset="{ delay: 75, easing: 'ease-in-out', distance: '100px', origin: 'top' }" src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
+                <h2 v-scroll-reveal.reset="{ delay: 150, easing: 'ease-in-out', distance: '100px', origin: 'top' }" class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
+                <h5 v-scroll-reveal.reset="{ delay: 225, easing: 'ease-in-out', distance: '100px', origin: 'top' }" class="q-my-md">Helping you find your place in San Diego.</h5>
+                <q-btn v-scroll-reveal.reset="{ delay: 300, easing: 'ease-in-out', distance: '100px', origin: 'top' }" flat color="light" @click="scrollIt('Concierge', null, -50)">
                     <div class="full-width" style="font-size: .8rem;">See More</div>
                     <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
                 </q-btn>

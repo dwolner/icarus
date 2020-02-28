@@ -44,6 +44,33 @@
                     </q-card>
                 </div>
             </div> -->
+
+            <q-dialog v-model="showNewsItem" style="width: 100%;">
+                <div class="relative-position" style="width: 100%; max-width: 750px;">
+                    <q-btn class="absolute" round flat @click="showNewsItem = false" style="top: 0rem; right: 0; z-index: 999;">
+                        <q-icon name="fas fa-times" color="black" style="font-size: 1rem;" />
+                    </q-btn>
+                    
+                    <div class="bg-white" style="padding-top: 2.5rem;">
+
+                        <iframe
+                            v-if="selectedItem"
+                            :src="selectedItem.link"
+                            name="myiFrame"
+                            width="100%"
+                            :height="searchHeight"
+                            frameborder="1"
+                            marginwidth="0px"
+                            marginheight="0px"
+                            scrolling="no"
+                            allowfullscreen="allowfullscreen"
+                            style="border: 0px #ffffff none;"
+                        ></iframe>
+
+                    </div>
+                </div>
+            </q-dialog>
+            
         </div>
     </q-page>
 </template>
@@ -59,12 +86,17 @@ export default {
 
     data() {
         return {
-            feed: []
+            feed: [],
+            selectedItem: null,
+            showNewsItem: false
         }
     },
 
     computed: {
-        },
+        searchHeight() {
+            return this.$q.screen.height - 120
+        }
+    },
 
     methods: {
         getFeed(cb) {
@@ -80,7 +112,10 @@ export default {
         },
 
         selectItem(item) {
-            window.open(item.link, '_blank')
+            // window.open(item.link, '_blank')
+
+            this.selectedItem = item
+            this.showNewsItem = true
         }
     },
 

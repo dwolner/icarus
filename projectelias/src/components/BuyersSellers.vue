@@ -8,7 +8,7 @@
                             <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
                         </div>
 
-                        <div v-for="item in features" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
+                        <div v-for="(item, index) in features" v-scroll-reveal.reset="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
                             <div class="bg-white q-pa-md full-height">
                                 <q-icon :name="item.icon" style="font-size: 3rem;" />
                                 <h5 class="q-my-lg">{{ item.title }}</h5>
@@ -17,62 +17,73 @@
                         </div>
                     </div>
 
-                    <div id="BuyersSellersButtons" class="row well justify-center q-px-xl">
-                        <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                            <q-btn class="full-width" color="primary" size="lg" @click="toggleMoreInfo('Buyers')">
-                                I am a buyer
-                            </q-btn>
-                        </div>
 
-                        <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                            <q-btn class="full-width" color="primary" size="lg" @click="toggleMoreInfo('Sellers')">
-                                I am a seller
-                            </q-btn>
-                        </div>
-                    </div>
-
-                    <div v-if="showMoreInfo" class="bg-white q-pa-xl">
-                        <div class="row well relative-position" style="min-height: 1rem;">
-                            <q-btn class="absolute" round flat color="white" :style="`right: ${ $q.screen.width > 767 ? '2rem' : '0' }; top: 1rem; z-index: 999; height: unset;`" @click="showMoreInfo = false">
-                                <q-icon name="fas fa-times" color="black" />
-                            </q-btn>
-
-                            <template v-if="currentMoreInfoType === 'Sellers'">
-                                <div class="col-12">
-                                    <div id="homebot_homeowner"></div>
-                                </div>
-                            </template>
-
-                            <template v-if="currentMoreInfoType === 'Buyers'">
-                                <div class="col-xs-6" align="right">
-                                    <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
-                                </div>
-
-                                <div class="col-xs-6 q-pl-md" align="left">
-                                    <h6 class="Compass-Serif-Regular">Lender</h6>
-                                    <q-img src="statics/logos/GuildLogo.png" style="max-width: 7rem;" />
-                                    <h5 class="q-my-sm">Tom Weikel</h5>
-                                    <p class="" style="margin: 0; font-size: .8rem;">NMLS # 243656</p>
-                                    <p class="" style="margin: 0; font-size: .8rem;">Phone 858.597.3772</p>
-                                </div>
-
-                                <div class="col-12 q-pa-lg" align="center">
-                                    <q-btn color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay')">
-                                        Get Started on your preapproval
+                    <q-expansion-item
+                        v-model="showMoreInfo"
+                        class="well"
+                        expand-icon=""
+                        expanded-icon=""
+                    >
+                        <template v-slot:header>
+                            <div id="BuyersSellersButtons" class="full-width row justify-center q-px-xl">
+                                <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                                    <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Buyers')">
+                                        I am a buyer
                                     </q-btn>
                                 </div>
-                            </template>
-                        </div>
 
-                        <div class="row well justify-center relative-position q-mt-lg">
-                            <div class="col-xs-12 q-pa-sm" align="center">
-                                <h5>Top Videos For {{currentMoreInfoType}}</h5>
+                                <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                                    <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Sellers')">
+                                        I am a seller
+                                    </q-btn>
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo" align="center">
-                                <iframe sandbox="allow-scripts" :src="item" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>
+                        </template>
+
+                        <div class="bg-white q-pa-xl" key="moreInfo">
+                            <div class="row well relative-position" style="min-height: 1rem;">
+                                <q-btn class="absolute" round flat color="white" :style="`right: ${ $q.screen.width > 767 ? '2rem' : '0' }; top: 1rem; z-index: 999; height: unset;`" @click="showMoreInfo = false">
+                                    <q-icon name="fas fa-times" color="black" />
+                                </q-btn>
+
+                                <template v-if="currentMoreInfoType === 'Sellers'">
+                                    <div class="col-12">
+                                        <div id="homebot_homeowner"></div>
+                                    </div>
+                                </template>
+
+                                <template v-if="currentMoreInfoType === 'Buyers'">
+                                    <div class="col-xs-6" align="right">
+                                        <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
+                                    </div>
+
+                                    <div class="col-xs-6 q-pl-md" align="left">
+                                        <h6 class="Compass-Serif-Regular">Lender</h6>
+                                        <q-img src="statics/logos/GuildLogo.png" style="max-width: 7rem;" />
+                                        <h5 class="q-my-sm">Tom Weikel</h5>
+                                        <p class="" style="margin: 0; font-size: .8rem;">NMLS # 243656</p>
+                                        <p class="" style="margin: 0; font-size: .8rem;">Phone 858.597.3772</p>
+                                    </div>
+
+                                    <div class="col-12 q-pa-lg" align="center">
+                                        <q-btn color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay')">
+                                            Get Started on your preapproval
+                                        </q-btn>
+                                    </div>
+                                </template>
+                            </div>
+
+                            <div class="row well justify-center relative-position q-mt-lg">
+                                <div class="col-xs-12 q-pa-sm" align="center">
+                                    <h5>Top Videos For {{currentMoreInfoType}}</h5>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo" align="center">
+                                    <iframe sandbox="allow-scripts" :src="item" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </q-expansion-item>
+
                 </div>
             </div>
         </div>
@@ -182,4 +193,10 @@ export default {
     height: 100%;
     overflow: hidden;
 }
+</style>
+
+<style>
+    .q-item__section.column.q-focusable.relative-position.cursor-pointer.q-item__section--side.justify-center {
+        display: none;
+    }
 </style>
