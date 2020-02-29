@@ -1,5 +1,5 @@
 <template>
-    <div id="Lender" class="q-pa-xl">
+    <div id="lender" class="q-pa-xl">
         <div class="row well container">
             <div class="col-xs-6" align="right">
                 <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-#Lender {
+#lender {
     width: 100%;
     /* min-height: 100vh; */
     background: #080808;

@@ -1,5 +1,5 @@
 <template>
-    <div id="BuyersSellers" class="cx-dotGridBackground q-pb-xl" style="width: 100%;">
+    <div id="buyerssellers" class="cx-dotGridBackground q-pb-xl" style="width: 100%;">
         <div class="row" style="min-height: 100vh; ">
             <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -181,7 +181,7 @@ export default {
 </script>
 
 <style scoped>
-#BuyersSellers {
+#buyerssellers {
     width: 100%;
     min-height: 100vh;
     position: relative;

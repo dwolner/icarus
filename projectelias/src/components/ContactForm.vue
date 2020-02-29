@@ -11,7 +11,7 @@
 
             <q-select v-model="inquiryType" :options="options" class="col-xs-12 q-py-md q-px-sm" filled label="Inquiry Type" :rules="[val => (val && val.length > 0) || 'Please select an inquiry type']" />
 
-            <q-input v-if="inquiryType === 'Other'" v-model="otherText" type="text" class="col-xs-12 q-py-md q-px-sm" filled fill-mask lazy-rules label="Other:" :rules="[val => (val && val.length > 0) || 'Please fill in your request']" />
+            <q-input v-if="inquiryType === 'Other'" v-model="otherText" type="textarea" class="col-xs-12 q-py-md q-px-sm" filled fill-mask lazy-rules label="Other:" :rules="[val => (val && val.length > 0) || 'Please fill in your request']" />
 
             <div class="row q-py-md q-px-sm">
                 <div class="col-9">

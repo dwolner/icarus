@@ -1,5 +1,5 @@
 <template>
-    <div id="MyListings">
+    <div id="mylistings">
         <div class="row well container">
             <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -210,7 +210,7 @@ export default {
 </script>
 
 <style scoped>
-#MyListings {
+#mylistings {
     width: 100%;
     /* min-height: 100vh; */
     background: #080808;

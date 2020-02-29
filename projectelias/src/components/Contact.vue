@@ -1,5 +1,5 @@
 <template>
-    <div id="Contact" style="background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%;"> 
+    <div id="contact" style="background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%;"> 
         <div class="overlay"></div>
 
         <div class="well row container q-pa-xl" style="position: relative; z-index: 999; color: white;">
@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style scoped>
-    #Contact {
+    #contact {
         width: 100%;
         height: 100%;
         /* min-height: 100vh; */

@@ -1,5 +1,5 @@
 <template>
-    <div id="CompassSearch">
+    <div id="compasssearch">
         <div class="row well container">
             <div class="col-xs-12 q-pa-md" align="right">
                 <iframe
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-#CompassSearch {
+#compasssearch {
     width: 100%;
     min-height: calc(100vh - 65px);
     background: #fff;

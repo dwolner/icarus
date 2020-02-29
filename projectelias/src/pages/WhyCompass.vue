@@ -1,6 +1,6 @@
 <template>
     <q-page class="flex flex-center">
-        <div id="WhyCompass">
+        <div id="whycompass">
             <div v-if="!auth" class="bg-white q-pa-md" align="center" style="max-width: 500px; margin: 2rem auto;">
                 <q-input 
                     v-model="password"
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-    #WhyCompass {
+    #whycompass {
         width: 100%;
         min-height: calc(100vh - 50px);
         /* padding-top: 50px; */

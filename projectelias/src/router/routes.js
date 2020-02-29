@@ -14,8 +14,8 @@ const routes = [
         component: () => import('pages/News.vue')
       },
       {
-        path: '/openhouses/:neighborhood',
-        component: () => import('pages/News.vue'),
+        path: '/openhouses/:neighborhood?',
+        component: () => import('pages/Openhouses.vue'),
         props: true
       },
       {

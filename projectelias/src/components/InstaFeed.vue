@@ -1,12 +1,11 @@
 <template>
-    <div id="InstaFeed">
+    <div id="instafeed">
         <div id="instagram-feed-demo" class="instagram_feed"></div>
     </div>
 </template>
 
-<script src="../js/InstagramFeed.min.js"></script>
-
 <script>
+var Instafeed = require("instafeed.js");
 
 export default {
     name: 'InstaFeed',
@@ -18,10 +17,12 @@ export default {
     methods: {},
 
     created() {
-        new InstagramFeed({
-            'username': 'richardeliasteam',
-            'container': "#instagram-feed-demo"
+        var feed = new Instafeed({
+            get: 'user',
+            userId: '1133942097',
+            template: '<a href="{{link}}"><img src="{{image}}" /></a>'
         });
+        feed.run();
     }
 }
 </script>

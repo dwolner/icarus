@@ -14,13 +14,15 @@ Vue.use(VueRouter)
 const Router = new VueRouter({
 	scrollBehavior(to, from, savedPosition) {
 		console.log('scrollbehave: ', to)
-		if (to.hash) {
-			return {
-				selector: to.hash
-				// , offset: { x: 0, y: 10 }
-			}
-		}
+
+		// if (to.hash) {
+		// 	return {
+		// 		selector: to.hash
+		// 		// , offset: { x: 0, y: 10 }
+		// 	}
+		// }
 	},
+
 	routes,
 
 	// Leave these as is and change from quasar.conf.js instead!
@@ -33,6 +35,10 @@ const Router = new VueRouter({
 Router.beforeEach((to, from, next) => {
 	console.log('before route: ', to, from)
 	next()
+})
+
+Router.afterEach((to, from, next) => {
+	console.log('after route: ', to, from)
 })
 
 export default Router

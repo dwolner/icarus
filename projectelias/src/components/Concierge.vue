@@ -1,5 +1,5 @@
 <template>
-    <div id="Concierge" class="cx-dotGridBackground" style="width: 100%;">
+    <div id="concierge" class="cx-dotGridBackground" style="width: 100%;">
         <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container" style="min-height: 100vh; ">
 
             <div class="col-xs-12 col-md-6 q-pa-xl">

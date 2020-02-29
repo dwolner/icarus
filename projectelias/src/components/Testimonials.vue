@@ -1,5 +1,5 @@
 <template>
-    <div id="Testimonials" class="container bg-black q-py-xl">
+    <div id="testimonials" class="container bg-black q-py-xl">
         <div class="row well">
             <div class="col-xs-12 q-py-sm q-px-xl">
                 <h3 class="Compass-Serif-Regular q-mb-md text-white" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
@@ -18,7 +18,7 @@
                     padding 
                     arrows
                     infinite
-                    style="max-width: 1350px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
+                    style="max-width: 800px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
                 >
                     <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
                         <div class="text-center shadow-2 q-pa-sm bg-white" :style="`max-width: 100%; margin: 0 auto; border-radius: .25rem;`">
@@ -48,7 +48,7 @@
                     padding 
                     arrows
                     infinite
-                    style="height: 100%; max-width: 1350px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
+                    style="height: 100%; max-width: 800px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
                 >
                     <q-carousel-slide v-for="(slide, index) in videoSlides" :key="index" :name="slide.id" class="column no-wrap flex-center" style="padding-bottom: 75px;">
                         <div class="text-center shadow-2 q-pa-sm bg-white" :style="`max-width: 100%; margin: 0 auto; border-radius: .25rem;`">
@@ -144,7 +144,7 @@ export default {
 </script>
 
 <style scoped>
-#Testimonials {
+#testimonials {
     width: 100%;
     /* min-height: 100vh; */
     position: relative;

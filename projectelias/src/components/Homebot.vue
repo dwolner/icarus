@@ -1,5 +1,5 @@
 <template>
-    <div id="Homebot">
+    <div id="homebot">
         <div class="row well container">
             <div class="col-xs-12 q-pa-xl">
                 <div id="homebot_homeowner"></div>
@@ -48,7 +48,7 @@ Homebot('#homebot_homeowner', '926161d8746a94461a4f2df4afa8ef7a1186cea8f0be1ff3'
 </script>
 
 <style scoped>
-#Homebot {
+#homebot {
     width: 100%;
     /* min-height: 100vh; */
     background: #fff;

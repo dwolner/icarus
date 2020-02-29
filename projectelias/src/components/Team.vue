@@ -1,5 +1,5 @@
 <template>
-    <div id="Team">
+    <div id="team">
         <div class="row well container" style="min-height: 100vh; ">
             <div class="col-xs-12">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
@@ -9,7 +9,7 @@
                         </div>
 
                         <div v-if="$q.screen.width > 767" class="col-xs-12 row q-pa-xl">
-                            <div v-for="(item, index) in team" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
+                            <div v-for="(item, index) in team" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, easing: 'ease-in-out'}" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
                                 <div class="bg-white full-width">
                                     <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`" align="center" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
                                         <div class="relative-position cursor-pointer shadow-2">
@@ -146,7 +146,7 @@ export default {
 </script>
 
 <style scoped>
-#Team {
+#team {
     width: 100%;
     min-height: 100vh;
     background: #080808;

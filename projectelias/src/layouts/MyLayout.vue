@@ -1,5 +1,5 @@
 <template>
-    <q-layout view="hhh LpR fFf">
+    <q-layout view="hhh LpR fFf" @scroll="scrollHandler">
         <q-header reveal elevated>
             <q-toolbar style="height: 65px;">
                 <q-btn
@@ -69,29 +69,74 @@
         <q-page-container>
             <router-view />
         </q-page-container>
+
+        <q-dialog v-model="showContactFormOverlay" @hide="$store.commit('globalInquiryType', 'General')" style="width: 100%; padding: 1rem;">
+            <div class="bg-white relative-position" style="width: 100%; max-width: 750px;">
+                <q-btn class="absolute" round flat color="white" @click="showContactFormOverlay = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                    <q-icon name="fas fa-times" color="black" style="font-size: 1rem;" />
+                </q-btn>
+                
+                <div class="row q-pa-md">
+                    <div class="col-12 q-pa-md">
+                        <h6 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h6>
+                        <h2 class="Compass-Serif-Regular ">Contact</h2>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="q-mx-md" :style="`border-bottom: 1px solid #999;`"></div>
+                    </div>
+
+                    <ContactForm v-if="showContactFormOverlay" class="col-12 q-my-sm q-pa-sm" />
+
+                    <!-- <div class="col-xs-12 col-md-6 q-pa-md" align="center">
+                        <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6>
+                        <p>San Diego Real Estate</p>
+                        <p>Richard Elias Team | Compass</p>
+                        <p>Realtor® DRE #01104411</p>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 q-pa-md" align="center">
+                        <h6 class="Compass-Serif-Regular q-my-md">LOCATION</h6>
+                        <p style="margin-bottom: 0;">655 W Broadway #1650, San Diego, CA, 92101</p>
+                        <p><a @click="showMap = true">Get directions</a></p>
+                        <p>619.672.2020</p>
+                        <p>richard.elias@compass.com</p>
+                    </div> -->
+                </div>
+            </div>
+        </q-dialog>
     </q-layout>
 </template>
 
 <script>
 
 import { scroll } from 'quasar'
-const { getScrollTarget, setScrollPosition } = scroll
+const { getScrollTarget, setScrollPosition, getScrollPosition } = scroll
+
+import ContactForm from '../components/ContactForm'
 
 export default {
     name: 'MyLayout',
 
+    components: {
+        ContactForm
+    },
+
     data() {
         return {
             leftDrawerOpen: false,
+            showContactFormOverlay: false,
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
-                { title: 'The Team', sectionID: 'Team' },
-                { title: 'Buyers & Sellers', sectionID: 'BuyersSellers'},
-                { title: 'My Listings', sectionID: 'MyListings'},
-                { title: 'Concierge', sectionID: 'Concierge' },
-                { title: 'Home Valuation', sectionID: 'Homebot' },
-                { title: 'Testimonials', sectionID: 'Testimonials' },
-                { title: 'Contact', sectionID: 'Contact' },
+                { title: 'The Team', sectionID: 'team' },
+                { title: 'Buyers & Sellers', sectionID: 'buyerssellers'},
+                { title: 'My Listings', sectionID: 'mylistings'},
+                { title: 'Concierge', sectionID: 'concierge' },
+                { title: 'Home Valuation', sectionID: 'homebot' },
+                { title: 'Testimonials', sectionID: 'testimonials' },
+                { title: 'News', route: '/news' },
+                { title: 'Open Houses', route: '/openhouses' },
+                { title: 'Contact', sectionID: 'contact' },
                 // { title: 'Compass Search', route: '/search' }
             ],
         }
@@ -106,11 +151,11 @@ export default {
                 if (item.sectionID === 'Homebot') {
                     this.$root.$emit('goToHomebot', true)
                     var el = document.getElementById('BuyersSellers')
-                    var element = document.getElementById('BuyersSellersButtons')
-                    this.scrollToElement(element, el.offsetTop)
+                    // var element = document.getElementById('BuyersSellersButtons')
+                    this.scrollToElement('BuyersSellersButtons', el.offsetTop)
                 } else {
-                    var element = document.getElementById(item.sectionID)
-                    this.scrollToElement(element)
+                    // var element = document.getElementById(item.sectionID)
+                    this.scrollToElement(item.sectionID, 75)
                 }
             }
             if (item.route) this.$router.push(item.route)
@@ -123,21 +168,39 @@ export default {
             window.open(link, '_blank')
         },
 
-        scrollToElement(el, extraOffset) {
-            const target = getScrollTarget(el)
-            const offset = el.offsetTop + extraOffset
-            const duration = 400
-            console.log('scrollToElement: ', target, offset, extraOffset, duration)
+        scrollHandler(val) {
+            // console.log('scrollHandler: ', val)
+            // console.log('scrollHandler position: ', val.position)
+        },
+
+        scrollToElement(id, extraOffset) {
+            console.log('scrollToElement: ', id, extraOffset)
+            let el = document.getElementById(id)
+            console.log('EL: ', el)
+
+            let target = getScrollTarget(el)
+            // let elOffset = el.offsetTop + (el.clientHeight * .5)
+            let elOffset = el.offsetTop
+            console.log('elOffset: ', elOffset)
+            
+            let offset = extraOffset ? elOffset + extraOffset : elOffset
+            let duration = 400
+
+            console.log('setScrollPosition: ', target, offset, duration)
             setScrollPosition(target, offset, duration)
         }
     },
 
-    created() {
+    mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
+
+        this.$root.$on('showContactFormOverlay', () => { this.showContactFormOverlay = true })
 
         if (this.$router.currentRoute && this.$router.currentRoute.hash) {
             this.$nextTick(() => {
-                this.scrollToElement(this.$router.currentRoute.hash.replace('#', ''))
+                setTimeout(() => {
+                    this.scrollToElement(this.$router.currentRoute.hash.replace('#', ''), 75)
+                }, 1000)
             })
         }
     }
