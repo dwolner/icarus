@@ -126,7 +126,7 @@ export default function ( /* { ssrContext } */ ) {
         {
           "title": "REEL 2019",
           "tags": ["original"],
-          "imageFilename": "STARRO.jpg",
+          "imageFilename": "reel2019.jpg",
           "embedURL": "",
           "fileName": "MW_reel_9-9.mp4"
         },
