@@ -1,0 +1,39 @@
+Meanwhile 2.0 Site Changes
+
+clear definitions of company and what the role is
+expand it a bit to add e-commerce, about
+stay on same page for shop??
+
+remove enter page, scroll to anchor links
+
+this is for larger clients that need specifics for what meanwhile does
+click on the site, I want this type of service, has meanwhile done that?
+
+Original/Commercial/Music/Art
+Social Media
+Retail
+
+Mini Bio, hover over for more
+
+click through from videos for more videos or Merch
+
+
+Next Steps
+Spec and Outline
+
+November release
+
+$70 / hr
+
+Shopify Basic Plan to start at $30/mo
+
+Shopify Integrated 4-5 hrs
+
+ssh root@104.248.75.199
+rsync -avz ./ root@104.248.75.199:/home/meanwhile2/
+
+rsync -avz ./ root@104.248.75.199:/home/shopify-express-application/
+rsync -avz ./danielwolner/ root@206.189.214.224:/home/danielwolner/
+rsync -avz ./ root@206.189.214.224:/home/danielwolner/
+
+find $HOME -type d -name nginx
