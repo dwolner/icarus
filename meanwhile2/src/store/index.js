@@ -256,7 +256,85 @@ export default function ( /* { ssrContext } */ ) {
           "embedURL": "https://player.vimeo.com/video/297875292?color=ffffff&autoplay=1",
           "fileName": ""
         }
-      ]
+      ],
+
+      clients: [
+        {
+          filename: 'BMW_logo.jpg'
+        },
+        {
+          filename: 'bobbyboy_records_logo.jpeg'
+        },
+        {
+          filename: 'caroline_music_logo.png'
+        },
+        {
+          filename: 'Columbia_Records.png'
+        },
+        {
+          filename: 'def_jam_logo_white.png'
+        },
+        {
+          filename: 'epic_white_logo.png'
+        },
+        {
+          filename: 'Fullscreen_white_logo.png'
+        },
+        {
+          filename: 'IHC_logo.png'
+        },
+        {
+          filename: 'netflix-2logo.svg'
+        },
+        {
+          filename: 'panavision_white.png'
+        },
+        {
+          filename: 'PBR_logo.jpg'
+        },
+        {
+          filename: 'republic_records_white.png'
+        },
+        {
+          filename: 'sony_music_white_logo.png'
+        },
+        {
+          filename: 'univeral_music_group_white.jpg'
+        },
+        {
+          filename: 'warner-music.png'
+        },
+      ],
+
+      laurels: [
+        {
+          filename: '2019_laurel_transparent_official_selection.png'
+        },
+        {
+          filename: 'FINALIST_-_Culver_City_Film_Festival_-_2020.png'
+        },
+        {
+          filename: 'FINALIST_-_jellyFEST_-_Season_5_-_2020.png'
+        },
+        {
+          filename: 'FINALIST_-_Los_Angeles_Film_Awards_-_2019.png'
+        },
+        {
+          filename: 'FINALIST_-_Utah_Music_Video_Awards_-_2019.png'
+        },
+        {
+          filename: 'FINALIST_-_West_Chester_International_Short_Film_Festival_-_2020.png'
+        },
+        {
+          filename: 'OFFICIAL_SELECTION_-_Silver_Sound_Showdown_Music__Video_Festival_-_2018.png'
+        },
+        {
+          filename: 'WINNER_-_LA_Under_the_Stars_Film_Festival_-_2020.png'
+        },
+        {
+          filename: 'WINNER_-_Los_Angeles_CineFest_-_2018.png'
+        },
+      ],
     },
 
     mutations: {
