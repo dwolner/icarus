@@ -2,26 +2,23 @@
     <q-page style="background: url('statics/media/MW_repeat_bg.jpg'); background-size: cover; padding: 2rem 1rem;">
         <div class="row justify-center" align="center" style="background: black; padding: 2rem; max-width: 1100px; width: 100%; margin: 0 auto;">
             <div class="col-sm-12 col-md-6" style="padding: 1rem 2rem;">
-                <img src="statics/media/AboutPhoto.png" align="center" style="max-width: 20rem; width: 100%;" />
+                <img src="statics/media/AboutPhoto.png" align="center" style="max-width: 15rem; width: 100%;" />
             </div>
             <div class="col-sm-12 col-md-6" :align="windowWidth < 768 ? 'center' : 'left'" style="padding: 1rem 0;">
-                <h6 class="text-white">
+                <h6 class="text-white" style="margin: 0 0 2rem 0;">
                     MEANWHILE is a Los Angeles based Film, Commercial and Music Video company -- creating content with cinematic, colorful storytelling.
                 </h6>
-                <h6 class="text-white">
+                <h6 class="text-white" style="margin: 0;">
                     Specializing in music, commercial, promotional, and narrative videos with a focus on colorful art direction, branding, VFX, and originality.
                 </h6>
-                <h6 class="text-white">
-                    Brian Lipko & Kyle P. Nolan (Creative Director and Managing Producer respectively) perfect each aspect in-house -- valuing integrity, passion, excellence and execution.
-                </h6>
-            </div>
-            <div class="col-12" align="center" style="padding: 2rem;">
-                <SocialMedia />
+                <div align="center" style="padding: 2rem 2rem 0;">
+                    <SocialMedia />
+                </div>
             </div>
         </div>
 
         <div class="row justify-center" align="center" style="background: black; padding: 1rem 0; max-width: 1100px; width: 100%; margin: 1rem auto;">
-            <h6 class="text-white uppercase">Clients</h6>
+            <h6 class="text-white uppercase" style="margin: 0 0 1rem;">Clients</h6>
             
             <div class="col-12">
                 <div class="slider">
@@ -40,7 +37,7 @@
         </div>
 
         <div class="row justify-center" align="center" style="background: black; padding: 1rem 0; max-width: 1100px; width: 100%; margin: 1rem auto;">
-            <h6 class="text-white uppercase">Awards</h6>
+            <h6 class="text-white uppercase" style="margin: 0 0 1rem;">Awards</h6>
 
             <div class="col-12">
                 <div class="slider">

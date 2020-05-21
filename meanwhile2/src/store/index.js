@@ -19,6 +19,13 @@ export default function ( /* { ssrContext } */ ) {
     state: {
       windowWidth: '',
       content: [{
+          "title": "EVIE IRIE - OWN WORST ENEMY",
+          "tags": ["featured", "music"],
+          "imageFilename": "worstenemy.jpg",
+          "embedURL": "https://www.youtube.com/embed/UglqUekOdxw",
+          "fileName": ""
+        },
+        {
           "title": "LOURDIZ - SUICIDE DOWN FT. LIL GOTIT",
           "tags": ["featured", "music"],
           "imageFilename": "lourdiz.jpg",
@@ -260,7 +267,10 @@ export default function ( /* { ssrContext } */ ) {
 
       clients: [
         {
-          filename: 'BMW_logo.jpg'
+          filename: 'redbullmusic.png'
+        },
+        {
+          filename: 'bmw_logo.png'
         },
         {
           filename: 'bobbyboy_records_logo.jpeg'
@@ -275,7 +285,7 @@ export default function ( /* { ssrContext } */ ) {
           filename: 'def_jam_logo_white.png'
         },
         {
-          filename: 'epic_white_logo.png'
+          filename: 'epic_logo.png'
         },
         {
           filename: 'Fullscreen_white_logo.png'
@@ -290,13 +300,13 @@ export default function ( /* { ssrContext } */ ) {
           filename: 'panavision_white.png'
         },
         {
-          filename: 'PBR_logo.jpg'
+          filename: 'PBR_logo.png'
         },
         {
           filename: 'republic_records_white.png'
         },
         {
-          filename: 'sony_music_white_logo.png'
+          filename: 'sony_music_logo.png'
         },
         {
           filename: 'univeral_music_group_white.jpg'
@@ -307,6 +317,9 @@ export default function ( /* { ssrContext } */ ) {
       ],
 
       laurels: [
+        {
+          filename: 'Toronto_Film_Fest_Laurel.png'
+        },
         {
           filename: '2019_laurel_transparent_official_selection.png'
         },
