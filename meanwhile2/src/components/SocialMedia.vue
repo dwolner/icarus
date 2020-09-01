@@ -21,7 +21,7 @@ export default {
     return {
         links: [{
             icon: 'fas fa-envelope',
-            link: 'mailto:info@meanwhilela.com'
+            link: 'mailto:contact@meanwhilela.com'
         }, {
             icon: 'fab fa-instagram',
             link: 'https://www.instagram.com/meanwhilelax/'

@@ -26,7 +26,6 @@
 
      </div>
 
-
   </q-page>
 </template>
 

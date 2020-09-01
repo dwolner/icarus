@@ -19,6 +19,20 @@ export default function ( /* { ssrContext } */ ) {
     state: {
       windowWidth: '',
       content: [{
+          "title": "QUEEN NAIJA - PACK LITE",
+          "tags": ["featured", "music"],
+          "imageFilename": "packlite.jpg",
+          "embedURL": "https://www.youtube.com/embed/YsOweFtVlvU",
+          "fileName": ""
+        },
+        {
+          "title": "BLXST - OVERRATED",
+          "tags": ["music"],
+          "imageFilename": "overrated.jpg",
+          "embedURL": "https://www.youtube.com/embed/DnLx9y7UXp0",
+          "fileName": ""
+        },
+        {
           "title": "EVIE IRIE - OWN WORST ENEMY",
           "tags": ["featured", "music"],
           "imageFilename": "worstenemy.jpg",
