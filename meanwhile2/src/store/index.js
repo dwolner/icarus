@@ -18,7 +18,44 @@ export default function ( /* { ssrContext } */ ) {
 
     state: {
       windowWidth: '',
-      content: [{
+      content: [
+        // {
+        //   "title": "BLXST - Be Alone",
+        //   "tags": "music",
+        //   "imageFilename": "bealone.jpg",
+        //   "embedURL": "",
+        //   "fileName": "",
+        // }, 
+        {
+          "title": "Teyana Taylor - 1-800-ONE-NITE",
+          "tags": ["music", "featured"],
+          "imageFilename": "onenite.jpg",
+          "embedURL": "https://www.youtube.com/embed/GJmsh-X2W6g",
+          "fileName": "",
+        }, 
+        {
+          "title": "Teyana Taylor- Still",
+          "tags": ["music", "featured"],
+          "imageFilename": "still.jpg",
+          "embedURL": "https://www.youtube.com/embed/xwX1pdimy1g",
+          "fileName": "",
+        }, 
+        {
+          "title": "BLXST- No Love Lost",
+          "tags": ["music"],
+          "imageFilename": "NLL.jpg",
+          "embedURL": "https://www.youtube.com/embed/bmCm-iEqZIM",
+          "fileName": "",
+        }, 
+        {
+          "title": "June Freedom & Nelson Freitas- Dor d'um Kriolu",
+          "tags": ["music"],
+          "imageFilename": "June.jpg",
+          "embedURL": "https://www.youtube.com/embed/21c4Qj1syIk",
+          "fileName": "",
+        },
+
+        {
           "title": "QUEEN NAIJA - PACK LITE",
           "tags": ["featured", "music"],
           "imageFilename": "packlite.jpg",
