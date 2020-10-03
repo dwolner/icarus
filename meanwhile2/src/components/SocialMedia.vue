@@ -28,9 +28,9 @@ export default {
         }, {
             icon: 'fab fa-twitter',
             link: 'https://twitter.com/MeanwhileLA'
-        // }, {
-        //     icon: 'fab fa-facebook',
-        //     link: ''
+        }, {
+            icon: 'fab fa-linkedin',
+            link: 'https://www.linkedin.com/company/meanwhile'
         }]
     };
   },

@@ -20,8 +20,22 @@ export default function ( /* { ssrContext } */ ) {
       windowWidth: '',
       content: [
         {
+          "title": "JUGGER - GUNPLAY",
+          "tags": ["music"],
+          "imageFilename": "gunplay.jpg",
+          "embedURL": "https://www.youtube.com/embed/9dhwE0nC_B8",
+          "fileName": ""
+        }, 
+        {
+          "title": "POLO G - MARTIN & GINA LIVE ON THE TONIGHT SHOW WITH JIMMY FALLON",
+          "tags": ["featured", "music"],
+          "imageFilename": "pologjimmyfallon.jpg",
+          "embedURL": "https://www.youtube.com/embed/NwfQaY0Nebs",
+          "fileName": ""
+        },
+        {
           "title": "BLXST - BE ALONE",
-          "tags": "music",
+          "tags": ["music", "featured"],
           "imageFilename": "bealone.jpg",
           "embedURL": "https://www.youtube.com/embed/aI-2Zbjgltg",
           "fileName": "",
