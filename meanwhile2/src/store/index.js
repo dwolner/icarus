@@ -23,14 +23,14 @@ export default function ( /* { ssrContext } */ ) {
           "title": "JUGGER - GUNPLAY",
           "tags": ["music"],
           "imageFilename": "gunplay.jpg",
-          "embedURL": "https://www.youtube.com/embed/9dhwE0nC_B8",
+          "embedURL": "https://www.youtube.com/embed/NwfQaY0Nebs",
           "fileName": ""
         }, 
         {
           "title": "POLO G - MARTIN & GINA LIVE ON THE TONIGHT SHOW WITH JIMMY FALLON",
           "tags": ["featured", "music"],
           "imageFilename": "pologjimmyfallon.jpg",
-          "embedURL": "https://www.youtube.com/embed/NwfQaY0Nebs",
+          "embedURL": "https://www.youtube.com/embed/9dhwE0nC_B8",
           "fileName": ""
         },
         {
