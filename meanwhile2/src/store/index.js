@@ -18,315 +18,341 @@ export default function ( /* { ssrContext } */ ) {
 
     state: {
       windowWidth: '',
-      content: [
+      content: [{
+          "title": "BLXST - GANG SLIDE",
+          "tags": ["music"],
+          "imageFilename": "gangslide.jpg",
+          "embedURL": "https://www.youtube.com/embed/w-AbaAVoZNE",
+          "fileName": "",
+        },
+        {
+          "title": "QUEEN NAIJA - LIE TO ME FT. LIL DURK",
+          "tags": ["featured", "music"],
+          "imageFilename": "lietome.jpg",
+          "embedURL": "https://www.youtube.com/embed/W2CE8HkeosU",
+          "fileName": "",
+        },
+        {
+          "title": "TWO FEET - THINK I'M CRAZY",
+          "tags": ["music", "featured"],
+          "imageFilename": "thinkimcrazy.jpg",
+          "embedURL": "https://www.youtube.com/embed/qcqJeaxas7s",
+          "fileName": "",
+        },
+        {
+          "title": "TEYANA TAYLOR - CONCRETE",
+          "tags": ["featured", "music"],
+          "imageFilename": "concrete.jpg",
+          "embedURL": "https://www.youtube.com/embed/DU7hz2j3Qs4",
+          "fileName": "",
+        },
         {
           "title": "JUGGER - GUNPLAY",
           "tags": ["music"],
           "imageFilename": "gunplay.jpg",
           "embedURL": "https://www.youtube.com/embed/NwfQaY0Nebs",
-          "fileName": ""
-        }, 
+          "fileName": "",
+        },
         {
           "title": "POLO G - MARTIN & GINA LIVE ON THE TONIGHT SHOW WITH JIMMY FALLON",
           "tags": ["featured", "music"],
           "imageFilename": "pologjimmyfallon.jpg",
           "embedURL": "https://www.youtube.com/embed/9dhwE0nC_B8",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "BLXST - BE ALONE",
-          "tags": ["music", "featured"],
+          "tags": ["music"],
           "imageFilename": "bealone.jpg",
           "embedURL": "https://www.youtube.com/embed/aI-2Zbjgltg",
           "fileName": "",
-        }, 
+        },
         {
           "title": "TEYANA TAYLOR - 1-800-ONE-NITE",
           "tags": ["music", "featured"],
           "imageFilename": "onenite.jpg",
           "embedURL": "https://www.youtube.com/embed/GJmsh-X2W6g",
           "fileName": "",
-        }, 
+        },
         {
           "title": "TEYANA TAYLOR - STILL",
           "tags": ["music", "featured"],
           "imageFilename": "still.jpg",
           "embedURL": "https://www.youtube.com/embed/xwX1pdimy1g",
           "fileName": "",
-        }, 
+        },
         {
           "title": "BLXST - NO LOVE LOST",
           "tags": ["music", "featured"],
           "imageFilename": "NLL.jpg",
           "embedURL": "https://www.youtube.com/embed/bmCm-iEqZIM",
           "fileName": "",
-        }, 
+        },
         {
-          "title": "JUNE FREEDOM & NELSON FREITAS - DOR D'UM KRIOLU",
-          "tags": ["music", "featured"],
+          "title": "JUNE FREEDOM & NELSON FREITAS- DOR D'UM KRIOLU",
+          "tags": ["music"],
           "imageFilename": "June.jpg",
           "embedURL": "https://www.youtube.com/embed/21c4Qj1syIk",
           "fileName": "",
         },
-
         {
           "title": "QUEEN NAIJA - PACK LITE",
           "tags": ["featured", "music"],
           "imageFilename": "packlite.jpg",
           "embedURL": "https://www.youtube.com/embed/YsOweFtVlvU",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "BLXST - OVERRATED",
           "tags": ["music"],
           "imageFilename": "overrated.jpg",
           "embedURL": "https://www.youtube.com/embed/DnLx9y7UXp0",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "EVIE IRIE - OWN WORST ENEMY",
           "tags": ["featured", "music"],
           "imageFilename": "worstenemy.jpg",
           "embedURL": "https://www.youtube.com/embed/UglqUekOdxw",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "LOURDIZ - SUICIDE DOWN FT. LIL GOTIT",
           "tags": ["featured", "music"],
           "imageFilename": "lourdiz.jpg",
           "embedURL": "https://www.youtube.com/embed/Uykia839C68",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "EVIE IRIE - OVER HIM",
           "tags": ["featured", "music"],
           "imageFilename": "overhim.jpg",
           "embedURL": "https://www.youtube.com/embed/_wJo23ikakE",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "KREWELLA - ZERO TRAILER",
-          "tags": ["featured", "music"],
+          "tags": ["music"],
           "imageFilename": "zer0.jpg",
           "embedURL": "https://www.youtube.com/embed/HP28eanVPJA",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "IMAN - SÉANCE",
           "tags": ["featured", "music"],
           "imageFilename": "seance.jpg",
           "embedURL": "https://www.youtube.com/embed/64gU5EvLEz8",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "SCHOOLBOY Q - LIES FT. TY DOLLA $IGN & YG",
           "tags": ["featured", "music"],
           "imageFilename": "schoolboyq.jpg",
           "embedURL": "https://www.youtube.com/embed/BxFk-6KppE4",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "YOU'LL LIVE",
           "tags": ["featured", "original"],
           "imageFilename": "youll_live.png",
           "embedURL": "https://player.vimeo.com/video/369393588",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "AQ - FLORIDA",
-          "tags": ["featured", "music"],
+          "tags": ["music"],
           "imageFilename": "aqflorida.jpg",
           "embedURL": "https://www.youtube.com/embed/VzdIoYPFVJk",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "LOGIC - NO PRESSURE FREESTYLE",
           "tags": ["featured", "music"],
           "imageFilename": "nopressure.jpg",
           "embedURL": "https://www.youtube.com/embed/eARR43lqqCA",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "PETER MANOS - YOU DON'T KNOW ME",
           "tags": ["featured", "vfx"],
           "imageFilename": "petermanos.jpg",
           "embedURL": "https://www.youtube.com/embed/tUVkynKSIyw",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "DRIP",
           "tags": ["featured", "original"],
           "imageFilename": "DRIP_cover.png",
           "embedURL": "https://player.vimeo.com/video/333558019?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "JOHN LINDAHL - ALL DAY",
           "tags": ["featured", "music"],
           "imageFilename": "allday.jpg",
           "embedURL": "https://www.youtube.com/embed/Hs5t2IobO2k",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "AQ - RIVER RUN DRY",
           "tags": ["featured", "music"],
           "imageFilename": "riverrundry.png",
           "embedURL": "https://www.youtube.com/embed/ESdunfZPrv0",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "DAN ATTA - DEEP BLUES",
           "tags": ["music"],
           "imageFilename": "deepblues.png",
           "embedURL": "https://www.youtube.com/embed/9iawkgbO6Q4",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "MOHA LA SQUALE - SANTA MONICA",
           "tags": ["music"],
           "imageFilename": "santamonica.png",
           "embedURL": "https://www.youtube.com/embed/__LHwv1aAlA",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "AQ - @NIGHT",
           "tags": ["music", "vfx"],
           "imageFilename": "atnight.jpg",
           "embedURL": "https://www.youtube.com/embed/MtPb3_K_78c",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "REEL 2019",
           "tags": ["original"],
           "imageFilename": "reel2019.jpg",
           "embedURL": "",
-          "fileName": "MW_reel_9-9.mp4"
+          "fileName": "MW_reel_9-9.mp4",
         },
         {
           "title": "REEL 2018",
           "tags": ["original"],
           "imageFilename": "STARRO.jpg",
           "embedURL": "",
-          "fileName": "MW_reel_12-7.mp4"
+          "fileName": "MW_reel_12-7.mp4",
         },
         {
           "title": "AQ - THE CAPTAIN",
           "tags": ["music", "vfx"],
           "imageFilename": "CAPTAIN_Frame.png",
           "embedURL": "https://www.youtube.com/embed/RpVcPfEmkG0",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "LSP",
           "tags": ["music"],
           "imageFilename": "DRE_cover.png",
           "embedURL": "https://www.youtube.com/embed/X272Cy9ON2E",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "APPLE IPAD - INSPIRATION",
           "tags": ["commercial"],
           "imageFilename": "TABLETSKY.png",
           "embedURL": "https://player.vimeo.com/video/222603737?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "STARRO - FANTASY",
           "tags": ["music"],
           "imageFilename": "STARRO.jpg",
           "embedURL": "https://player.vimeo.com/video/236974574?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "LIGHTYEAR",
           "tags": ["commercial", "vfx"],
           "imageFilename": "LIGHTYEAR.png",
           "embedURL": "https://player.vimeo.com/video/117845490?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "ADIDAS - YEEZY CALABASAS",
           "tags": ["commercial"],
           "imageFilename": "image_123986672.JPG",
           "embedURL": "https://player.vimeo.com/video/263170466?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "HUNTR - HIGHER",
           "tags": ["music", "vfx"],
           "imageFilename": "HUNTR-Thumb.jpg",
           "embedURL": "https://www.youtube.com/embed/0uISF_lQVqc",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "SHUT YOU UP",
           "tags": ["music"],
           "imageFilename": "Chela-Website-Frame.png",
           "embedURL": "https://www.youtube.com/watch?v=KjVz5r1fRxE",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "FINDING WALDO",
           "tags": ["original"],
           "imageFilename": "Finding-Waldo.png",
           "embedURL": "https://player.vimeo.com/video/242662816?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "THE RITUALS",
           "tags": ["music", "vfx"],
           "imageFilename": "IN_THE_NIGHT.png",
           "embedURL": "https://player.vimeo.com/video/134118911?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "TELEPORT",
           "tags": ["commercial"],
           "imageFilename": "TELEPORT.png",
           "embedURL": "https://player.vimeo.com/video/181953178?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "LEECH",
           "tags": ["commercial", "original"],
           "imageFilename": "LEECH-COVER.jpg",
           "embedURL": "https://player.vimeo.com/video/265242801?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "PIONEERS",
           "tags": ["music"],
           "imageFilename": "PIONEERS_Cover.png",
           "embedURL": "https://player.vimeo.com/video/227004530?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "ASICS",
           "tags": ["commercial"],
           "imageFilename": "ASICS.png",
           "embedURL": "https://player.vimeo.com/video/143774781?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "LUNA CYCLE",
           "tags": ["commercial"],
           "imageFilename": "LUNA_CYCLE.png",
           "embedURL": "https://player.vimeo.com/video/167947401?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "SLEEPING ALONE",
           "tags": ["music"],
           "imageFilename": "SLEEPING_ALONE.png",
           "embedURL": "https://player.vimeo.com/video/157215044?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         },
         {
           "title": "PBR 30",
           "tags": ["commercial"],
           "imageFilename": "PBR30_cover.jpg",
           "embedURL": "https://player.vimeo.com/video/297875292?color=ffffff&autoplay=1",
-          "fileName": ""
+          "fileName": "",
         }
       ],
 
