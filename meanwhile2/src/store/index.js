@@ -18,7 +18,15 @@ export default function ( /* { ssrContext } */ ) {
 
     state: {
       windowWidth: '',
-      content: [{
+      content: [
+        {
+          "title": "070 SHAKE - HISTORY & GUILTY CONSCIENCE LIVE ON THE TONIGHT SHOW WITH JIMMY FALLON",
+          "tags": ["music", "featured"],
+          "imageFilename": "shakejimmyfallon.jpg",
+          "embedURL": "https://www.youtube.com/embed/mRmWQJYHFyo",
+          "fileName": "",
+        },
+        {
           "title": "BLXST - GANG SLIDE",
           "tags": ["music"],
           "imageFilename": "gangslide.jpg",
