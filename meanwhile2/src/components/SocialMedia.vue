@@ -24,7 +24,7 @@ export default {
             link: 'mailto:contact@meanwhilela.com'
         }, {
             icon: 'fab fa-instagram',
-            link: 'https://www.instagram.com/meanwhilelax/'
+            link: 'https://www.instagram.com/meanwhileproductions/'
         }, {
             icon: 'fab fa-twitter',
             link: 'https://twitter.com/MeanwhileLA'

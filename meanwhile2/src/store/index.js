@@ -20,6 +20,34 @@ export default function ( /* { ssrContext } */ ) {
       windowWidth: '',
       content: [
         {
+          "title": "AQ - GOING DOWN",
+          "tags": ["music"],
+          "imageFilename": "goingdown.jpg",
+          "embedURL": "https://www.youtube.com/embed/PsDm5nSBax0",
+          "fileName": ""
+        }, 
+        {
+          "title": "JUGGER - BAD GUY",
+          "tags": ["music", "featured"],
+          "imageFilename": "badguy.jpg",
+          "embedURL": "https://www.youtube.com/embed/Z4OZ1JdyAZ8",
+          "fileName": ""
+        }, 
+        {
+          "title": "QUEEN NAIJA - LOVE LANGUAGE",
+          "tags": ["music"],
+          "imageFilename": "love language.jpg",
+          "embedURL": "https://www.youtube.com/embed/lmWNOLBCg3I",
+          "fileName": ""
+        }, 
+        {
+          "title": "TEYANA TAYLOR - LOOSE EACH OTHER FT. ELTON JOHN",
+          "tags": ["featured", "music"],
+          "imageFilename": "loseeachother.jpg",
+          "embedURL": "https://www.youtube.com/embed/X7u19e1vAyk",
+          "fileName": ""
+        },
+        {
           "title": "070 SHAKE - HISTORY & GUILTY CONSCIENCE LIVE ON THE TONIGHT SHOW WITH JIMMY FALLON",
           "tags": ["music", "featured"],
           "imageFilename": "shakejimmyfallon.jpg",
