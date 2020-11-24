@@ -20,6 +20,29 @@ export default function ( /* { ssrContext } */ ) {
       windowWidth: '',
       content: [
         {
+          "title": "GIVEON - STUCK ON YOU ON JIMMY KIMMEL LIVE",
+          "tags": ["featured", "music"],
+          "imageFilename": "stuckonyou.jpg",
+          "embedURL": "https://www.youtube.com/embed/VvKaRhzgeZo",
+          "fileName": ""
+        }, 
+        // {
+        //   "title": "QUEEN NAIJA - MISUNDERSTOOD SERIES",
+        //   "tags": "commercial,music",
+        //   "imageFilename": "misunderstoodfullseason.jpg",
+        //   "embedURL": "CHECK EMAIL",
+        //   "fileName": "",
+        //   "Cover Image File": "",
+        //   "deployed": ""
+        // }, 
+        {
+          "title": "ASHTON IRWIN - SUPERBLOOM: A LIVE CONCERT FILM",
+          "tags": ["featured", "music"],
+          "imageFilename": "superbloom.jpg",
+          "embedURL": "https://www.youtube.com/embed/fo-P1BEkkp8",
+          "fileName": ""
+        },
+        {
           "title": "AQ - GOING DOWN",
           "tags": ["music"],
           "imageFilename": "goingdown.jpg",
@@ -36,12 +59,12 @@ export default function ( /* { ssrContext } */ ) {
         {
           "title": "QUEEN NAIJA - LOVE LANGUAGE",
           "tags": ["music"],
-          "imageFilename": "love language.jpg",
+          "imageFilename": "lovelanguage.jpg",
           "embedURL": "https://www.youtube.com/embed/lmWNOLBCg3I",
           "fileName": ""
         }, 
         {
-          "title": "TEYANA TAYLOR - LOOSE EACH OTHER FT. ELTON JOHN",
+          "title": "TEYANA TAYLOR - LOSE EACH OTHER FT. ELTON JOHN",
           "tags": ["featured", "music"],
           "imageFilename": "loseeachother.jpg",
           "embedURL": "https://www.youtube.com/embed/X7u19e1vAyk",
@@ -56,7 +79,7 @@ export default function ( /* { ssrContext } */ ) {
         },
         {
           "title": "BLXST - GANG SLIDE",
-          "tags": ["music"],
+          "tags": ["music", "featured"],
           "imageFilename": "gangslide.jpg",
           "embedURL": "https://www.youtube.com/embed/w-AbaAVoZNE",
           "fileName": "",
@@ -105,7 +128,7 @@ export default function ( /* { ssrContext } */ ) {
         },
         {
           "title": "TEYANA TAYLOR - 1-800-ONE-NITE",
-          "tags": ["music", "featured"],
+          "tags": ["music"],
           "imageFilename": "onenite.jpg",
           "embedURL": "https://www.youtube.com/embed/GJmsh-X2W6g",
           "fileName": "",
