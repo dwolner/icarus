@@ -20,6 +20,34 @@ export default function ( /* { ssrContext } */ ) {
       windowWidth: '',
       content: [
         {
+          "title": "BLXST - PRESSURE",
+          "tags": ["featured", "music"],
+          "imageFilename": "blxstpressure.jpg",
+          "embedURL": "https://www.youtube.com/embed/Ig-vQYw-iBk",
+          "fileName": ""
+        }, 
+        {
+          "title": "ALUNA & KAYTRANADA - THE RECIPE FT. REMA",
+          "tags": ["music", "featured"],
+          "imageFilename": "alunatherecipe.jpg",
+          "embedURL": "https://www.youtube.com/embed/sP0gfBWljU4",
+          "fileName": ""
+        }, 
+        {
+          "title": "DANILEIGH - MY TERMS FT. PARTYNEXTDOOR",
+          "tags": ["music"],
+          "imageFilename": "danileighmyterms.jpg",
+          "embedURL": "",
+          "fileName": ""
+        }, 
+        {
+          "title": "JUICY J - 1991 FT. LOGIC",
+          "tags": ["music", "featured"],
+          "imageFilename": "juicyj1995.jpg",
+          "embedURL": "https://www.youtube.com/embed/Scgvq0vzlJ0",
+          "fileName": ""
+        },
+        {
           "title": "GIVEON - STUCK ON YOU ON JIMMY KIMMEL LIVE",
           "tags": ["featured", "music"],
           "imageFilename": "stuckonyou.jpg",
@@ -116,7 +144,7 @@ export default function ( /* { ssrContext } */ ) {
           "title": "POLO G - MARTIN & GINA LIVE ON THE TONIGHT SHOW WITH JIMMY FALLON",
           "tags": ["featured", "music"],
           "imageFilename": "pologjimmyfallon.jpg",
-          "embedURL": "https://www.youtube.com/embed/9dhwE0nC_B8",
+          "embedURL": "https://www.youtube.com/embed/X7jYt7mLFEs",
           "fileName": "",
         },
         {
